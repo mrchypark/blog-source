@@ -1,0 +1,46 @@
+language: r
+sudo: false
+branches:
+    only:
+        - source
+
+cache:
+  packages: yes
+  directories:
+    - $HOME/bin
+
+warnings_are_errors: false
+
+addons:	
+    apt:	
+        packages:	
+            - libmagickcore-dev
+            - libmagickwand-dev
+            - libcurl4-openssl-dev
+            - libxml2-dev
+            - libv8-3.14-dev
+            - gcc-4.9
+            - libstdc++6
+            - libgit2-dev
+            
+r_github_packages:
+    - tidyverse/tidyverse
+    - yihui/xaringan
+    - rstudio/blogdown
+    - mrchypark/krlift
+    - forkonlp/presidentSpeech
+
+script:
+  - Rscript -e 'blogdown::install_hugo()'
+  - Rscript -e 'blogdown::build_site()'
+  
+deploy:
+    verbose: true
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_PAT
+    on:
+        branch: source
+    local_dir: public
+    target_branch: master
+
