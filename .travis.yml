@@ -1,8 +1,8 @@
 language: r
 sudo: false
 branches:
-    only:
-        - source
+  only:
+    - master
 
 cache:
   packages: yes
