@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>correttor on Mrchypark</title>
+    <link>/tags/correttor/</link>
+    <description>Recent content in correttor on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/correttor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[correttor] R을 위해서 JAVA를 설치해보자</title>
+      <link>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <description>세줄요약 multilinguer::has_java()를 쓰세요. MacOS는 컴퓨터 비밀번호가 필요합니다. multilinguer::has_java(force = T) 해야할 수도 있어요. 앞서 R에서</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nosql on Mrchypark</title>
+    <link>/tags/nosql/</link>
+    <description>Recent content in nosql on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi</title>
+      <link>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</guid>
+      <description>한줄요약 이제 R로 MongoDB, Redis(server based), CouchDB, Elasticsearch, etcd를 다룰 수 있습니다. R에는 여러가지 데이터 베이스를 다루는 도구들이 있습니다. MS의 표준 SQL 드라이버인 ODBC를 사용</description>
+    </item>
+    
+  </channel>
+</rss>

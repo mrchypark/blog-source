@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[josaplay] Rmd로 만드는 한글 보고서의 친구 &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[josaplay] Rmd로 만드는 한글 보고서의 친구</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2019 May 15</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/josaplay">josaplay</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/package">package</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/rmd">Rmd</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img src="https://user-images.githubusercontent.com/6179259/57720427-cdc9e280-76bc-11e9-996a-5b965341b91a.jpg" width=100%></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><code>을(를)</code> 이 눈에 거슬린다면 <code>josaplay</code>가 문제를 해결해 줄 겁니다.</li>
+</ol>
+<p>개인적인 일들이 많이 있어서 정신을 못차리고 있는 중입니다.
+데이터홀릭을 계속하는 만큼, R코홀릭도 좀 어떻게 해야할텐데 말이죠.
+그동안 정기 보고서를 만들 때 한글만의 문제를 해결하는 패키지가 없어서 벼르고만 있었습니다만,
+드디어 만들었습니다!</p>
+<p>이름하야 <a href="https://mrchypark.github.io/josaplay/index.html">josaplay</a> 패키지입니다.</p>
+<p>혹시 <code>마우스을(를) 선택하셨습니다.</code> 같은 멘트를 보신 적이 있으신가요?
+앞의 단어가 어떤 것이 올지 결정나지 않았을 때, 그에 붙을 조사 또한 결정나지 않습니다.
+위와 같이 경우를 다 작성해두는 선택을 한 사람들이 참 많습니다.</p>
+<p><a href="https://mrchypark.github.io/josaplay/index.html">josaplay</a> 패키지는 이 때, 앞 단어의 마지막이 모음인지 자음인지를 보고 <code>을/를</code> 중 선택하여 출력해 줍니다.</p>
+<p>설치는 아래 코드를 사용하면 됩니다.</p>
+<pre class="r"><code>install.packages(&quot;josaplay&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/usr/local/lib/R/site-library&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<p>코드가 동작하는 것을 살펴볼까요?</p>
+<pre class="r"><code>library(josaplay)
+
+jsp_gwawa(&quot;상품&quot;)</code></pre>
+<pre><code>## [1] &quot;상품과&quot;</code></pre>
+<pre class="r"><code>jsp_gwawa(&quot;텀블러&quot;)</code></pre>
+<pre><code>## [1] &quot;텀블러와&quot;</code></pre>
+<pre class="r"><code>jsp_eunneun(&quot;사랑&quot;)</code></pre>
+<pre><code>## [1] &quot;사랑은&quot;</code></pre>
+<pre class="r"><code>jsp_eunneun(&quot;탁자&quot;)</code></pre>
+<pre><code>## [1] &quot;탁자는&quot;</code></pre>
+<pre class="r"><code>jsp_iga(&quot;고객&quot;)</code></pre>
+<pre><code>## [1] &quot;고객이&quot;</code></pre>
+<pre class="r"><code>jsp_iga(&quot;모니터&quot;)</code></pre>
+<pre><code>## [1] &quot;모니터가&quot;</code></pre>
+<pre class="r"><code>jsp_eulleul(&quot;패키지&quot;)</code></pre>
+<pre><code>## [1] &quot;패키지를&quot;</code></pre>
+<pre class="r"><code>jsp_eulleul(&quot;컵&quot;)</code></pre>
+<pre><code>## [1] &quot;컵을&quot;</code></pre>
+<pre class="r"><code>jsp_iga(&quot;145&quot;)</code></pre>
+<pre><code>## [1] &quot;145가&quot;</code></pre>
+<pre class="r"><code>jsp_iga(&quot;k146&quot;)</code></pre>
+<pre><code>## [1] &quot;k146이&quot;</code></pre>
+<p>그럼 어떻게 쓰면 좋을까요?
+Rmd로 보고서 등을 작성할 때, 위처럼 코드청크를 사용하는 것이 아닌 경우가 있습니다.
+백틱(`)을 하나만 사용하는 형식으로 인라인 코드를 작성할 수 있는데요.
+이때 <a href="https://mrchypark.github.io/josaplay/index.html">josaplay</a>가 힘을 발휘합니다.</p>
+<pre class="r"><code>data1 &lt;- &quot;병아리&quot;</code></pre>
+<blockquote>
+<p>병아리이(가) 성장하였습니다.</p>
+</blockquote>
+<p>라고 작성하는 것을</p>
+<blockquote>
+<p>병아리가 성장하였습니다.</p>
+</blockquote>
+<p>로 고치면 <code>data1</code>의 글자에 따라 적절한 <code>이/가</code>를 선택해 출력해줍니다.</p>
+<p>앞으로 진행할 프로젝트에 적용할 생각을 하니 너무 즐겁네요.
+한글이 들어간 자동화 보고서를 생성할 때 꼭 필요한 인프라 패키지를 만들게 되서 영광입니다.</p>
+<p>현재 <a href="https://mrchypark.github.io/josaplay/index.html">josaplay</a>는 4개의 함수에 완성형 한글과 숫자를 커버합니다.
+자음 모음의 한글이나 영어, 특수문자는 아직 동작하지 않습니다.
+영어 알파벳 발음에 대응하는 것은 필요한 일 같다는 생각이 듭니다.</p>
+<p>문의나 질문 사항은 언제나 환영합니다.
+댓글로 문의 주시면 제가 할 수 있는 최대로 답변드리도록 노력하겠습니다.
+감사합니다.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/">Python과 R 어떤 걸 공부 해야 할까</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/">[Rtips] 윈도우 계정 한글일때 문제 해결하기 1탄 임시 폴더 위치 바꾸기</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

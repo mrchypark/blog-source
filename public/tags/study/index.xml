@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>study on Mrchypark</title>
+    <link>/tags/study/</link>
+    <description>Recent content in study on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/study/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R과 Python 중에 어떤 것을 공부해야 할까</title>
+      <link>/2018/10/10/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/10/10/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
+      <description>한줄요약 뭐든지 우선 시작하세요! 이미 한물가고 필요없는 논의일 수도 있지만, 개인적을 생각을 정리한다고 생각하고 글을 시작해보겠습니다. R을 충분히 사용하고</description>
+    </item>
+    
+  </channel>
+</rss>

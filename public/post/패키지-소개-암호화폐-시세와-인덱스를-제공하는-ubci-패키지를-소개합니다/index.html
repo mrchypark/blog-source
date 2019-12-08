@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다 &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018 May 18</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/ubci">ubci</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/crypto">crypto</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/package">package</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/40222200-bb7756aa-5ab9-11e8-8c87-4ddfd56b7f29.jpg"></p>
+<div id="세줄요약" class="section level3">
+<h3>세줄요약</h3>
+<ol style="list-style-type: decimal">
+<li>암호화폐 관련 시세와 인덱스 정보를 제공하는 <code>ubci</code> 패키지를 공개함.</li>
+<li><a href="https://www.ubcindex.com/indexes">ubci</a>는 <a href="https://upbit.com/exchange?code=CRIX.UPBIT.KRW-BTC">upbit</a>에서 제공하는 데이터로 비영리 배포는 자유라고 해서 개발함.</li>
+<li>데이터 라이선스는 또 다른 문제이니 <a href="https://www.ubcindex.com/indexes">ubci</a> 가서 확인바람.</li>
+</ol>
+<p>암호화폐는 2017년의 붐을 기점으로 사회 곳곳에 그 존재감을 드러내고 있습니다.
+여러 이슈가 있긴 하지만 국내에는 4대 거래소(빗썸, 업비트, 코빗, 코인원)외에도 새로운 거래소들이 속속 나타고 있는 중입니다.
+이외에도 카카오와 라인(네이버)이 각각 암호화폐 전문 자회사를 세우는 등 기업의 관심이 그 어느때보다 높습니다.</p>
+<p>아직 이슈가 안정적인 분야가 아니다 보니 이슈 파이팅이 그 어느 분야보다 중요한데요.
+현시간 코인마켓캡 기준 전세계 거래량 6위쯤 되는 upbit가 코인 인텍스를 들고나왔습니다.
+바로 <a href="https://www.ubcindex.com/indexes">UBCI</a>입니다.
+저도 관심이 가는 내용이라 사이트를 둘러보았는데, 데이터를 깨끗하게 제공하더라구요.
+그래서 간단하게 R 패키지화 해보았습니다.
+놀랍게도 패키지 이름은 <a href="https://mrchypark.github.io/ubci/">ubci</a>입니다.</p>
+<pre class="r"><code>## github에서 패키지 설치
+source(&quot;https://install-github.me/mrchypark/ubci&quot;)</code></pre>
+<p>한글 데이터가 포함되어 있으니 인코딩이 <code>UTF-8</code>인지 확인해 주세요.</p>
+<pre class="r"><code>Sys.getlocale()</code></pre>
+<pre><code>## [1] &quot;LC_COLLATE=Korean_Korea.949;LC_CTYPE=Korean_Korea.949;LC_MONETARY=Korean_Korea.949;LC_NUMERIC=C;LC_TIME=Korean_Korea.949&quot;</code></pre>
+</div>
+<div id="함수-예" class="section level2">
+<h2>함수 예</h2>
+<p>패키지가 리드미와 설명서를 제공하고 있지만 저도 다시 사용해 보겠습니다.</p>
+<div id="인덱스-코드-가져오기" class="section level3">
+<h3>인덱스 코드 가져오기</h3>
+<p><code>ubci_index_options()</code> 함수는 인덱스를 가져오기에 앞서 인덱스의 이름과 설명을 알려줍니다.</p>
+<pre class="r"><code>library(ubci)
+ubci_index_options()</code></pre>
+<pre><code>## # A tibble: 21 x 4
+##    index   name                cate      smry                                   
+##    &lt;chr&gt;   &lt;chr&gt;               &lt;chr&gt;     &lt;chr&gt;                                  
+##  1 UBMI    UBMI(Upbit Market ~ Market I~ It is calculated for all cryptocurrenc~
+##  2 UBMI_ST UBMI BTC quote(Upb~ Market I~ It is the index that is converted on a~
+##  3 UBAI    UBAI(Upbit Altcoin~ Market I~ It is calculated for all cryptocurrenc~
+##  4 UBAI_ST UBAI BTC quote(Upb~ Market I~ It is the index that is converted on a~
+##  5 UTTI    UBMI 10(Upbit Top ~ Market I~ It is an index that comprises the top ~
+##  6 UTHI    UBMI 30(Upbit Top ~ Market I~ It is an index that comprises the top ~
+##  7 THMIDX~ Simple Settlement ~ Theme In~ &quot;&quot;                                     
+##  8 THMIDX~ Game                Theme In~ &quot;&quot;                                     
+##  9 THMIDX~ Advertisement Indu~ Theme In~ &quot;&quot;                                     
+## 10 THMIDX~ Data Storage Servi~ Theme In~ &quot;&quot;                                     
+## # ... with 11 more rows</code></pre>
+<p>자료형은 <code>tbl</code>로 되어 있네요.
+주식 분석 패키지의 최강자인 <a href="https://github.com/business-science/tidyquant">tidyquant</a>와 상성을 고려한 선택이었습니다.
+<code>ubci_index_options()</code> 함수는 lang 인자로 언어를 변경할 수 있습니다.</p>
+<pre class="r"><code>ubci_index_options(lang=&quot;ko&quot;)</code></pre>
+<pre><code>## # A tibble: 21 x 4
+##    index   name                 cate    smry                                    
+##    &lt;chr&gt;   &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;                                   
+##  1 UBMI    UBMI(Upbit Market I~ 시장 인덱스~ 업비트 거래소에 상장된 모든 암호화폐를 대상으로 산출한 인덱스~
+##  2 UBMI_ST UBMI BTC quote(Upbi~ 시장 인덱스~ UBMI 인덱스를 비트코인 기준으로 환산한 인덱스~
+##  3 UBAI    UBAI(Upbit Altcoin ~ 시장 인덱스~ 업비트 거래소에 상장된 모든 암호화폐에서 비트코인을 제외한 인덱스~
+##  4 UBAI_ST UBAI BTC quote(Upbi~ 시장 인덱스~ UBAI 인덱스를 비트코인 기준으로 환산한 인덱스~
+##  5 UTTI    UBMI 10(Upbit Top 1~ 시장 인덱스~ 업비트에 상장된 암호화폐 중, 시가총액 상위 10개 종목으로 구성한 인~
+##  6 UTHI    UBMI 30(Upbit Top 3~ 시장 인덱스~ 업비트에 상장된 암호화폐 중, 시가총액 상위 30개 종목으로 구성한 인~
+##  7 THMIDX~ 간편결제 플랫폼      테마 인덱스~ 온라인 자산과 암호화폐를 기반으로 한 결제 솔루션을 제공하는 암호화폐로~
+##  8 THMIDX~ 게임시장             테마 인덱스~ 게임 산업과 연관되거나, 게임 내/게임 간의 가치 교환에 사용되는 암호~
+##  9 THMIDX~ 광고산업             테마 인덱스~ 다양한 형태의 광고와 관련된 서비스를 제공하는 암호화폐로 구성된 테마인~
+## 10 THMIDX~ 데이터저장 서비스    테마 인덱스~ 유휴 저장공간을 블록체인 기술을 통해 엮음으로써, 클라우드 스토리지 서~
+## # ... with 11 more rows</code></pre>
+</div>
+<div id="인덱스-데이터" class="section level3">
+<h3>인덱스 데이터</h3>
+<p><code>ubci_index()</code> 함수는 인덱스의 일별 시가, 고가, 저가, 종가, 거래량을 제공합니다.
+<code>from</code>,<code>to</code> 인자로 기간을 조절할 수 있습니다.</p>
+<pre class="r"><code>loi&lt;-ubci_index_options()
+loi$index[1]</code></pre>
+<pre><code>## [1] &quot;UBMI&quot;</code></pre>
+<pre class="r"><code>ubci_index(loi$index[1])</code></pre>
+<pre><code>## # A tibble: 796 x 6
+##    index date        open  high   low close
+##    &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 UBMI  2019-12-05 1224. 1259. 1217. 1232.
+##  2 UBMI  2019-12-04 1241. 1282. 1212. 1224.
+##  3 UBMI  2019-12-03 1239. 1252. 1230. 1240.
+##  4 UBMI  2019-12-02 1249. 1257. 1217. 1238.
+##  5 UBMI  2019-12-01 1273. 1273. 1224. 1249.
+##  6 UBMI  2019-11-30 1303. 1308. 1259. 1273.
+##  7 UBMI  2019-11-29 1256. 1324. 1255. 1302.
+##  8 UBMI  2019-11-28 1255. 1288. 1244. 1256.
+##  9 UBMI  2019-11-27 1214. 1283. 1161. 1255.
+## 10 UBMI  2019-11-26 1201. 1239. 1188. 1214.
+## # ... with 786 more rows</code></pre>
+<pre class="r"><code>tail(ubci_index(loi$index[1], from=&quot;2018-05-15&quot;))</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   index date        open  high   low close
+##   &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 UBMI  2018-05-20 2216. 2300. 2198. 2290.
+## 2 UBMI  2018-05-19 2231. 2255. 2197. 2215.
+## 3 UBMI  2018-05-18 2199. 2232. 2140. 2229.
+## 4 UBMI  2018-05-17 2281. 2317. 2177. 2200.
+## 5 UBMI  2018-05-16 2319. 2330. 2183. 2281.
+## 6 UBMI  2018-05-15 2419. 2439. 2301. 2317.</code></pre>
+<pre class="r"><code>ubci_index(loi$index[1], to=&quot;2018-05-15&quot;)</code></pre>
+<pre><code>## # A tibble: 227 x 6
+##    index date        open  high   low close
+##    &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 UBMI  2018-05-15 2419. 2439. 2301. 2317.
+##  2 UBMI  2018-05-14 2431. 2456. 2305. 2417.
+##  3 UBMI  2018-05-13 2313. 2445. 2274. 2430.
+##  4 UBMI  2018-05-12 2206. 2356. 2138. 2313.
+##  5 UBMI  2018-05-11 2446. 2465. 2088. 2239.
+##  6 UBMI  2018-05-10 2598. 2608. 2431. 2446.
+##  7 UBMI  2018-05-09 2549. 2594. 2441. 2583.
+##  8 UBMI  2018-05-08 2618. 2644. 2521. 2567.
+##  9 UBMI  2018-05-07 2700. 2700. 2538. 2612.
+## 10 UBMI  2018-05-06 2699. 2699. 2699. 2699.
+## # ... with 217 more rows</code></pre>
+<pre class="r"><code>ubci_index(loi$index[1], from=&quot;2018-05-10&quot;, to=&quot;2018-05-15&quot;)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   index date        open  high   low close
+##   &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 UBMI  2018-05-15 2419. 2439. 2301. 2317.
+## 2 UBMI  2018-05-14 2431. 2456. 2305. 2417.
+## 3 UBMI  2018-05-13 2313. 2445. 2274. 2430.
+## 4 UBMI  2018-05-12 2206. 2356. 2138. 2313.
+## 5 UBMI  2018-05-11 2446. 2465. 2088. 2239.
+## 6 UBMI  2018-05-10 2598. 2608. 2431. 2446.</code></pre>
+</div>
+<div id="암호화폐-코드" class="section level3">
+<h3>암호화폐 코드</h3>
+<p><code>ubci_get_options()</code> 함수는 취급하는 암호화폐의 종류를 이름과 코드로 제공합니다.</p>
+<pre class="r"><code>ubci_get_options()</code></pre>
+<pre><code>## # A tibble: 440 x 5
+##    code            name             exchange tradeStatus marketState
+##    &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;      
+##  1 UPBIT.KRW-BTC   Bitcoin          UPBIT    ACTIVE      ACTIVE     
+##  2 UPBIT.KRW-DASH  Dash             UPBIT    DELISTED    DELISTED   
+##  3 UPBIT.KRW-ETH   Ethereum         UPBIT    PREVIEW     ACTIVE     
+##  4 UPBIT.BTC-NEO   NEO              UPBIT    DELISTED    DELISTED   
+##  5 UPBIT.BTC-ETH   Ethereum         UPBIT    PREVIEW     ACTIVE     
+##  6 UPBIT.BTC-LTC   Litecoin         UPBIT    PREVIEW     ACTIVE     
+##  7 UPBIT.BTC-STRAT Stratis          UPBIT    PREVIEW     ACTIVE     
+##  8 UPBIT.BTC-XRP   Ripple           UPBIT    PREVIEW     ACTIVE     
+##  9 UPBIT.BTC-ETC   Ethereum Classic UPBIT    PREVIEW     ACTIVE     
+## 10 UPBIT.BTC-OMG   OmiseGo          UPBIT    PREVIEW     ACTIVE     
+## # ... with 430 more rows</code></pre>
+<p><code>ubci_get_options()</code> 함수 역시 한글 옵션을 제공합니다.</p>
+<pre class="r"><code>ubci_get_options(lang=&quot;ko&quot;)</code></pre>
+<pre><code>## # A tibble: 440 x 5
+##    code            name           exchange tradeStatus marketState
+##    &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;      
+##  1 UPBIT.KRW-BTC   비트코인       UPBIT    ACTIVE      ACTIVE     
+##  2 UPBIT.KRW-DASH  대시           UPBIT    DELISTED    DELISTED   
+##  3 UPBIT.KRW-ETH   이더리움       UPBIT    PREVIEW     ACTIVE     
+##  4 UPBIT.BTC-NEO   네오           UPBIT    DELISTED    DELISTED   
+##  5 UPBIT.BTC-ETH   이더리움       UPBIT    PREVIEW     ACTIVE     
+##  6 UPBIT.BTC-LTC   라이트코인     UPBIT    PREVIEW     ACTIVE     
+##  7 UPBIT.BTC-STRAT 스트라티스     UPBIT    PREVIEW     ACTIVE     
+##  8 UPBIT.BTC-XRP   리플           UPBIT    PREVIEW     ACTIVE     
+##  9 UPBIT.BTC-ETC   이더리움클래식 UPBIT    PREVIEW     ACTIVE     
+## 10 UPBIT.BTC-OMG   오미세고       UPBIT    PREVIEW     ACTIVE     
+## # ... with 430 more rows</code></pre>
+</div>
+<div id="암호화폐-시세-정보" class="section level3">
+<h3>암호화폐 시세 정보</h3>
+<p><code>ubci_get()</code> 함수 또한 암호화폐의 일별 시가, 고가, 저가, 종가, 거래량을 제공합니다.</p>
+<pre class="r"><code>loc&lt;-ubci_get_options()
+loc$code[1]</code></pre>
+<pre><code>## [1] &quot;UPBIT.KRW-BTC&quot;</code></pre>
+<pre class="r"><code>ubci_get(loc$code[1])</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(code, candleDateTime, candleDateTimeKst, openingPrice, highPrice, 
+##     lowPrice, tradePrice, candleAccTradeVolume)`</code></pre>
+<pre><code>## # A tibble: 400 x 7
+##    code          date          open    high     low   close volume
+##    &lt;chr&gt;         &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1 UPBIT.KRW-BTC 2019-12-05 8515000 8810000 8480000 8598000  3591.
+##  2 UPBIT.KRW-BTC 2019-12-04 8607000 8996000 8432000 8515000  5171.
+##  3 UPBIT.KRW-BTC 2019-12-03 8590000 8700000 8520000 8607000  1642.
+##  4 UPBIT.KRW-BTC 2019-12-02 8630000 8705000 8415000 8585000  1837.
+##  5 UPBIT.KRW-BTC 2019-12-01 8838000 8840000 8480000 8630000  3024.
+##  6 UPBIT.KRW-BTC 2019-11-30 9035000 9106000 8726000 8838000  2496.
+##  7 UPBIT.KRW-BTC 2019-11-29 8672000 9200000 8658000 9037000  4211.
+##  8 UPBIT.KRW-BTC 2019-11-28 8700000 8903000 8615000 8674000  4046.
+##  9 UPBIT.KRW-BTC 2019-11-27 8413000 8900000 8041000 8702000  9266.
+## 10 UPBIT.KRW-BTC 2019-11-26 8338000 8627000 8240000 8410000  5868.
+## # ... with 390 more rows</code></pre>
+<pre class="r"><code>tail(ubci_get(loc$code[1], from=&quot;2018-05-15&quot;))</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(code, candleDateTime, candleDateTimeKst, openingPrice, highPrice, 
+##     lowPrice, tradePrice, candleAccTradeVolume)`</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   code          date          open    high     low   close volume
+##   &lt;chr&gt;         &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 UPBIT.KRW-BTC 2018-11-06 7198000 7256000 7186000 7231000  3517.
+## 2 UPBIT.KRW-BTC 2018-11-05 7214000 7246000 7187000 7198000  2781.
+## 3 UPBIT.KRW-BTC 2018-11-04 7145000 7270000 7125000 7213000  2764.
+## 4 UPBIT.KRW-BTC 2018-11-03 7179000 7185000 7100000 7150000  1584.
+## 5 UPBIT.KRW-BTC 2018-11-02 7186000 7221000 7161000 7179000  2653.
+## 6 UPBIT.KRW-BTC 2018-11-01 7162000 7200000 7141000 7186000  1921.</code></pre>
+<pre class="r"><code>ubci_get(loc$code[1], to=&quot;2018-05-15&quot;)</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(code, candleDateTime, candleDateTimeKst, openingPrice, highPrice, 
+##     lowPrice, tradePrice, candleAccTradeVolume)`</code></pre>
+<pre><code>## # A tibble: 0 x 7
+## # ... with 7 variables: code &lt;chr&gt;, date &lt;date&gt;, open &lt;dbl&gt;, high &lt;dbl&gt;,
+## #   low &lt;dbl&gt;, close &lt;dbl&gt;, volume &lt;dbl&gt;</code></pre>
+<pre class="r"><code>ubci_get(loc$code[1], from=&quot;2018-05-10&quot;, to=&quot;2018-05-15&quot;)</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(code, candleDateTime, candleDateTimeKst, openingPrice, highPrice, 
+##     lowPrice, tradePrice, candleAccTradeVolume)`</code></pre>
+<pre><code>## # A tibble: 0 x 7
+## # ... with 7 variables: code &lt;chr&gt;, date &lt;date&gt;, open &lt;dbl&gt;, high &lt;dbl&gt;,
+## #   low &lt;dbl&gt;, close &lt;dbl&gt;, volume &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div id="라이선스-문제" class="section level2">
+<h2>라이선스 문제</h2>
+<p><a href="https://www.ubcindex.com/indexes">ubci</a>와 시세는 라이선스가 다를텐데요.
+<a href="https://www.ubcindex.com/indexes">ubci</a>는 메인 페이지에서 데이터 라이선스와 법적 이슈에 대해 고지하고 있습니다.
+시세는 제가 못찾은건지 데이터관런 라이선스 고지를 찾을 수가 없네요.</p>
+<p><a href="https://www.ubcindex.com/indexes">ubci</a>는 비영리 배포에 대해 허용하고 있어 마음껏 작성하였구요.
+시세는 하는김에 라는 느낌이라서 업비트에서 뭐라고 하면 내릴 계획입니다.</p>
+</div>
+<div id="패키지-계획" class="section level2">
+<h2>패키지 계획</h2>
+<p>만들다 보니 <a href="https://www.ubcindex.com/indexes">ubci</a>의 세부 정보(ex&gt; 구성 화폐시세와 비율, 추가 설명 등)가 함께 있으면 좋겠다 싶어서 추가하려고 계획하고 있습니다.
+시세쪽은 지금은 데일리만 있는데, 분단위 정보를 제공하기는 하더라구요.
+비정상 이용에 대해 막을 가능성이 높긴 하지만, 제한적으로나마 분단위나 15분 단위의 데이터를 제공하는 함수를 만들 수 있을 것 같습니다.</p>
+<p>깃헙주소는 <a href="https://github.com/mrchypark/ubci" class="uri">https://github.com/mrchypark/ubci</a> 입니다.
+재밌게 보신 분들은 별이라도 한번 눌러주시구요.
+설명의 추가나 위에 예정중인 함수 작성, 테스트 케이스 작성등 패키지 개발을 위해서 아직 남은 일이 많은데요.
+도움 주시는 분이 계시면 정말 감사할 것 같습니다.</p>
+<p>언제나처럼 문의나 잘못된 점 등 알려주시면 반영하겠습니다.
+감사합니다.</p>
+<p>p.s 간단한 분석을 포함한 영문 포스팅을 해주실 용자분을 찾습니다. 해외에서도 관심가질만한 주제라고 생각해서 소개하고 싶은데, 제가 능력이 안되네요. 감사합니다.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/">[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/">[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

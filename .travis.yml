@@ -31,7 +31,7 @@ r_github_packages:
     - forkonlp/presidentSpeech
 
 script:
-  - Rscript -e 'blogdown::install_hugo()'
+  - Rscript -e 'blogdown::install_hugo(version = "0.57.2")'
   - Rscript -e 'blogdown::build_site()'
   
 deploy:

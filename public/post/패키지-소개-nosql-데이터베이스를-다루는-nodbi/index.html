@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018 Aug 08</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/nosql">nosql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/dbi">dbi</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/package">package</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/43807286-bbabb26a-9ae2-11e8-8b05-e96e70de77af.jpg"></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li>이제 R로 MongoDB, Redis(server based), CouchDB, Elasticsearch, etcd를 다룰 수 있습니다.</li>
+</ol>
+<p>R에는 여러가지 데이터 베이스를 다루는 도구들이 있습니다.
+MS의 표준 SQL 드라이버인 ODBC를 사용하는 <a href="https://github.com/r-dbi/odbc">odbc</a> 패키지(r-dbi 팀), java의 표준 SQL 드라이버인 JDBC를 사용하는 <a href="https://github.com/s-u/RJDBC">RJDBC</a> 패키지(rJava 개발자 Simon Urbanek), r-dbi팀이 직접 관리하는 <a href="https://github.com/r-dbi/DBI">DBI</a> 패키지가 대표적입니다.</p>
+<p>이외에도 개인들이 개발하거나 각 데이터베이스에 맞춰 만든 도구들이 있는데요.
+대부분 위의 패키지들을 사용해서 연결 부분을 쉽게하거나, 데이터 베이스가 통신 프로토콜을 지원해서 wrapper를 만든다거나 하는 경우인거 같습니다.</p>
+<p>아무튼!</p>
+<p>데이터베이스는 관계형이라고 말하는 RDB 계열과 문서형이라고 부르는 NoSQL 계열이 있습니다.
+특별히 NewSQL 계열이라고 말하는 부류도 있습니다.
+위에서 이야기한 DBI 등등의 드라이버는 표준 SQL 문법을 지원하는 관계형 DB들을 다룰 때 사용합니다.
+이제 그에 대응하는 NoSQL을 다루기 위한 R 패키지가 등장했는데요.
+바로 <a href="https://github.com/ropensci/nodbi">nodbi</a> 패키지입니다.</p>
+<p>문서에 따르면 <a href="https://github.com/ropensci/nodbi">nodbi</a> 패키지는 대표적인 NoSQL 데이터베이스인 mongoDB에서부터 엘라스틱서치까지 총 5개의 NoSQL 데이터베이스를 지원합니다.
+<a href="https://github.com/ropensci">ropensci</a> 팀이 <a href="https://github.com/r-dbi">r-dbi</a> 팀이 부러웠는지 공통으로 사용할 수 있는 패키지를 제작하기 시작했네요.
+이제 0.1.0 버전으로 초기 단계라고 볼 수 있습니다.
+그동안 각 디비 api에 맞춰 개별로 관리되고 있는 패키지들이 있었습니다.
+현재 유지관리가 되고 있는 패키지들은</p>
+<ul>
+<li>MongoDB : <a href="https://github.com/jeroen/mongolite">mongolite</a></li>
+<li>Redis : <a href="https://github.com/richfitz/redux">redux</a></li>
+<li>CouchDB : <a href="https://github.com/ropensci/sofa">sofa</a></li>
+<li>Elasticsearch : <a href="https://github.com/ropensci/elastic">elastic</a></li>
+<li>etcd : <a href="https://github.com/ropensci/etseed">etseed</a></li>
+</ul>
+<p>각자 쉬운 문법을 사용하기 위해 노력했지만 가장 큰 문제점은 <a href="https://github.com/tidyverse/dplyr">dplyr</a> 패키지와의 호환성이었습니다.
+Elasticsearch의 경우는 파이프 연산자를 지원하는 <a href="https://github.com/ropensci/elasticdsl">elasticdsl</a> 패키지가 있지만, 자신의 특수한 문법만 사용할 수 있습니다.</p>
+<p>위의 개별 패키지들과는 다르게 <a href="https://github.com/ropensci/nodbi">nodbi</a>는 <a href="https://github.com/tidyverse/dplyr">dplyr</a> 패키지와의 호환성을 목표로 개발이 시작되었습니다.
+갈길이 구만리이긴 하겠지만, <a href="https://github.com/tidyverse/dplyr">dplyr</a>로 대동단결하면 할 수록 R 사용자들는 추가적인 공부없이 많은 패키지들을 다룰 수 있게 되겠지요.</p>
+<p><a href="https://github.com/rstudio/sparklyr">sparklyr</a>도 써봐야 하는데, 새로 생기는 것만 늘어가는 군요.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/">[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/">[tidytext] 텍스트 데이터를 tidy 하게 다뤄보자</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+</body>
+</html>

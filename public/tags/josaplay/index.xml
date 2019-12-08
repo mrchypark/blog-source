@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>josaplay on Mrchypark</title>
+    <link>/tags/josaplay/</link>
+    <description>Recent content in josaplay on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/josaplay/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[josaplay] Rmd로 만드는 한글 보고서의 친구</title>
+      <link>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
+      <description>한줄요약 을(를) 이 눈에 거슬린다면 josaplay가 문제를 해결해 줄 겁니다. 개인적인 일들이 많이 있어서 정신을 못차리고 있는 중입니다. 데이터홀릭을 계속</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드 &middot; Mrchypark</title>
+    <meta name="generator" content="Hugo 0.60.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="mrchypark">
+    
+      <meta name="description" content="log for you &amp; me | R, Docker, Text analysis etc">
+    
+    
+    <link rel="canonical" href="/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    
+    <link rel="stylesheet" href="/css/my.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드" />
+<meta property="og:description" content="본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다.
+요약 : Go로 web app을 작성할 때 hot-loading을 포함하여 docker를 이용하여 소스빌드 &#43; alpine 리눅스에 탑제하는 효율적인 docker 이미지 만들기를 소개한다.
+You probably want to use Docker with Go, because:
+Packaging as a container is required if you’re running it on Kubernetes (like me!)You have to work with different versions of Go on the same machine." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/" />
+<meta property="article:published_time" content="2018-06-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-10T00:00:00+00:00" />
+
+    
+    <meta itemprop="name" content="[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드">
+<meta itemprop="description" content="본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다.
+요약 : Go로 web app을 작성할 때 hot-loading을 포함하여 docker를 이용하여 소스빌드 &#43; alpine 리눅스에 탑제하는 효율적인 docker 이미지 만들기를 소개한다.
+You probably want to use Docker with Go, because:
+Packaging as a container is required if you’re running it on Kubernetes (like me!)You have to work with different versions of Go on the same machine.">
+<meta itemprop="datePublished" content="2018-06-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-06-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2037">
+
+
+
+<meta itemprop="keywords" content="docker,go,multi-stage," />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드"/>
+<meta name="twitter:description" content="본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다.
+요약 : Go로 web app을 작성할 때 hot-loading을 포함하여 docker를 이용하여 소스빌드 &#43; alpine 리눅스에 탑제하는 효율적인 docker 이미지 만들기를 소개한다.
+You probably want to use Docker with Go, because:
+Packaging as a container is required if you’re running it on Kubernetes (like me!)You have to work with different versions of Go on the same machine."/>
+<meta name="twitter:site" content="@mrchypark_"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+          
+          <i class="logo" style="background-image: url('/css/images/logo.png')"></i>
+          
+          <span class="site-title">Mrchypark</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="/post/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="/post/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://www.gravatar.com/avatar/4fca794da0cf08804f99048d3c8b39c1?s=100&d=identicon"/>
+      
+      <h2 id="name">mrchypark</h2>
+      <h3 id="title">Tool maker with R - Docker lover</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Seoul, Korea</span>
+      
+          <a id="follow" href="https://github.com/mrchypark">
+              
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        0
+        <span></span>
+      </div>
+      <div class="article-info-block">
+        
+          95
+        
+        <span>
+            
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/mrchypark" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//instagram.com/mrchypark" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//linkedin.com/in/chanyubpark" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//facebook.com/mrchypark" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></td>
+
+
+
+<td><a href="//twitter.com/mrchypark_" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    <a href="/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/">
+    <h1 class="article-title" itemprop="name">
+        [번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2018-06-10</time>
+            &middot;
+            2037
+            
+            &middot;
+            10
+            
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="/categories/docker">Docker</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="/tags/docker">docker</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/go">go</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/multi-stage">multi-stage</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+
+<blockquote>
+<p>본 번역은 <a href="https://blog.hasura.io/the-ultimate-guide-to-writing-dockerfiles-for-go-web-apps-336efad7012c">원글</a>을 대상으로 <a href="https://shahidh.in/">저자</a>의 <a href="https://twitter.com/mrchypark_/status/979929536115585026">허락</a>을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다.</p>
+</blockquote>
+<blockquote>
+<p>요약 : Go로 web app을 작성할 때 hot-loading을 포함하여 docker를 이용하여 소스빌드 + alpine 리눅스에 탑제하는 효율적인 docker 이미지 만들기를 소개한다.</p>
+</blockquote>
+<p>You probably want to use Docker with Go, because:</p>
+<ol style="list-style-type: decimal">
+<li>Packaging as a container is required if you’re running it on Kubernetes (like me!)</li>
+<li>You have to work with different versions of Go on the same machine.</li>
+<li>You need exact, reproducible, shareable and deterministic environments for development as well as production.</li>
+<li>You need a quick and easy way of building and deploying a final compiled binary.</li>
+<li>You might want to get started quickly (anyone with Docker installed can start coding right away without setting up any other dependencies or GOPATH variables).
+Well, you’ve come to the right place.</li>
+</ol>
+<p>We’ll incrementally build a basic Dockerfile for Go, with live reloading and package management, and then extend the same to create a highly optimized production ready image with ~100x reduction in size. If you use a CI/CD system, image size might not matter, but when docker push and docker pulls are involved, a leaner image will definitely help.</p>
+<p>If you’d like to jump right ahead to the code, check out the GitHub repo:</p>
+<p><a href="https://github.com/shahidhk/go-docker">go-docker</a></p>
+<figure>
+<img src="https://cdn-images-1.medium.com/max/1500/1*B_mzJrbTJLsH6Fzb9wrjOQ.png" width=100%>
+<figcaption>
+Dockerfile
+</figcaption>
+</figure>
+<p>Contents
+1. <a href="#the-simplest-one">가장 간단한 방식</a><br />
+1. <a href="#package-management-layering">패키지 관리와 도커 빌드 레이어링</a><br />
+1. <a href="#live-reloading">라이브 리로딩(핫로딩 기능)</a><br />
+1. <a href="#single-stage-production-build">단일식 제품용 빌드</a><br />
+1. <a href="#multi-stage-production-build">다단식 제품용 빌드</a><br />
+1. <a href="#bonus-binary-compression-using-upx">보너스: UPX를 사용한 이진 압축</a><br />
+1. <a href="#update-dep-instead-of-glide">업데이트: Glide 대신 Dep</a><br />
+1. <a href="#update-scratch-instead-of-alpine">업데이트: Alpine 대신 Scratch</a></p>
+<p>Let’s assume a simple directory structure. The application is called go-docker and the directory structure is as shown below. All source code is inside src directory and there is a Dockerfile at the same level. main.go defines a web-app listening on port 8080.</p>
+<pre><code>go-docker
+├── Dockerfile
+└── src
+    └── main.go</code></pre>
+<div id="the-simplest-one" class="section level3">
+<h3>가장 간단한 방식</h3>
+<pre><code>FROM golang:1.8.5-jessie
+# create a working directory
+WORKDIR /go/src/app
+# add source code
+ADD src src
+# run main.go
+CMD [&quot;go&quot;, &quot;run&quot;, &quot;src/main.go&quot;]</code></pre>
+<p>We are using debian jessie here since some commands like go get require git etc. to be present. Also, all Debian packages are available in case we need them. For production version we’ll use a smaller image like alpine.</p>
+<p>Build and run this image:</p>
+<pre><code>$ cd go-docker
+$ docker build -t go-docker-dev .
+$ docker run --rm -it -p 8080:8080 go-docker-dev</code></pre>
+<p>The app will be available at <a href="http://localhost:8080" class="uri">http://localhost:8080</a>. Use Ctrl+C to quit.</p>
+<p>But this doesn’t make much sense because we’ll have to build and run the docker image every time any change is made to the code.</p>
+<p>A better version would be to mount the source code into a docker container so that the environment is contained and using a shell inside the container to stop and start go run as we wish.</p>
+<pre><code>$ cd go-docker
+$ docker build -t go-docker-dev .
+$ docker run --rm -it -p 8080:8080 -v $(pwd):/go/src/app \
+             go-docker-dev bash
+root@id:/go/src/app# go run src/main.go</code></pre>
+<p>These commands will give us a shell, where we can execute go run src/main.go and run the server. We can edit main.go from host machine and run the code again to see changes, as the the files are mounted directly into the container.</p>
+<p>But, what about packages?</p>
+</div>
+<div id="package-management-layering" class="section level3">
+<h3>패키지 관리와 도커 빌드 레이어링</h3>
+<p>Package management in Go is still in an experimental stage. There are a couple of tools around, but my favorite is Glide. We’ll install Glide inside the container and use it from within.</p>
+<p>Create two files called glide.yaml and glide.lock inside go-docker directory:</p>
+<pre><code>$ cd go-docker
+$ touch glide.yaml
+$ touch glide.lock</code></pre>
+<p>Change the Dockerfile to the one below and build a new image.</p>
+<pre><code>FROM golang:1.8.5-jessie
+# install glide
+RUN go get github.com/Masterminds/glide
+# create a working directory
+WORKDIR /go/src/app
+# add glide.yaml and glide.lock
+ADD glide.yaml glide.yaml
+ADD glide.lock glide.lock
+# install packages
+RUN glide install
+# add source code
+ADD src src
+# run main.go
+CMD [&quot;go&quot;, &quot;run&quot;, &quot;src/main.go&quot;]</code></pre>
+<p>If you look closely, you can see that glide.yaml and glide.lock are being added separately (instead of doing a ADD . .), resulting in separate layers. By separating out package management to a separate layer, Docker will cache the layer and will only rebuild it if the corresponding files change, i.e. when a new package is added or an existing one is removed. Hence, glide install won’t be executed for every source code change.</p>
+<p>Let’s install a package by getting into the container’s shell:</p>
+<pre><code>$ cd go-docker
+$ docker build -t go-docker-dev .
+$ docker run --rm -it -v $(pwd):/go/src/app go-docker-dev bash
+root@id:/go/src/app# glide get github.com/golang/glog</code></pre>
+<p>Glide will install all packages into a vendor directory, which can be gitignore-d and dockerignore-d. It uses glide.lock to lock packages to specific versions. To (re-)install all packages mentioned in glide.yaml, execute:</p>
+<pre><code>$ cd go-docker
+$ docker run --rm -it -p 8080:8080 -v $(pwd):/go/src/app \
+             go-docker-dev bash
+root@id:/go/src/app# glide install</code></pre>
+<p>The go-docker directory has grown a little bit now:</p>
+<pre><code>.
+├── Dockerfile
+├── glide.lock
+├── glide.yaml
+├── src
+│   └── main.go
+└── vendor/</code></pre>
+<p>Don’t forget to add vendor to .gitignore and .dockerignore.</p>
+</div>
+<div id="live-reloading" class="section level3">
+<h3>라이브 리로딩(핫로딩 기능)</h3>
+<p>codegangsta/gin is my favorite among all the live-reloading tools. It is specifically built for Go web servers. We’ll install gin using go get:</p>
+<pre><code>FROM golang:1.8.5-jessie
+# install glide
+RUN go get github.com/Masterminds/glide
+# install gin
+RUN go get github.com/codegangsta/gin
+# create a working directory
+WORKDIR /go/src/app
+# add glide.yaml and glide.lock
+ADD glide.yaml glide.yaml
+ADD glide.lock glide.lock
+# install packages
+RUN glide install
+# add source code
+ADD src src
+# run main.go
+CMD [&quot;go&quot;, &quot;run&quot;, &quot;src/main.go&quot;]</code></pre>
+<p>We’ll build the image and run gin so that the code is rebuilt whenever there is any change inside src directory.</p>
+<pre><code>$ cd go-docker
+$ docker build -t go-docker-dev .
+$ docker run --rm -it -p 8080:8080 -v $(pwd):/go/src/app \
+             go-docker-dev bash
+root@id:/go/src/app# gin --path src --port 8080 run main.go</code></pre>
+<p>Note that the web-server should take a PORT environment variable to listen to since gin will set a random PORT variable and proxy connections to it.</p>
+<p>All edits in src directory will trigger a rebuild and changes will be available live at <a href="http://localhost:8080" class="uri">http://localhost:8080</a>.</p>
+<p>Once we are done with development, we can build the binary and run it, instead of using the go run command. The binary can be built and served using the same image or we can make use of Docker multi-stage builds to build using a golang image and serve using a bare minimum linux container like alpine.</p>
+</div>
+<div id="single-stage-production-build" class="section level3">
+<h3>단일식 제품용 빌드</h3>
+<pre><code>
+FROM golang:1.8.5-jessie
+# install glide
+RUN go get github.com/Masterminds/glide
+# create a working directory
+WORKDIR /go/src/app
+# add glide.yaml and glide.lock
+ADD glide.yaml glide.yaml
+ADD glide.lock glide.lock
+# install packages
+RUN glide install
+# add source code
+ADD src src
+# build main.go
+RUN go build src/main.go
+# run the binary
+CMD [&quot;./main&quot;]</code></pre>
+<p>Build and run the all-in-one image:</p>
+<pre><code>$ cd go-docker
+$ docker build -t go-docker-prod .
+$ docker run --rm -it -p 8080:8080 go-docker-prod</code></pre>
+<p>The image built will be ~750MB (depending on your source code), due to the underlying Debian layer. Let’s see how we can cut this down.</p>
+</div>
+<div id="multi-stage-production-build" class="section level3">
+<h3>다단식 제품용 빌드</h3>
+<p>Multi stage builds lets you build programs in a full-fledged OS environment, but the final binary can be run from a very slim image which is only slightly larger than the binary itself.</p>
+<pre><code>FROM golang:1.8.5-jessie as builder
+# install glide
+RUN go get github.com/Masterminds/glide
+# setup the working directory
+WORKDIR /go/src/app
+ADD glide.yaml glide.yaml
+ADD glide.lock glide.lock
+# install dependencies
+RUN glide install
+# add source code
+ADD src src
+# build the source
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main src/main.go
+
+# use a minimal alpine image
+FROM alpine:3.7
+# add ca-certificates in case you need them
+RUN apk update &amp;&amp; apk add ca-certificates &amp;&amp; rm -rf /var/cache/apk/*
+# set working directory
+WORKDIR /root
+# copy the binary from builder
+COPY --from=builder /go/src/app/main .
+# run the binary
+CMD [&quot;./main&quot;]</code></pre>
+<p>The binary here is ~14MB and the docker image is ~18MB. Thanks to alpine awesomeness.</p>
+<p>Want to cut down the binary size itself? Read ahead.</p>
+</div>
+<div id="bonus-binary-compression-using-upx" class="section level3">
+<h3>보너스: UPX를 사용한 이진 압축</h3>
+<p>At Hasura, we have been using UPX everywhere, our CLI tool binary which is ~50MB comes down to ~8MB after compression, making it easy to download. UPX can do extremely fast in-place decompression, without any extra tools since it injects the decompressor into the binary itself.</p>
+<pre><code>FROM golang:1.8.5-jessie as builder
+# install xz
+RUN apt-get update &amp;&amp; apt-get install -y \
+    xz-utils \
+&amp;&amp; rm -rf /var/lib/apt/lists/*
+# install UPX
+ADD https://github.com/upx/upx/releases/download/v3.94/upx-3.94-amd64_linux.tar.xz /usr/local
+RUN xz -d -c /usr/local/upx-3.94-amd64_linux.tar.xz | \
+    tar -xOf - upx-3.94-amd64_linux/upx &gt; /bin/upx &amp;&amp; \
+    chmod a+x /bin/upx
+# install glide
+RUN go get github.com/Masterminds/glide
+# setup the working directory
+WORKDIR /go/src/app
+ADD glide.yaml glide.yaml
+ADD glide.lock glide.lock
+# install dependencies
+RUN glide install
+# add source code
+ADD src src
+# build the source
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main src/main.go
+# strip and compress the binary
+RUN strip --strip-unneeded main
+RUN upx main
+
+# use a minimal alpine image
+FROM alpine:3.7
+# add ca-certificates in case you need them
+RUN apk update &amp;&amp; apk add ca-certificates &amp;&amp; rm -rf /var/cache/apk/*
+# set working directory
+WORKDIR /root
+# copy the binary from builder
+COPY --from=builder /go/src/app/main .
+# run the binary
+CMD [&quot;./main&quot;]</code></pre>
+<p>The UPX compressed binary is ~3MB and the docker image is ~6MB.</p>
+<p>~100x reduction in size from where we started from.</p>
+</div>
+<div id="update-dep-instead-of-glide" class="section level3">
+<h3>업데이트: Glide 대신 Dep</h3>
+<p>dep is a prototype dependency management tool for Go. Glide is considered to be in a state of support rather than active feature development, in favour of dep. Executing dep init in a directory with glide.yaml and glide.lock will create Gopkg.toml and Gopkg.lock by reading the glide files.</p>
+<p>Adding a new package using dep is similar to glide:</p>
+<pre><code>$ dep ensure -add github.com/sirupsen/logrus</code></pre>
+<p>glide install equivalent is dep ensure.</p>
+<pre><code>FROM golang:1.8.5-jessie
+# install dep
+RUN go get github.com/golang/dep/cmd/dep
+# create a working directory
+WORKDIR /go/src/app
+# add Gopkg.toml and Gopkg.lock
+ADD Gopkg.toml Gopkg.toml
+ADD Gopkg.lock Gopkg.lock
+# install packages
+# --vendor-only is used to restrict dep from scanning source code
+# and finding dependencies
+RUN dep ensure --vendor-only
+# add source code
+ADD src src
+# run main.go
+CMD [&quot;go&quot;, &quot;run&quot;, &quot;src/main.go&quot;]</code></pre>
+</div>
+<div id="update-scratch-instead-of-alpine" class="section level3">
+<h3>업데이트: Alpine 대신 Scratch</h3>
+<p>Alpine is useful when you have to quickly access the shell inside the container and do some debugging. For example, shell comes to the rescue while debugging DNS issues in a Kubernetes cluster. We can run ping/wget etc. Also, if your application makes API calls to external services over HTTPS, ca-certificates need to be present.</p>
+<p>But, if you don’t need a shell or ca-certs, but just want to run the binary, you can use scratch as the base for the image in multi-stage build.</p>
+<pre><code>FROM golang:1.8.5-jessie as builder
+# install xz
+RUN apt-get update &amp;&amp; apt-get install -y \
+    xz-utils \
+&amp;&amp; rm -rf /var/lib/apt/lists/*
+# install UPX
+ADD https://github.com/upx/upx/releases/download/v3.94/upx-3.94-amd64_linux.tar.xz /usr/local
+RUN xz -d -c /usr/local/upx-3.94-amd64_linux.tar.xz | \
+    tar -xOf - upx-3.94-amd64_linux/upx &gt; /bin/upx &amp;&amp; \
+    chmod a+x /bin/upx
+# install dep
+RUN go get github.com/golang/dep/cmd/dep
+# create a working directory
+WORKDIR /go/src/app
+# add Gopkg.toml and Gopkg.lock
+ADD Gopkg.toml Gopkg.toml
+ADD Gopkg.lock Gopkg.lock
+# install packages
+RUN dep ensure --vendor-only
+# add source code
+ADD src src
+# build the source
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main src/main.go
+# strip and compress the binary
+RUN strip --strip-unneeded main
+RUN upx main
+
+# use scratch (base for a docker image)
+FROM scratch
+# set working directory
+WORKDIR /root
+# copy the binary from builder
+COPY --from=builder /go/src/app/main .
+# run the binary
+CMD [&quot;./main&quot;]</code></pre>
+<p>The resulting image is just 1.3 MB, compared to the 6MB apline image.</p>
+<p>Any suggestions to improve the ideas above? Any other use-cases that you’d like to see? Do let me know in the comments or join the discussion on HackerNews &amp; Reddit.</p>
+<p>Update (24th Feb 2018): Added sections 7 and 8.</p>
+<hr />
+<p>Psst…. Have you tried deploying a Go web-app on Hasura? It is literally the fastest way in the world for deploying Go apps to an HTTPS domain (with just a git push). Get started with any of the project boilerplates here: <a href="https://hasura.io/hub/go-frameworks" class="uri">https://hasura.io/hub/go-frameworks</a>. All project boilerplates on Hasura come with a Dockerfile and Kubernetes spec files that you can customize as you wish!</p>
+</div>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/" data-id="e363b8cd1e0ab6da0e0b1fb51340af5e" class="article-share-link">
+        <i class="fa fa-share"></i>
+        
+    </a>
+    
+    <a href="/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/#disqus_thread" class="article-comment-link">
+        
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다</div>
+    </a>
+    
+
+    
+    <a href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi</div>
+    </a>
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mrchypark" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/anounce">
+                    anounce
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/blog">
+                    blog
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/news">
+                    news
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/r">
+                    r
+                </a>
+                <span class="category-list-count">30</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ad">
+                    ad
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/adjusted">
+                    adjusted
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/announce">
+                    announce
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/api">
+                    api
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/automation">
+                    automation
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blog">
+                    blog
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blogdown">
+                    blogdown
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/boolean">
+                    boolean
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/comment">
+                    comment
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda">
+                    conda
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda4r">
+                    conda4r
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/correttor">
+                    correttor
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/crypto">
+                    crypto
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/csv">
+                    csv
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dbi">
+                    dbi
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/digit">
+                    digit
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/discuss">
+                    discuss
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dnh4">
+                    dnh4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dplyr">
+                    dplyr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/email">
+                    email
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/forkonlp">
+                    forkonlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/get">
+                    get
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/git">
+                    git
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github">
+                    github
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github-pages">
+                    github-pages
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/glimpse">
+                    glimpse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/gmail">
+                    gmail
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/go">
+                    go
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/haproxy">
+                    haproxy
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/html">
+                    html
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/httr">
+                    httr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/installr">
+                    installr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/java">
+                    java
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/josaplay">
+                    josaplay
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/json">
+                    json
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/keras">
+                    keras
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/konlp">
+                    konlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/kospacing">
+                    kospacing
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/load-balance">
+                    load-balance
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/logical">
+                    logical
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/map">
+                    map
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/materials">
+                    materials
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/minimal">
+                    minimal
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/mouse">
+                    mouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/multi-stage">
+                    multi-stage
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/n2h4">
+                    n2h4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/nosql">
+                    nosql
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/operator">
+                    operator
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/options">
+                    options
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/package">
+                    package
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/post">
+                    post
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/postgres">
+                    postgres
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/presidentspeech">
+                    presidentspeech
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/preview">
+                    preview
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/project">
+                    project
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/purrr">
+                    purrr
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/python">
+                    python
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r">
+                    r
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/read">
+                    read
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/readr">
+                    readr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reboot">
+                    reboot
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reticulate">
+                    reticulate
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/retrospect">
+                    retrospect
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rjava">
+                    rjava
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rlang">
+                    rlang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmd">
+                    rmd
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmouse">
+                    rmouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rpubs">
+                    rpubs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rqna">
+                    rqna
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rstudio">
+                    rstudio
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rtips">
+                    rtips
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98">
+                    r로나만의
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/sendgridr">
+                    sendgridr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/server">
+                    server
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/setting">
+                    setting
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/str">
+                    str
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/study">
+                    study
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/suggest">
+                    suggest
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/swarm">
+                    swarm
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tbl">
+                    tbl
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/temp">
+                    temp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tempdir">
+                    tempdir
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/term">
+                    term
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/text">
+                    text
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tibble">
+                    tibble
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tidytext">
+                    tidytext
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tqk">
+                    tqk
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ubci">
+                    ubci
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/union">
+                    union
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/usehelp">
+                    usehelp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/web">
+                    web
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/windows">
+                    windows
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/xaringan">
+                    xaringan
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="/tags/ad" style="font-size: 12px;">ad</a>
+        
+        
+        <a href="/tags/adjusted" style="font-size: 12px;">adjusted</a>
+        
+        
+        <a href="/tags/announce" style="font-size: 12px;">announce</a>
+        
+        
+        <a href="/tags/api" style="font-size: 12px;">api</a>
+        
+        
+        <a href="/tags/automation" style="font-size: 12px;">automation</a>
+        
+        
+        <a href="/tags/blog" style="font-size: 12px;">blog</a>
+        
+        
+        <a href="/tags/blogdown" style="font-size: 12px;">blogdown</a>
+        
+        
+        <a href="/tags/boolean" style="font-size: 12px;">boolean</a>
+        
+        
+        <a href="/tags/comment" style="font-size: 12px;">comment</a>
+        
+        
+        <a href="/tags/conda" style="font-size: 12px;">conda</a>
+        
+        
+        <a href="/tags/conda4r" style="font-size: 12px;">conda4r</a>
+        
+        
+        <a href="/tags/correttor" style="font-size: 12px;">correttor</a>
+        
+        
+        <a href="/tags/crypto" style="font-size: 12px;">crypto</a>
+        
+        
+        <a href="/tags/csv" style="font-size: 12px;">csv</a>
+        
+        
+        <a href="/tags/dbi" style="font-size: 12px;">dbi</a>
+        
+        
+        <a href="/tags/digit" style="font-size: 12px;">digit</a>
+        
+        
+        <a href="/tags/discuss" style="font-size: 12px;">discuss</a>
+        
+        
+        <a href="/tags/dnh4" style="font-size: 12px;">dnh4</a>
+        
+        
+        <a href="/tags/docker" style="font-size: 12px;">docker</a>
+        
+        
+        <a href="/tags/dplyr" style="font-size: 12px;">dplyr</a>
+        
+        
+        <a href="/tags/email" style="font-size: 12px;">email</a>
+        
+        
+        <a href="/tags/forkonlp" style="font-size: 12px;">forkonlp</a>
+        
+        
+        <a href="/tags/get" style="font-size: 12px;">get</a>
+        
+        
+        <a href="/tags/git" style="font-size: 12px;">git</a>
+        
+        
+        <a href="/tags/github" style="font-size: 12px;">github</a>
+        
+        
+        <a href="/tags/github-pages" style="font-size: 12px;">github-pages</a>
+        
+        
+        <a href="/tags/glimpse" style="font-size: 12px;">glimpse</a>
+        
+        
+        <a href="/tags/gmail" style="font-size: 12px;">gmail</a>
+        
+        
+        <a href="/tags/go" style="font-size: 12px;">go</a>
+        
+        
+        <a href="/tags/haproxy" style="font-size: 12px;">haproxy</a>
+        
+        
+        <a href="/tags/html" style="font-size: 12px;">html</a>
+        
+        
+        <a href="/tags/httr" style="font-size: 12px;">httr</a>
+        
+        
+        <a href="/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="/tags/installr" style="font-size: 12px;">installr</a>
+        
+        
+        <a href="/tags/java" style="font-size: 12px;">java</a>
+        
+        
+        <a href="/tags/josaplay" style="font-size: 12px;">josaplay</a>
+        
+        
+        <a href="/tags/json" style="font-size: 12px;">json</a>
+        
+        
+        <a href="/tags/keras" style="font-size: 12px;">keras</a>
+        
+        
+        <a href="/tags/konlp" style="font-size: 12px;">konlp</a>
+        
+        
+        <a href="/tags/kospacing" style="font-size: 12px;">kospacing</a>
+        
+        
+        <a href="/tags/load-balance" style="font-size: 12px;">load-balance</a>
+        
+        
+        <a href="/tags/logical" style="font-size: 12px;">logical</a>
+        
+        
+        <a href="/tags/map" style="font-size: 12px;">map</a>
+        
+        
+        <a href="/tags/materials" style="font-size: 12px;">materials</a>
+        
+        
+        <a href="/tags/minimal" style="font-size: 12px;">minimal</a>
+        
+        
+        <a href="/tags/mouse" style="font-size: 12px;">mouse</a>
+        
+        
+        <a href="/tags/multi-stage" style="font-size: 12px;">multi-stage</a>
+        
+        
+        <a href="/tags/n2h4" style="font-size: 12px;">n2h4</a>
+        
+        
+        <a href="/tags/nosql" style="font-size: 12px;">nosql</a>
+        
+        
+        <a href="/tags/operator" style="font-size: 12px;">operator</a>
+        
+        
+        <a href="/tags/options" style="font-size: 12px;">options</a>
+        
+        
+        <a href="/tags/package" style="font-size: 12px;">package</a>
+        
+        
+        <a href="/tags/post" style="font-size: 12px;">post</a>
+        
+        
+        <a href="/tags/postgres" style="font-size: 12px;">postgres</a>
+        
+        
+        <a href="/tags/presidentspeech" style="font-size: 12px;">presidentspeech</a>
+        
+        
+        <a href="/tags/preview" style="font-size: 12px;">preview</a>
+        
+        
+        <a href="/tags/project" style="font-size: 12px;">project</a>
+        
+        
+        <a href="/tags/purrr" style="font-size: 12px;">purrr</a>
+        
+        
+        <a href="/tags/python" style="font-size: 12px;">python</a>
+        
+        
+        <a href="/tags/r" style="font-size: 12px;">r</a>
+        
+        
+        <a href="/tags/read" style="font-size: 12px;">read</a>
+        
+        
+        <a href="/tags/readr" style="font-size: 12px;">readr</a>
+        
+        
+        <a href="/tags/reboot" style="font-size: 12px;">reboot</a>
+        
+        
+        <a href="/tags/reticulate" style="font-size: 12px;">reticulate</a>
+        
+        
+        <a href="/tags/retrospect" style="font-size: 12px;">retrospect</a>
+        
+        
+        <a href="/tags/rjava" style="font-size: 12px;">rjava</a>
+        
+        
+        <a href="/tags/rlang" style="font-size: 12px;">rlang</a>
+        
+        
+        <a href="/tags/rmd" style="font-size: 12px;">rmd</a>
+        
+        
+        <a href="/tags/rmouse" style="font-size: 12px;">rmouse</a>
+        
+        
+        <a href="/tags/rpubs" style="font-size: 12px;">rpubs</a>
+        
+        
+        <a href="/tags/rqna" style="font-size: 12px;">rqna</a>
+        
+        
+        <a href="/tags/rstudio" style="font-size: 12px;">rstudio</a>
+        
+        
+        <a href="/tags/rtips" style="font-size: 12px;">rtips</a>
+        
+        
+        <a href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98" style="font-size: 12px;">r로나만의</a>
+        
+        
+        <a href="/tags/sendgridr" style="font-size: 12px;">sendgridr</a>
+        
+        
+        <a href="/tags/server" style="font-size: 12px;">server</a>
+        
+        
+        <a href="/tags/setting" style="font-size: 12px;">setting</a>
+        
+        
+        <a href="/tags/str" style="font-size: 12px;">str</a>
+        
+        
+        <a href="/tags/study" style="font-size: 12px;">study</a>
+        
+        
+        <a href="/tags/suggest" style="font-size: 12px;">suggest</a>
+        
+        
+        <a href="/tags/swarm" style="font-size: 12px;">swarm</a>
+        
+        
+        <a href="/tags/tbl" style="font-size: 12px;">tbl</a>
+        
+        
+        <a href="/tags/temp" style="font-size: 12px;">temp</a>
+        
+        
+        <a href="/tags/tempdir" style="font-size: 12px;">tempdir</a>
+        
+        
+        <a href="/tags/term" style="font-size: 12px;">term</a>
+        
+        
+        <a href="/tags/text" style="font-size: 12px;">text</a>
+        
+        
+        <a href="/tags/tibble" style="font-size: 12px;">tibble</a>
+        
+        
+        <a href="/tags/tidytext" style="font-size: 12px;">tidytext</a>
+        
+        
+        <a href="/tags/tqk" style="font-size: 12px;">tqk</a>
+        
+        
+        <a href="/tags/ubci" style="font-size: 12px;">ubci</a>
+        
+        
+        <a href="/tags/union" style="font-size: 12px;">union</a>
+        
+        
+        <a href="/tags/usehelp" style="font-size: 12px;">usehelp</a>
+        
+        
+        <a href="/tags/web" style="font-size: 12px;">web</a>
+        
+        
+        <a href="/tags/windows" style="font-size: 12px;">windows</a>
+        
+        
+        <a href="/tags/xaringan" style="font-size: 12px;">xaringan</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-47822682-14', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

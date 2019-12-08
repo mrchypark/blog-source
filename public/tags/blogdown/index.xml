@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogdown on Mrchypark</title>
+    <link>/tags/blogdown/</link>
+    <description>Recent content in blogdown on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[블로그] Rstudio &#43; github &#43; blogdown = 개인블로그 완성!</title>
+      <link>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
+      <description>세줄요약 R로 보고 문서를 만드는 rmd로 블로그를 만들 수 있다. md 기반의 정적 사이트 생성기가 많지만, R 패키지로 제공되는 blogdown이 좋더라. 전에 소</description>
+    </item>
+    
+    <item>
+      <title>blogdown으로 블로그 이사하기</title>
+      <link>/2018/03/06/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/06/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</guid>
+      <description>탈도 많았던 blog의 engine 이전을 완료했습니다. 사용하는 테마가 바뀌긴했지만, 그래도 지금 테마가 어느 정도 만족스러워 결정하게 되었습니다. 원래 jekyll</description>
+    </item>
+    
+  </channel>
+</rss>

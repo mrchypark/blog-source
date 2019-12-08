@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Mrchypark</title>
+    <link>/about/</link>
+    <description>Recent content in Abouts on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    
+	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>/about/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/about/</guid>
+      <description>English Ver. R과 docker를 사랑하는 데이터 관련 종사자입니다. Text에 관련된 연구에 관심이 많습니다. 최근에는 go와 vue를 공부하려고 결심만 하고 있습니</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/about_en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/about_en/</guid>
+      <description>한글 I&#39;m a big fan of R &amp;amp; docker working on data-related tasks. I&#39;m interested in research about text. I have only recently decided to study go language and vue.js. I am more interested in people being able to handle data more easily and eventually to facilitate data-based communication. For most of my accounts, contacts and profiles, please see the links on the left sidebar. activity I crated and</description>
+    </item>
+    
+  </channel>
+</rss>

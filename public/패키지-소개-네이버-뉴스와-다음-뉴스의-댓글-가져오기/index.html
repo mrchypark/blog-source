@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기 &middot; Mrchypark</title>
+    <meta name="generator" content="Hugo 0.60.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="mrchypark">
+    
+      <meta name="description" content="log for you &amp; me | R, Docker, Text analysis etc">
+    
+    
+    <link rel="canonical" href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    
+    <link rel="stylesheet" href="/css/my.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기" />
+<meta property="og:description" content="한줄요약DNH4가 드디어(!) 댓글 수집을 지원합니다.처음 naverNewsParser를 습작처럼 시작하고, N2H4 패키지로 이전하면서 여러 경험을 했습니다.naverNewsParser는 기가막히게도 책에 실린 모양이더군요.고학력자들에게 석사 논문 낭독이 거대한 괴롭힘이듯 naverNewsParser가 약간 저에게 그런 역할을 해주는 것 같습니다.(물론 사용해 주시는 모든 분들 감사드립니다.)
+이렇게 저렇게 패키지를 뭐라도 만들어 보고, 그 이후로도 많은 일들이 있었습니다.N2H4 패키지는 저에게 많은 생각을 하게 만들어주었죠.
+조금 익숙해지고 난 이후에는 다음 뉴스를 대상으로 하는 비슷한 패키지를 만들어야 겠다는 생각을 했습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" />
+<meta property="article:published_time" content="2018-05-14T01:52:55+09:00" />
+<meta property="article:modified_time" content="2018-05-14T01:52:55+09:00" />
+
+    
+    <meta itemprop="name" content="[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기">
+<meta itemprop="description" content="한줄요약DNH4가 드디어(!) 댓글 수집을 지원합니다.처음 naverNewsParser를 습작처럼 시작하고, N2H4 패키지로 이전하면서 여러 경험을 했습니다.naverNewsParser는 기가막히게도 책에 실린 모양이더군요.고학력자들에게 석사 논문 낭독이 거대한 괴롭힘이듯 naverNewsParser가 약간 저에게 그런 역할을 해주는 것 같습니다.(물론 사용해 주시는 모든 분들 감사드립니다.)
+이렇게 저렇게 패키지를 뭐라도 만들어 보고, 그 이후로도 많은 일들이 있었습니다.N2H4 패키지는 저에게 많은 생각을 하게 만들어주었죠.
+조금 익숙해지고 난 이후에는 다음 뉴스를 대상으로 하는 비슷한 패키지를 만들어야 겠다는 생각을 했습니다.">
+<meta itemprop="datePublished" content="2018-05-14T01:52:55&#43;09:00" />
+<meta itemprop="dateModified" content="2018-05-14T01:52:55&#43;09:00" />
+<meta itemprop="wordCount" content="2668">
+
+
+
+<meta itemprop="keywords" content="N2H4,DNH4,comment,forkonlp," />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기"/>
+<meta name="twitter:description" content="한줄요약DNH4가 드디어(!) 댓글 수집을 지원합니다.처음 naverNewsParser를 습작처럼 시작하고, N2H4 패키지로 이전하면서 여러 경험을 했습니다.naverNewsParser는 기가막히게도 책에 실린 모양이더군요.고학력자들에게 석사 논문 낭독이 거대한 괴롭힘이듯 naverNewsParser가 약간 저에게 그런 역할을 해주는 것 같습니다.(물론 사용해 주시는 모든 분들 감사드립니다.)
+이렇게 저렇게 패키지를 뭐라도 만들어 보고, 그 이후로도 많은 일들이 있었습니다.N2H4 패키지는 저에게 많은 생각을 하게 만들어주었죠.
+조금 익숙해지고 난 이후에는 다음 뉴스를 대상으로 하는 비슷한 패키지를 만들어야 겠다는 생각을 했습니다."/>
+<meta name="twitter:site" content="@mrchypark_"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+          
+          <i class="logo" style="background-image: url('/css/images/logo.png')"></i>
+          
+          <span class="site-title">Mrchypark</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="/post/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="/post/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://www.gravatar.com/avatar/4fca794da0cf08804f99048d3c8b39c1?s=100&d=identicon"/>
+      
+      <h2 id="name">mrchypark</h2>
+      <h3 id="title">Tool maker with R - Docker lover</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Seoul, Korea</span>
+      
+          <a id="follow" href="https://github.com/mrchypark">
+              
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        0
+        <span></span>
+      </div>
+      <div class="article-info-block">
+        
+          95
+        
+        <span>
+            
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/mrchypark" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//instagram.com/mrchypark" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//linkedin.com/in/chanyubpark" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//facebook.com/mrchypark" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></td>
+
+
+
+<td><a href="//twitter.com/mrchypark_" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    <a href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/">
+    <h1 class="article-title" itemprop="name">
+        [패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-05-14 01:52:55 &#43;0900 KST" itemprop="datePublished">2018-05-14</time>
+            &middot;
+            2668
+            
+            &middot;
+            13
+            
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="/categories/r">R</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="/tags/n2h4">N2H4</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/dnh4">DNH4</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/comment">comment</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/forkonlp">forkonlp</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/39969654-0708de84-571a-11e8-9bc6-71ce927d52e0.jpg"></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://forkonlp.github.io/DNH4/">DNH4</a>가 드디어(!) 댓글 수집을 지원합니다.</li>
+</ol>
+<p>처음 <a href="https://github.com/mrchypark/naverNewsParser">naverNewsParser</a>를 습작처럼 시작하고, <a href="https://forkonlp.github.io/N2H4/">N2H4</a> 패키지로 이전하면서 여러 경험을 했습니다.
+<a href="https://github.com/mrchypark/naverNewsParser">naverNewsParser</a>는 기가막히게도 책에 실린 모양이더군요.
+고학력자들에게 석사 논문 낭독이 거대한 괴롭힘이듯 <a href="https://github.com/mrchypark/naverNewsParser">naverNewsParser</a>가 약간 저에게 그런 역할을 해주는 것 같습니다.
+(물론 사용해 주시는 모든 분들 감사드립니다.)</p>
+<p>이렇게 저렇게 패키지를 뭐라도 만들어 보고, 그 이후로도 많은 일들이 있었습니다.
+<a href="https://forkonlp.github.io/N2H4/">N2H4</a> 패키지는 저에게 많은 생각을 하게 만들어주었죠.</p>
+<p>조금 익숙해지고 난 이후에는 다음 뉴스를 대상으로 하는 비슷한 패키지를 만들어야 겠다는 생각을 했습니다.
+그래서 몇 시간만에 <a href="https://forkonlp.github.io/N2H4/">N2H4</a> 패키지의 골격을 가져와 모양만 갖춘게 <a href="https://forkonlp.github.io/DNH4/">DNH4</a> 패키지입니다.
+날짜를 보니 2016년 11월이네요.
+이것저것 되게 하려고 노력하다가 의외의 장애물이 댓글 수집이었습니다.
+방법을 몰라 방치한지 2년 가까이 된 패키지를 포스트에 올리는 이유는 드디어(!) 댓글 수집을 지원합니다.</p>
+</div>
+<div id="다음-뉴스-수집-패키지-dnh4" class="section level3">
+<h3>다음 뉴스 수집 패키지 DNH4</h3>
+<p>DNH4 패키지는 N2H4처럼 github에서 호스팅하고 있습니다.
+아래의 코드로 설치 &amp; 로드하여 사용할 수 있습니다.</p>
+<pre class="r"><code># remotes::install_github(&quot;forkonlp/DNH4&quot;)
+library(DNH4)</code></pre>
+<p>N2H4 패키지와 함수명이 같기 때문에 <code>library()</code>는 조심해 주셔야 합니다.
+DNH4 패키지는 6개의 함수를 우선 지원합니다.<a href="https://forkonlp.github.io/DNH4/reference/index.html">참조</a></p>
+<p><code>getContent()</code> 함수는 역시 기사 url을 입력으로 받아 관련 내용을 크롤링해 옵니다.
+<code>getMainCategory()</code> 함수는 기사의 대분류 항목을 가져옵니다.
+<code>getSubCategory()</code> 함수는 기사의 소분류 항목을 가져옵니다.
+다음 뉴스는 카테고리가 대분류와 소분류만 있습니다.
+<code>getUrlListByCategory()</code> 함수는 뉴스 리스트 페이지에서 기사의 제목과 링크를 가져옵니다.
+<code>getMaxPageNum()</code> 함수는 뉴스 리스트 페이지의 마지막 페이지 번호를 가져옵니다.
+<code>getComment()</code> 함수는 기사 url을 입력으로 받아 그 기사의 댓글 정보를 가져옵니다.</p>
+<p>말씀드린 것처럼, 다음 뉴스의 댓글 수집은 여러 권한 단계를 거쳐 제 짧은 실력으로는 그 동안 가져오지 못했습니다.
+물론 셀레늄을 사용하면 이런 고민을 하지 않습니다만, 역시 속도 문제를 무시할 수 없는 것 같습니다.
+그럼 이제 <code>getComment()</code> 함수를 사용해 보겠습니다.</p>
+</div>
+<div id="댓글-수집-함수" class="section level3">
+<h3>댓글 수집 함수</h3>
+<p>우선 댓글이 많은 뉴스를 하나 골라봅시다.
+제가 작성하는 시점으로 댓글이 3,000개가 넘는 <a href="http://v.media.daum.net/v/20180513202105651">기사</a>로 해보겠습니다.</p>
+<pre class="r"><code>comments &lt;- DNH4::getComment(&quot;http://v.media.daum.net/v/20180513202105651&quot;)
+comments</code></pre>
+<pre><code>##           id   postId forumId parentId    type status flags
+## 1  250018474 31383325     -99        0 COMMENT      S   256
+## 2  250018687 31383325     -99        0 COMMENT      S   256
+## 3  250019139 31383325     -99        0 COMMENT      S     0
+## 4  250023503 31383325     -99        0 COMMENT      S   256
+## 5  250021353 31383325     -99        0 COMMENT      S   256
+## 6  250020406 31383325     -99        0 COMMENT      S   256
+## 7  250022883 31383325     -99        0 COMMENT      S   256
+## 8  250019409 31383325     -99        0 COMMENT      S   256
+## 9  250019687 31383325     -99        0 COMMENT      S     0
+## 10 250022914 31383325     -99        0 COMMENT      S   256
+##                                                                                                                                                                                                                                                                                                                                                              content
+## 1                                                                                                                                                                                                                                                                                                                                                          구소시켜.
+## 2                                                                                                                                                                                                                                                                                                                너무 어이가 없어서 대한항공 뉴스는웃음만 나옴ㅋㅋㅋ
+## 3                                                                                                                                                                                                                                                                                                                             범죄 사실이 많은데\n\n구속 수사 안하냐
+## 4  검은머리 외국인\n즉 미국교포들이 65세 넘으면 이중국적으로 한국국적 재취득해서 한국 들어와서 의료보험 타먹는다\n평생 미국에 세금 내놓고 미국에서 고령연금 타먹으면서\n65세넘으면 한국국적까지 재취득해서 이중국적이 되고\n한국에서 의료보험으로 치료받으면서 한국에서 여생마감한다. \n\n건강보험 가입자격을 젊었을때 10년이상 납부한 사람으로 자격조건 올려야한다.
+## 5                                                                                                                                                                                                                                                                                                                                      대체~관세청은 모하는곳입니까?
+## 6                                                                                                                                                                                                                                                                                                              조선시대 왕보다 낫네요. 전세계 진상품은 다드셨구만요.
+## 7                                                                                                                                아 나는 가방속  바나나 하나 잊고있다가 걸려서 8만원 벌금냈는데 ㅠ\n진짜 반입하려고 한게 아니라 비행기에서 먹으려다 깜박한거라고 사정했는데도 가차없이 벌금 때리던데\n정말 세상이 차별가득하네요\n물론 제가 잘했다는건 아니지만요 ㅜ
+## 8                                                                                                                                                                                                                                                                                        저못된.년을 무엇으로 다스리올까? 인간이 아닌 것이 태어나 인간을 괴롭혔네...
+## 9                                                                                                                                                                                                                                                                                                         참 다채롭다 다채로워 회사 직원이 종도 아니고 못되 처먹었네
+## 10                                                                                                                                                                                                                                                               한진항공은 무슨 사극찍냐?\n기가 막히고 코도막히고 입도막히네.\n&#39;특산물은 니가 갖다 쳐먹어라 아뢰오&#39;
+##                   createdAt                updatedAt childCount likeCount
+## 1  2018-05-13T20:26:16+0900 2018-05-13T20:26:16+0900         27      3819
+## 2  2018-05-13T20:26:58+0900 2018-05-13T20:26:58+0900         11      3773
+## 3  2018-05-13T20:28:30+0900 2018-05-13T20:28:30+0900         12      2199
+## 4  2018-05-13T20:41:52+0900 2018-05-13T20:41:52+0900          7       815
+## 5  2018-05-13T20:35:26+0900 2018-05-13T20:35:26+0900          7       473
+## 6  2018-05-13T20:32:28+0900 2018-05-13T20:32:28+0900          1       387
+## 7  2018-05-13T20:40:00+0900 2018-05-13T20:40:00+0900          2       272
+## 8  2018-05-13T20:29:24+0900 2018-05-13T20:29:24+0900          1       265
+## 9  2018-05-13T20:30:22+0900 2018-05-13T20:30:22+0900          0       248
+## 10 2018-05-13T20:40:07+0900 2018-05-13T20:40:07+0900          0       206
+##    dislikeCount recommendCount    user_id user_status user_type user_flags
+## 1            32           3787 -103089433           S      USER          0
+## 2            37           3736 -543327985           S      USER          0
+## 3            12           2187   -4988934           S      USER          0
+## 4            10            805   -1225974           S      USER          0
+## 5             4            469  -45088919           S      USER          0
+## 6             3            384     220261           S      USER          0
+## 7             0            272   -9007676           S      USER          0
+## 8             2            263    7502302           S      USER          0
+## 9             3            245 -113149636           S      USER          0
+## 10            2            204  -12952019           S      USER          0
+##    user_username                          user_roles user_providerId
+## 1     DAUM:6YygN ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 2     DAUM:ALKqB                 ROLE_USER,ROLE_DAUM            DAUM
+## 3      DAUM:kVQG ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 4      DAUM:58VM ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 5     DAUM:33bGD ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 6     DAUM:4Zdwy ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 7      DAUM:BNj6                 ROLE_USER,ROLE_DAUM            DAUM
+## 8     DAUM:BYApa ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+## 9     DAUM:7ELo8                 ROLE_USER,ROLE_DAUM            DAUM
+## 10     DAUM:Slpx ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
+##    user_providerUserId               user_displayName user_commentCount
+## 1                6YygN 대한민국모든적폐의시작은친일파             23145
+## 2                ALKqB      이재명은 전투형이명박이다             13839
+## 3                 kVQG                        The Fan             22357
+## 4                 58VM                         유피유              1762
+## 5                33bGD                         박상훈              3907
+## 6                4Zdwy                   맑고투명하게                76
+## 7                 BNj6                         liyliy                 4
+## 8                BYApa                       엘도라도              2982
+## 9                7ELo8                       zktkshqk              9299
+## 10                Slpx                          David               210</code></pre>
+<p><code>getComment()</code> 함수는 몇 가지 옵션이 있습니다.
+<code>limit</code>은 가져오는 댓글의 갯수로 기본 10개로 설정되어 있습니다.
+전체 댓글수를 가져오는 함수가 필요하다는 것을 확인하는 시점이네요.
+<code>parentId</code>는 대댓글등을 가져올 때 사용하는 옵션으로, 기본값 0에서 바꾸실 일이 거의 없을 겁니다.
+<code>sort</code>는 역시 추천순와 최신순 두 가지 옵션을 제공합니다.
+<code>type</code>은 결과값을 주는 형태를 의미합니다.
+옵션은 <code>df</code>와 <code>list</code>가 있으며 원래 제공하는 자료형이 <code>json</code>이기 때문에 <code>list</code>가 익숙하진 분들은 <code>list</code> 자료형을 권장합니다.
+기본값은 <code>df</code> 입니다.
+댓글의 상황에 따라 <code>Warning messages</code>가 나오는데 무시하셔도 좋습니다.
+내용상 신경이 쓰이시면 <code>list</code>를 직접 다루어 보시는 것도 좋은 공부가 될 것입니다.</p>
+</div>
+<div id="네이버-뉴스-댓글-가져오기" class="section level3">
+<h3>네이버 뉴스 댓글 가져오기</h3>
+<p>네이버 뉴스 수집 패키지 역시 같은 함수를 가지고 있습니다.
+우선 아래 코드로 패키지를 설치하고 로드합니다.</p>
+<pre class="r"><code># remotes::install_github(&quot;forkonlp/N2H4&quot;)
+library(N2H4)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;N2H4&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:DNH4&#39;:
+## 
+##     getAllComment, getComment, getContent, getMainCategory,
+##     getMaxPageNum, getSubCategory, getUrlListByCategory</code></pre>
+<p>대상이 될만한 기사를 선정하려고 하다보니, 기왕 같은 뉴스면 좋겠다 싶어 가져왔습니다.</p>
+<pre class="r"><code>comments &lt;- N2H4::getComment(&quot;http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=sec&amp;sid1=101&amp;oid=214&amp;aid=0000833933&quot;)</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c()`</code></pre>
+<pre class="r"><code>comments</code></pre>
+<pre><code>## # A tibble: 10 x 77
+##    ticket objectId categoryId templateId commentNo parentCommentNo replyLevel
+##    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;          &lt;int&gt;           &lt;int&gt;      &lt;int&gt;
+##  1 news   news214~ *          default_e~    1.34e9      1343597525          1
+##  2 news   news214~ *          view_econ~    1.34e9      1343595725          1
+##  3 news   news214~ *          default_e~    1.34e9      1343589535          1
+##  4 news   news214~ *          view_econ~    1.34e9      1343536845          1
+##  5 news   news214~ *          view_econ~    1.34e9      1343407745          1
+##  6 news   news214~ *          view_econ~    1.34e9      1343332545          1
+##  7 news   news214~ *          view_econ~    1.34e9      1343313585          1
+##  8 news   news214~ *          view_econ~    1.34e9      1343200155          1
+##  9 news   news214~ *          view_econ~    1.34e9      1343185745          1
+## 10 news   news214~ *          view_econ~    1.34e9      1343146585          1
+## # ... with 70 more variables: replyCount &lt;int&gt;, replyAllCount &lt;int&gt;,
+## #   replyPreviewNo &lt;lgl&gt;, replyList &lt;lgl&gt;, imageCount &lt;int&gt;, imageList &lt;lgl&gt;,
+## #   imagePathList &lt;lgl&gt;, imageWidthList &lt;lgl&gt;, imageHeightList &lt;lgl&gt;,
+## #   commentType &lt;chr&gt;, stickerId &lt;lgl&gt;, sticker &lt;lgl&gt;, sortValue &lt;dbl&gt;,
+## #   contents &lt;chr&gt;, userIdNo &lt;chr&gt;, exposedUserIp &lt;lgl&gt;, lang &lt;chr&gt;,
+## #   country &lt;chr&gt;, idType &lt;chr&gt;, idProvider &lt;chr&gt;, userName &lt;chr&gt;,
+## #   userProfileImage &lt;chr&gt;, profileType &lt;chr&gt;, modTime &lt;chr&gt;, modTimeGmt &lt;chr&gt;,
+## #   regTime &lt;chr&gt;, regTimeGmt &lt;chr&gt;, sympathyCount &lt;int&gt;, antipathyCount &lt;int&gt;,
+## #   userBlind &lt;lgl&gt;, hideReplyButton &lt;lgl&gt;, status &lt;int&gt;, mine &lt;lgl&gt;,
+## #   best &lt;lgl&gt;, mentions &lt;lgl&gt;, toUser &lt;lgl&gt;, userStatus &lt;int&gt;,
+## #   categoryImage &lt;lgl&gt;, open &lt;lgl&gt;, levelCode &lt;lgl&gt;, grades &lt;lgl&gt;,
+## #   sympathy &lt;lgl&gt;, antipathy &lt;lgl&gt;, metaInfo &lt;lgl&gt;, extension &lt;lgl&gt;,
+## #   audioInfoList &lt;lgl&gt;, translation &lt;lgl&gt;, report &lt;lgl&gt;,
+## #   middleBlindReport &lt;lgl&gt;, spamInfo &lt;lgl&gt;, userHomepageUrl &lt;lgl&gt;,
+## #   defamation &lt;lgl&gt;, hiddenByCleanbot &lt;lgl&gt;, visible &lt;lgl&gt;, serviceId &lt;lgl&gt;,
+## #   idNo &lt;chr&gt;, manager &lt;lgl&gt;, deleted &lt;lgl&gt;, blindReport &lt;lgl&gt;,
+## #   anonymous &lt;lgl&gt;, expose &lt;lgl&gt;, virtual &lt;lgl&gt;, secret &lt;lgl&gt;, blind &lt;lgl&gt;,
+## #   profileUserId &lt;lgl&gt;, containText &lt;lgl&gt;, exposeByCountry &lt;lgl&gt;,
+## #   maskedUserId &lt;chr&gt;, maskedUserName &lt;chr&gt;, validateBanWords &lt;lgl&gt;</code></pre>
+<p><del>네이버 뉴스의 댓글은 훨씬 풍부한 정보를 제공하여(구조가 복잡해서…) <code>df</code>를 기능상 제공하지 않습니다.
+대신 댓글만 보는 부분을 안내해 드리고 있습니다.</del></p>
+<pre><code>comments$result$commentList[[1]]</code></pre>
+<p>그냥 위 모양으로라도 제공하는게 맞는가 싶어 급하게 업데이트 했습니다.
+N2H4 패키지의 <code>getComment()</code> 함수도 <code>type</code>을 지원하며, 기본값은 <code>df</code>이고 모든 데이터를 확인하기 위해서 <code>list</code>를 선택하시면 좋을 것 같습니다.</p>
+<pre class="r"><code>N2H4::getComment(&quot;http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=sec&amp;sid1=101&amp;oid=214&amp;aid=0000833933&quot;,
+                 type = &quot;list&quot;)</code></pre>
+<pre><code>##   success code                           message lang country
+## 1    TRUE 1000 요청을 성공적으로 처리하였습니다.   ko      KR
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         result.commentList
+## 1 news, news, news, news, news, news, news, news, news, news, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, news214,0000833933, *, *, *, *, *, *, *, *, *, *, default_economy, view_economy, default_economy, view_economy, view_economy, view_economy, view_economy, view_economy, view_economy, view_economy, 1343597525, 1343595725, 1343589535, 1343536845, 1343407745, 1343332545, 1343313585, 1343200155, 1343185745, 1343146585, 1343597525, 1343595725, 1343589535, 1343536845, 1343407745, 1343332545, 1343313585, 1343200155, 1343185745, 1343146585, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, txt, txt, txt, txt, txt, txt, txt, txt, txt, txt, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1526301193506, 1526301073422, 1526300678769, 1526297019573, 1526288199784, 1526283570906, 1526282249099, 1526276078855, 1526275163246, 1526272157197, 정말 가난한 사람들이구나 마음이~~~~, 주민들 다바보냐 ㆍ대표 감사 다한통속이고 &lt;U+11A2&gt;비리밝혀야지, 헐~~~, 그냥 옛날 귀족과 뭐가 다름?\n아 아니다. 귀족이 아니라 왕이나 다름 없다고 봐야 겠네.\n내가 뭐 잘못 말했나?, 와........대단하다 대단해...., 갑질로 시작해서 여기까지 올줄은 몰랐지? 전문경영인 세우고 오너일가 싹 물러나라, 식탁도 글로벌하네..그럼 감방도 글로벌하게 세계3대 감옥으로가자..국내감방에서도 갑질할거니, 그냥 다없애주세요!얼마나 무고한 사람들이 힘들었을까\n국외로 추방했으면 합니다!!, 공물 갖다 바치는거냐. 왕조네 왕조., 법개정해서 걍 평생 옥살이 시켜라 저런건 나와도 사회도움 절대 안된다, , , , , , , , , , , NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ko, ko, ko, ko, ko, ko, ko, ko, ko, ko, IT, KR, IT, KR, KR, KR, KR, KR, KR, KR, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, elen****, unb1****, elen****, pcw1****, iluv****, ywj2****, 77gu****, tntj****, c32h****, betl****, , , , , , , , , , , naver, naver, naver, naver, naver, naver, naver, naver, naver, naver, 2018-05-14T21:33:13+0900, 2018-05-14T21:31:13+0900, 2018-05-14T21:24:38+0900, 2018-05-14T20:23:39+0900, 2018-05-14T17:56:39+0900, 2018-05-14T16:39:30+0900, 2018-05-14T16:17:29+0900, 2018-05-14T14:34:38+0900, 2018-05-14T14:19:23+0900, 2018-05-14T13:29:17+0900, 2018-05-14T12:33:13+0000, 2018-05-14T12:31:13+0000, 2018-05-14T12:24:38+0000, 2018-05-14T11:23:39+0000, 2018-05-14T08:56:39+0000, 2018-05-14T07:39:30+0000, 2018-05-14T07:17:29+0000, 2018-05-14T05:34:38+0000, 2018-05-14T05:19:23+0000, 2018-05-14T04:29:17+0000, 2018-05-14T21:33:13+0900, 2018-05-14T21:31:13+0900, 2018-05-14T21:24:38+0900, 2018-05-14T20:23:39+0900, 2018-05-14T17:56:39+0900, 2018-05-14T16:39:30+0900, 2018-05-14T16:17:29+0900, 2018-05-14T14:34:38+0900, 2018-05-14T14:19:23+0900, 2018-05-14T13:29:17+0900, 2018-05-14T12:33:13+0000, 2018-05-14T12:31:13+0000, 2018-05-14T12:24:38+0000, 2018-05-14T11:23:39+0000, 2018-05-14T08:56:39+0000, 2018-05-14T07:39:30+0000, 2018-05-14T07:17:29+0000, 2018-05-14T05:34:38+0000, 2018-05-14T05:19:23+0000, 2018-05-14T04:29:17+0000, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, , , , , , , , , , , FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, elen****, unb1****, elen****, pcw1****, iluv****, ywj2****, 77gu****, tntj****, c32h****, betl****, el****, un****, el****, pc****, il****, yw****, 77****, tn****, c3****, be****, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE
+##   result.pageModel.page result.pageModel.pageSize result.pageModel.indexSize
+## 1                     1                        10                         10
+##   result.pageModel.startRow result.pageModel.endRow result.pageModel.totalRows
+## 1                         1                      10                       2668
+##   result.pageModel.startIndex result.pageModel.totalPages
+## 1                           0                         267
+##   result.pageModel.firstPage result.pageModel.prevPage
+## 1                          1                         0
+##   result.pageModel.nextPage result.pageModel.lastPage result.pageModel.current
+## 1                         2                        10                       NA
+##   result.pageModel.threshold result.pageModel.moveToLastPage
+## 1                         NA                           FALSE
+##   result.pageModel.moveToComment result.pageModel.moveToLastPrev
+## 1                          FALSE                           FALSE
+##   result.exposureConfig.reason result.exposureConfig.status
+## 1                           NA                   COMMENT_ON
+##   result.count.comment result.count.reply result.count.exposeCount
+## 1                 2668                285                     2700
+##   result.count.delCommentByUser result.count.delCommentByMon
+## 1                           955                           11
+##   result.count.blindCommentByUser result.count.blindReplyByUser
+## 1                               0                             0
+##   result.count.total result.listStatus result.sort result.config.useSnsLogin
+## 1               2953           current         NEW                      TRUE
+##   result.config.lineFeedOn result.config.useBest result.config.useVote
+## 1                    FALSE                 FALSE                  TRUE
+##   result.config.useVoteSelf result.config.useVoteGoodOnly
+## 1                     FALSE                         FALSE
+##   result.config.useReport result.config.useCommonReport
+## 1                    TRUE                         FALSE
+##   result.config.reportAuthority result.config.useDeleteOnManagerReport
+## 1                           ALL                                  FALSE
+##   result.config.useReportSecret result.config.useSort result.config.sortTypes
+## 1                         FALSE                  TRUE                     NEW
+##   result.config.defaultSort result.config.useByteLength result.config.useReply
+## 1                       NEW                       FALSE                   TRUE
+##   result.config.useReplyOnReply result.config.pageAfterReply
+## 1                         FALSE                 TO_LAST_PAGE
+##   result.config.maxReplyWriteBoxCount result.config.useAutoRefresh
+## 1                                   0                        FALSE
+##   result.config.useMention result.config.min result.config.max
+## 1                    FALSE                 1               300
+##   result.config.useSticker result.config.stickerOnly
+## 1                    FALSE                     FALSE
+##   result.config.stickerSupportedCategories result.config.stickerDefaultCategory
+## 1                                       NA                                   NA
+##   result.config.stickerCategory result.config.stickerContentsUrl
+## 1                            NA                               NA
+##   result.config.stickerKeyUrl result.config.stickerTabUrl
+## 1                          NA                          NA
+##   result.config.stickerType result.config.stickerText
+## 1                        NA                     FALSE
+##   result.config.stickerMarketUrl result.config.stickerMobileResize
+## 1                             NA                             FALSE
+##   result.config.useProfile result.config.dynamicProfile
+## 1                    FALSE                        FALSE
+##   result.config.profileImageAreas result.config.profileEmptyImage
+## 1                            LIST                              NA
+##   result.config.displayMaskedUserId result.config.useManager
+## 1                             FALSE                    FALSE
+##   result.config.managerDelete result.config.managerBlock
+## 1                       FALSE                      FALSE
+##   result.config.managerNotice result.config.contentsManagerIcon
+## 1                       FALSE                             FALSE
+##   result.config.secretComment result.config.exposureConfig
+## 1                       FALSE                        FALSE
+##   result.config.deleteAllAfterBlock result.config.useFold
+## 1                             FALSE                  TRUE
+##   result.config.replyPreviewCount result.config.maxImageUploadCount
+## 1                               0                                 0
+##   result.config.maxImageUploadFileSize result.config.imageAutoRotate
+## 1                                    0                         FALSE
+##   result.config.autoRefreshTime result.config.autoRefreshDefaultOff
+## 1                             0                               FALSE
+##   result.config.autoRefreshChat result.config.maxChatFPS
+## 1                         FALSE                        0
+##   result.config.commentModify result.config.useCommentModify
+## 1                       FALSE                          FALSE
+##   result.config.useViewAll result.config.useSnsComment
+## 1                     TRUE                        TRUE
+##   result.config.snsCommentDefaultOn result.config.useUserLevel
+## 1                              TRUE                      FALSE
+##   result.config.useUserBlind result.config.maxUserBlindCount
+## 1                      FALSE                               0
+##   result.config.anyUseImageExpose result.config.useImageComment
+## 1                            TRUE                         FALSE
+##   result.config.useUrlLink result.config.useCommentListIncludeDelete
+## 1                    FALSE                                     FALSE
+##   result.config.useStats result.config.statsMinCount
+## 1                   TRUE                         100
+##   result.config.useUserEnvStats result.config.countryStatsMinCount
+## 1                          TRUE                                  1
+##   result.config.useConcurrentStats result.config.useVoteStats
+## 1                            FALSE                      FALSE
+##   result.config.useGpopCache result.config.useEnterSubmit
+## 1                      FALSE                        FALSE
+##   result.config.useListReverse result.config.useTranslation
+## 1                        FALSE                        FALSE
+##   result.config.useDeletedList result.config.useAudio
+## 1                         TRUE                  FALSE
+##   result.config.combinedDeletedList result.config.displayDeletedList
+## 1                              TRUE                             TRUE
+##   result.config.applyChangedNotice result.config.useUserCommentUi
+## 1                            FALSE                           TRUE
+##   result.config.userSortTypes result.config.useMentionLegacyFormat
+## 1   FAVORITE, NEW, OLD, REPLY                                FALSE
+##   result.config.useMentionWrite result.config.mentionMaxCount
+## 1                         FALSE                             0
+##   result.config.useSecret result.config.useIdPenaltyLayer
+## 1                   FALSE                            TRUE
+##   result.config.useRestrictWriteBySns result.config.photoInfraUploadDomain
+## 1                                TRUE                                   NA
+##   result.config.photoInfraSelectDomainHttp
+## 1                      g-cbox.dv.phinf.net
+##   result.config.photoInfraSelectDomainHttps result.config.pcTempThumbnailType
+## 1                        g-cbox.pstatic.net                           ff80_80
+##   result.config.mobileTempThumbnailType result.config.realnameVerificationBlock
+## 1                               ff50_50                                   FALSE
+##   result.config.realnameVerificationMessage result.config.useBlindByReport
+## 1                                        NA                           TRUE
+##   result.config.keepTextareaOnRestriction
+## 1                                      NA
+##   result.config.displayIndividualBlindOnly result.config.hashtagMaxLength
+## 1                                    FALSE                             20
+##   result.config.useDualPagination result.config.blindReportReasonList
+## 1                           FALSE                                  NA
+##   result.config.useCleanbot result.config.cleanbotEnforced result.bestList
+## 1                      TRUE                          FALSE            NULL
+##   result.graph.gender.male result.graph.gender.female
+## 1                       63                         37
+##                                                                                                                                                         result.graph.old
+## 1 10, 20, 30, 40, 50, 60, 1, 6, 29, 42, 18, 4, exact, exact, exact, exact, exact, over, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE
+##   result.graph.client result.graph.country result.graph.empty
+## 1                  NA                   NA              FALSE
+##                       date
+## 1 2019-12-05T17:11:00+0000</code></pre>
+<p>드디어 다음 댓글을 가져올 수 있게 된 만큼, 많은 분들이 <a href="https://forkonlp.github.io/DNH4/">DNH4</a> 패키지도 찾아주시리라 기대합니다.
+<a href="https://forkonlp.github.io/DNH4/">DNH4</a> 패키지는 <a href="https://forkonlp.github.io/">ForkonLP</a> 프로젝트의 일부입니다.</p>
+<p>언제나 그렇듯, 잘못된 내용이 있거나 문제가 생기면 언제든지 알려주세요. 감사합니다.</p>
+</div>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" data-id="3907285b203a96595190e2c8b6499ef1" class="article-share-link">
+        <i class="fa fa-share"></i>
+        
+    </a>
+    
+    <a href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/#disqus_thread" class="article-comment-link">
+        
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[Rtips] Windows에서 rJava 스트레스 없이 설치하기</div>
+    </a>
+    
+
+    
+    <a href="/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다</div>
+    </a>
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mrchypark" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/anounce">
+                    anounce
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/blog">
+                    blog
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/news">
+                    news
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/r">
+                    r
+                </a>
+                <span class="category-list-count">30</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ad">
+                    ad
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/adjusted">
+                    adjusted
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/announce">
+                    announce
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/api">
+                    api
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/automation">
+                    automation
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blog">
+                    blog
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blogdown">
+                    blogdown
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/boolean">
+                    boolean
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/comment">
+                    comment
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda">
+                    conda
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda4r">
+                    conda4r
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/correttor">
+                    correttor
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/crypto">
+                    crypto
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/csv">
+                    csv
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dbi">
+                    dbi
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/digit">
+                    digit
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/discuss">
+                    discuss
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dnh4">
+                    dnh4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dplyr">
+                    dplyr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/email">
+                    email
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/forkonlp">
+                    forkonlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/get">
+                    get
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/git">
+                    git
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github">
+                    github
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github-pages">
+                    github-pages
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/glimpse">
+                    glimpse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/gmail">
+                    gmail
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/go">
+                    go
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/haproxy">
+                    haproxy
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/html">
+                    html
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/httr">
+                    httr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/installr">
+                    installr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/java">
+                    java
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/josaplay">
+                    josaplay
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/json">
+                    json
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/keras">
+                    keras
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/konlp">
+                    konlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/kospacing">
+                    kospacing
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/load-balance">
+                    load-balance
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/logical">
+                    logical
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/map">
+                    map
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/materials">
+                    materials
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/minimal">
+                    minimal
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/mouse">
+                    mouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/multi-stage">
+                    multi-stage
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/n2h4">
+                    n2h4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/nosql">
+                    nosql
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/operator">
+                    operator
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/options">
+                    options
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/package">
+                    package
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/post">
+                    post
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/postgres">
+                    postgres
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/presidentspeech">
+                    presidentspeech
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/preview">
+                    preview
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/project">
+                    project
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/purrr">
+                    purrr
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/python">
+                    python
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r">
+                    r
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/read">
+                    read
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/readr">
+                    readr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reboot">
+                    reboot
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reticulate">
+                    reticulate
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/retrospect">
+                    retrospect
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rjava">
+                    rjava
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rlang">
+                    rlang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmd">
+                    rmd
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmouse">
+                    rmouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rpubs">
+                    rpubs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rqna">
+                    rqna
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rstudio">
+                    rstudio
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rtips">
+                    rtips
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98">
+                    r로나만의
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/sendgridr">
+                    sendgridr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/server">
+                    server
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/setting">
+                    setting
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/str">
+                    str
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/study">
+                    study
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/suggest">
+                    suggest
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/swarm">
+                    swarm
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tbl">
+                    tbl
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/temp">
+                    temp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tempdir">
+                    tempdir
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/term">
+                    term
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/text">
+                    text
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tibble">
+                    tibble
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tidytext">
+                    tidytext
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tqk">
+                    tqk
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ubci">
+                    ubci
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/union">
+                    union
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/usehelp">
+                    usehelp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/web">
+                    web
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/windows">
+                    windows
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/xaringan">
+                    xaringan
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="/tags/ad" style="font-size: 12px;">ad</a>
+        
+        
+        <a href="/tags/adjusted" style="font-size: 12px;">adjusted</a>
+        
+        
+        <a href="/tags/announce" style="font-size: 12px;">announce</a>
+        
+        
+        <a href="/tags/api" style="font-size: 12px;">api</a>
+        
+        
+        <a href="/tags/automation" style="font-size: 12px;">automation</a>
+        
+        
+        <a href="/tags/blog" style="font-size: 12px;">blog</a>
+        
+        
+        <a href="/tags/blogdown" style="font-size: 12px;">blogdown</a>
+        
+        
+        <a href="/tags/boolean" style="font-size: 12px;">boolean</a>
+        
+        
+        <a href="/tags/comment" style="font-size: 12px;">comment</a>
+        
+        
+        <a href="/tags/conda" style="font-size: 12px;">conda</a>
+        
+        
+        <a href="/tags/conda4r" style="font-size: 12px;">conda4r</a>
+        
+        
+        <a href="/tags/correttor" style="font-size: 12px;">correttor</a>
+        
+        
+        <a href="/tags/crypto" style="font-size: 12px;">crypto</a>
+        
+        
+        <a href="/tags/csv" style="font-size: 12px;">csv</a>
+        
+        
+        <a href="/tags/dbi" style="font-size: 12px;">dbi</a>
+        
+        
+        <a href="/tags/digit" style="font-size: 12px;">digit</a>
+        
+        
+        <a href="/tags/discuss" style="font-size: 12px;">discuss</a>
+        
+        
+        <a href="/tags/dnh4" style="font-size: 12px;">dnh4</a>
+        
+        
+        <a href="/tags/docker" style="font-size: 12px;">docker</a>
+        
+        
+        <a href="/tags/dplyr" style="font-size: 12px;">dplyr</a>
+        
+        
+        <a href="/tags/email" style="font-size: 12px;">email</a>
+        
+        
+        <a href="/tags/forkonlp" style="font-size: 12px;">forkonlp</a>
+        
+        
+        <a href="/tags/get" style="font-size: 12px;">get</a>
+        
+        
+        <a href="/tags/git" style="font-size: 12px;">git</a>
+        
+        
+        <a href="/tags/github" style="font-size: 12px;">github</a>
+        
+        
+        <a href="/tags/github-pages" style="font-size: 12px;">github-pages</a>
+        
+        
+        <a href="/tags/glimpse" style="font-size: 12px;">glimpse</a>
+        
+        
+        <a href="/tags/gmail" style="font-size: 12px;">gmail</a>
+        
+        
+        <a href="/tags/go" style="font-size: 12px;">go</a>
+        
+        
+        <a href="/tags/haproxy" style="font-size: 12px;">haproxy</a>
+        
+        
+        <a href="/tags/html" style="font-size: 12px;">html</a>
+        
+        
+        <a href="/tags/httr" style="font-size: 12px;">httr</a>
+        
+        
+        <a href="/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="/tags/installr" style="font-size: 12px;">installr</a>
+        
+        
+        <a href="/tags/java" style="font-size: 12px;">java</a>
+        
+        
+        <a href="/tags/josaplay" style="font-size: 12px;">josaplay</a>
+        
+        
+        <a href="/tags/json" style="font-size: 12px;">json</a>
+        
+        
+        <a href="/tags/keras" style="font-size: 12px;">keras</a>
+        
+        
+        <a href="/tags/konlp" style="font-size: 12px;">konlp</a>
+        
+        
+        <a href="/tags/kospacing" style="font-size: 12px;">kospacing</a>
+        
+        
+        <a href="/tags/load-balance" style="font-size: 12px;">load-balance</a>
+        
+        
+        <a href="/tags/logical" style="font-size: 12px;">logical</a>
+        
+        
+        <a href="/tags/map" style="font-size: 12px;">map</a>
+        
+        
+        <a href="/tags/materials" style="font-size: 12px;">materials</a>
+        
+        
+        <a href="/tags/minimal" style="font-size: 12px;">minimal</a>
+        
+        
+        <a href="/tags/mouse" style="font-size: 12px;">mouse</a>
+        
+        
+        <a href="/tags/multi-stage" style="font-size: 12px;">multi-stage</a>
+        
+        
+        <a href="/tags/n2h4" style="font-size: 12px;">n2h4</a>
+        
+        
+        <a href="/tags/nosql" style="font-size: 12px;">nosql</a>
+        
+        
+        <a href="/tags/operator" style="font-size: 12px;">operator</a>
+        
+        
+        <a href="/tags/options" style="font-size: 12px;">options</a>
+        
+        
+        <a href="/tags/package" style="font-size: 12px;">package</a>
+        
+        
+        <a href="/tags/post" style="font-size: 12px;">post</a>
+        
+        
+        <a href="/tags/postgres" style="font-size: 12px;">postgres</a>
+        
+        
+        <a href="/tags/presidentspeech" style="font-size: 12px;">presidentspeech</a>
+        
+        
+        <a href="/tags/preview" style="font-size: 12px;">preview</a>
+        
+        
+        <a href="/tags/project" style="font-size: 12px;">project</a>
+        
+        
+        <a href="/tags/purrr" style="font-size: 12px;">purrr</a>
+        
+        
+        <a href="/tags/python" style="font-size: 12px;">python</a>
+        
+        
+        <a href="/tags/r" style="font-size: 12px;">r</a>
+        
+        
+        <a href="/tags/read" style="font-size: 12px;">read</a>
+        
+        
+        <a href="/tags/readr" style="font-size: 12px;">readr</a>
+        
+        
+        <a href="/tags/reboot" style="font-size: 12px;">reboot</a>
+        
+        
+        <a href="/tags/reticulate" style="font-size: 12px;">reticulate</a>
+        
+        
+        <a href="/tags/retrospect" style="font-size: 12px;">retrospect</a>
+        
+        
+        <a href="/tags/rjava" style="font-size: 12px;">rjava</a>
+        
+        
+        <a href="/tags/rlang" style="font-size: 12px;">rlang</a>
+        
+        
+        <a href="/tags/rmd" style="font-size: 12px;">rmd</a>
+        
+        
+        <a href="/tags/rmouse" style="font-size: 12px;">rmouse</a>
+        
+        
+        <a href="/tags/rpubs" style="font-size: 12px;">rpubs</a>
+        
+        
+        <a href="/tags/rqna" style="font-size: 12px;">rqna</a>
+        
+        
+        <a href="/tags/rstudio" style="font-size: 12px;">rstudio</a>
+        
+        
+        <a href="/tags/rtips" style="font-size: 12px;">rtips</a>
+        
+        
+        <a href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98" style="font-size: 12px;">r로나만의</a>
+        
+        
+        <a href="/tags/sendgridr" style="font-size: 12px;">sendgridr</a>
+        
+        
+        <a href="/tags/server" style="font-size: 12px;">server</a>
+        
+        
+        <a href="/tags/setting" style="font-size: 12px;">setting</a>
+        
+        
+        <a href="/tags/str" style="font-size: 12px;">str</a>
+        
+        
+        <a href="/tags/study" style="font-size: 12px;">study</a>
+        
+        
+        <a href="/tags/suggest" style="font-size: 12px;">suggest</a>
+        
+        
+        <a href="/tags/swarm" style="font-size: 12px;">swarm</a>
+        
+        
+        <a href="/tags/tbl" style="font-size: 12px;">tbl</a>
+        
+        
+        <a href="/tags/temp" style="font-size: 12px;">temp</a>
+        
+        
+        <a href="/tags/tempdir" style="font-size: 12px;">tempdir</a>
+        
+        
+        <a href="/tags/term" style="font-size: 12px;">term</a>
+        
+        
+        <a href="/tags/text" style="font-size: 12px;">text</a>
+        
+        
+        <a href="/tags/tibble" style="font-size: 12px;">tibble</a>
+        
+        
+        <a href="/tags/tidytext" style="font-size: 12px;">tidytext</a>
+        
+        
+        <a href="/tags/tqk" style="font-size: 12px;">tqk</a>
+        
+        
+        <a href="/tags/ubci" style="font-size: 12px;">ubci</a>
+        
+        
+        <a href="/tags/union" style="font-size: 12px;">union</a>
+        
+        
+        <a href="/tags/usehelp" style="font-size: 12px;">usehelp</a>
+        
+        
+        <a href="/tags/web" style="font-size: 12px;">web</a>
+        
+        
+        <a href="/tags/windows" style="font-size: 12px;">windows</a>
+        
+        
+        <a href="/tags/xaringan" style="font-size: 12px;">xaringan</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-47822682-14', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

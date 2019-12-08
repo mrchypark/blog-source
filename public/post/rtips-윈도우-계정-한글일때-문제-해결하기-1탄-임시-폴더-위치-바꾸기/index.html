@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[Rtips] 윈도우 계정 한글일때 문제 해결하기 1탄 임시 폴더 위치 바꾸기 &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[Rtips] 윈도우 계정 한글일때 문제 해결하기 1탄 임시 폴더 위치 바꾸기</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2019 May 26</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/rtips">Rtips</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/temp">temp</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/tempdir">tempdir</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img src="https://user-images.githubusercontent.com/6179259/58383372-ec12d500-8010-11e9-9cfb-cc91cba8acbc.jpg" width=100%></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><code>Temp(임시 폴더)</code>의 위치를 <code>.Renviron</code> 파일에 써서 바꾸세요.</li>
+</ol>
+<p><a href="https://www.facebook.com/groups/krstudy/">KRSG</a>에 <a href="https://www.facebook.com/groups/krstudy/permalink/1260757344098535/">질문글</a>이 올라와서 아는 내에서 해결책을 공유하고자 합니다.</p>
+<p>우선 공유해 주신 에러 화면을 보겠습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58383615-df43b080-8013-11e9-9d8e-e0b648ea3350.jpg" width=100%></p>
+<p>우선 <code>hist()</code> 함수를 사용하는데, 에러가 발생한다고 문제를 공유해주셨습니다.
+그림을 출력하기 위해서는 그림을 저장하고, 화면에 뿌리는 과정을 진행합니다.
+위 과정을 프로그램(rstudio)이 진행해 주기 때문에 과정을 알 필요는 없는데요.
+이 때 그림 저장을 임시 폴더에 합니다.
+프로그램이 기본으로 사용하는 임시 폴더의 위치는 <code>tempdir()</code> 함수로 확인할 수 있습니다.
+저의 컴퓨터는 아래 결과를 확인할 수 있었습니다.</p>
+<pre class="r"><code>tempdir()</code></pre>
+<pre><code>[1] &quot;C:\\Users\\MRCHYP~1\\AppData\\Local\\Temp\\RtmpkNMIVs&quot;</code></pre>
+<p>이 위치는 윈도우의 사용자 계정 이름(<code>mrchypark</code>)의 하위 폴더입니다.
+저는 영어로 계정이름을 만들어서 문제 없이 동작하는데요.
+질문자의 경우 저 경로에 <code>??????</code>로 되어 있는 것으로 봐서 윈도우의 사용자 계정이 한글로 되어 있는 것 같습니다.</p>
+<p>가장 좋은 해결책은 윈도우 계정을 한글로 바꾸는 것이기는 한데요. 😭
+현실적으로 다시 만들어서 다시 환경을 설정하는 것은 쉬운일이 아닙니다.</p>
+<p>그래서 임시 폴더 위치를 변경하는 방법을 소개합니다.</p>
+<p>우선 경로에 한글이 없을만한 임시 폴더를 하나 만듭니다.
+저는 <code>C:/</code>에 바로 만들려고 합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384152-8aa33400-8019-11e9-9d2e-e3a6dc4448ce.png" width=100%></p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384165-9bec4080-8019-11e9-9d52-13f076473f5c.png" width=100%></p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384183-cd650c00-8019-11e9-8a9a-6fa6c952b827.png" width=100%></p>
+<p><code>C:/rtemp</code> 라는 폴더를 만들었습니다.
+이제 <code>usethis</code> 패키지를 설치합니다.</p>
+<pre class="r"><code>install.packages(&quot;usethis&quot;)</code></pre>
+<p><code>usethis</code> 패키지에는 <code>R</code>의 환경 변수를 관리하는 <code>.Renvron</code> 파일을 수정할 수 있게 열어주는 함수를 제공합니다.</p>
+<pre class="r"><code>library(usethis)
+edit_r_environ()</code></pre>
+<p>그럼 <code>.Renvron</code> 파일을 수정할 수 있게 스크립트 창에서 열어줍니다.</p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384129-1bc5db00-8019-11e9-87a5-b1f11f74d2f9.png" width=100%></p>
+<p>이제 아래 3줄을 <code>.Renvron</code> 파일에 저장합니다.</p>
+<pre><code>TMPDIR=C:/rtemp
+TMP=C:/rtemp
+TEMP=C:/rtemp</code></pre>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384144-5d568600-8019-11e9-9ec0-9c1ee090ace7.png" width=100%></p>
+<p>그리고 새션 재시작(<code>ctrl+shit+F10</code>)을 한 후 <code>tempdir()</code> 함수로 경로가 잘 변경되었는지를 확인합니다.</p>
+<p>이제 <code>hist(iris$Sepal.Length)</code> 같은 명령어로 동작하는지 확인합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/6179259/58384292-0a7dce00-801b-11e9-8515-76699cedd15a.png" width=100%></p>
+<p>이 방법은 프로그램이 사용하는 임시 폴더의 경로를 바꿈으로써 문제를 해결합니다.
+그렇기 때문에 사용자의 계정 폴더를 사용하는 다른 문제에 대해서 해결하는지 알 수 없습니다.
+혹시 위 방법으로도 비슷한 에러가 나오는 사례를 알려주시면 감사하겠습니다.</p>
+<p>감사합니다.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/">[josaplay] Rmd로 만드는 한글 보고서의 친구</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/">[conda4r] R을 위해서 conda를 설치해보자</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

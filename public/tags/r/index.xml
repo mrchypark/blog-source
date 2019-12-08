@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Mrchypark</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python과 R 어떤 걸 공부 해야 할까</title>
+      <link>/2019/03/20/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/20/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
+      <description>원글 당신이 학생이라면, 회사에 들어가기 전에 충분히 숙달할 시간과 자신이 있다면 아무거나 해라. 두 언어 모두 기계의 효율성보다는 사람의 생산성을 우선하는 언어다</description>
+    </item>
+    
+    <item>
+      <title>[usehelp] R의 help 글을 포스트에서 활용하기</title>
+      <link>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <description>업데이트 다른 좋은 접근이 많아서 개발을 중지하였습니다. 한줄요약 포스트나 발표자료에서 함수를 설명할 일이 많아서 usehelp라는 패키지를 만들었습니다.</description>
+    </item>
+    
+    <item>
+      <title>[블로그] Rstudio &#43; github &#43; blogdown = 개인블로그 완성!</title>
+      <link>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
+      <description>세줄요약 R로 보고 문서를 만드는 rmd로 블로그를 만들 수 있다. md 기반의 정적 사이트 생성기가 많지만, R 패키지로 제공되는 blogdown이 좋더라. 전에 소</description>
+    </item>
+    
+    <item>
+      <title>Rphabetic(알파베틱) 제안</title>
+      <link>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</guid>
+      <description>Python 공부를 하면서 재밌으면서도 직관적인 단어를 알게 되었는데, Pythonic way입니다. 말하지 않아도 파이썬스러운 방법이라는 뜻이라는게 한눈에 들어오더라구요. Pythonic 하</description>
+    </item>
+    
+    <item>
+      <title>논리 연산자 정리</title>
+      <link>/2017/07/31/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/07/31/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</guid>
+      <description>드디어 블로그에서 Rmd를 사용할 수 있게 되어서 매우 기쁜 마음에 포스팅을 하나 기획하였습니다. 그것은 바로 논리 연산자! 기본적은 것은 다 쉬운데 데이터가 여러 개</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[Rtips] tbl 자료형에서 소수점을 출력해보자 &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[Rtips] tbl 자료형에서 소수점을 출력해보자</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018 Aug 22</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/tbl">tbl</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/tibble">tibble</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/digit">digit</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/options">options</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/44436508-90826980-a5f0-11e8-8dde-4b21ef01256c.jpg"></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><code>options(pillar.sigfig=10)</code></li>
+</ol>
+<p><em>tidyverse</em> 생태계는 R의 현재 부흥기를 이끌고 있습니다.
+<em>magrittr</em> 패키지가 쏘아올린 <code>%&gt;%(파이프 연산자)</code>가 이렇게 될꺼라고 상상이나 했을까요.
+<a href="http://hadley.nz/">해들리 위컴</a>이 발표한 <a href="http://vita.had.co.nz/papers/tidy-data.html">tidy data</a>와 함께 <em>tidyverse</em>에서는 없는게 상상도 할 수 없는 것이 많습니다.</p>
+<p>이런 <em>tidyverse</em>에서 data를 담당하는 패키지가 <a href="https://tibble.tidyverse.org/">tibble</a>입니다.</p>
+<p><img width=100% src="http://www.sthda.com/sthda/RDoc/images/tibble-data-format-tbl_df.png"></p>
+<p><a href="https://tibble.tidyverse.org/">tibble</a>은 <code>tbl</code>, <code>tbl_df</code> 등등의 자료형으로 표현됩니다.
+위에 그림에도 보이는 것처럼 <code>data.frame</code>과 같은 역할을 하면서, 더 세련됬다고 할까요.</p>
+<p>그 와중에 <a href="https://tibble.tidyverse.org/">tibble</a>의 출력을 담당하는 패키지가 <a href="https://github.com/r-lib/pillar">pillar</a>입니다.</p>
+<pre class="r"><code>if(!requireNamespace(&quot;pillar&quot;)){
+    source(&quot;https://install-github.me/r-lib/pillar&quot;)
+}</code></pre>
+<pre><code>## Loading required namespace: pillar</code></pre>
+<pre class="r"><code>library(pillar)
+x &lt;- 123456789 * (10 ^ c(-3, -5, NA, -8, -10))
+x</code></pre>
+<pre><code>## [1] 1.234568e+05 1.234568e+03           NA 1.234568e+00 1.234568e-02</code></pre>
+<pre class="r"><code>pillar(x)</code></pre>
+<pre><code>##       &lt;dbl&gt;
+## 123457.    
+##   1235.    
+##     NA     
+##      1.23  
+##      0.0123</code></pre>
+<p>마크다운에는 디테일이 표현되지 않아 사진을 첨부합니다.
+<img src="https://raw.githubusercontent.com/r-lib/pillar/master/man/figures/colours.png" /></p>
+<p>3자리 마다 쉼표로 표시하는 관행을 출력해주기 위해, <a href="https://github.com/r-lib/pillar">pillar</a> 패키지는 밑줄을 사용합니다.
+보기 참 좋아진거 같습니다!</p>
+<p>그러다 보니… 소수점 표기의 출력 옵션이 기존의 <code>data.frame</code>과 다릅니다.
+찾아보니 <code>options(pillar.sigfig)</code>를 조절하면 된다는군요!</p>
+<pre><code>options(pillar.sigfig)
+## Error in options(pillar.sigfig) : object &#39;pillar.sigfig&#39; not found</code></pre>
+<p>기본 값이 없는거 같습니다….(;;;)
+패키지에는 3이 기본값이라고 하는데 어떻게 보는지 모르겠네요;;;
+이젠 <code>tibble</code>에서 확인해 볼까요?</p>
+<pre class="r"><code>my_numbers &lt;-  c(233, 486, 565, 785)
+tbl_num &lt;- tibble::tibble(
+  big = 1000 * my_numbers + 23,
+  stradle = my_numbers / 1000 + 100,
+  small = my_numbers / 100000
+)
+tbl_num</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##      big stradle   small
+##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 233023    100. 0.00233
+## 2 486023    100. 0.00486
+## 3 565023    101. 0.00565
+## 4 785023    101. 0.00785</code></pre>
+<p>출력을 보면 stradle 컬럼의 첫번째 데이터가 <code>100.</code>라고 되어 있습니다.
+<code>100</code>이 아니고 <code>100.</code>이라고 출력해주면서 소수점 숫자가 있음을 알려주는데요.
+<a href="https://github.com/r-lib/pillar/issues/40#issuecomment-360152576">관련 이슈</a>도 있으니 읽어보시면 좋을 것 같구요.</p>
+<pre class="r"><code>options(pillar.sigfig = 7)
+tbl_num</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##      big stradle       small
+##    &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+## 1 233023 100.233 0.00233    
+## 2 486023 100.486 0.00486    
+## 3 565023 100.565 0.00565    
+## 4 785023 100.785 0.007850000</code></pre>
+<p><a href="https://github.com/r-lib/pillar">pillar</a>의 <strong>sigfig</strong> 옵션은 사실 소수점에 해당하는 옵션이 아닙니다.
+유효숫자에 대한 옵션이죠.
+유효숫자는 또 큰 주제니까 다음에 다루기로 하구요.</p>
+<p>pillar에서는 <a href="https://pillar.r-lib.org/reference/pillar-package.html#package-options">출력에 대한 옵션</a>을 제공하고 있습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/44440124-c419bf80-a601-11e8-8fa4-120924950638.png"></p>
+<p>한번 읽어보시면 취향껏 고치는데 도움이 되지 않을까요?ㅎㅎ</p>
+<p>감사합니다.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/">[tidytext] 텍스트 데이터를 tidy 하게 다뤄보자</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/">[업무자동화] R로 이메일을 보내려면 sendgridr</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

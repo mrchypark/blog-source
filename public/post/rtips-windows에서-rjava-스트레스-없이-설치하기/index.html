@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9LC28L');</script>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <title>[Rtips] Windows에서 rJava 스트레스 없이 설치하기 &middot; Mrchypark</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="../../css/my.css">
+    
+  
+  
+    <meta name="google-site-verification" content="JSVsiwWPULX5xdrvyYHKkS953bS7L2zqeoB_NlUWlao" />
+</head>
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Mrchypark</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../material/"><i class='fa fa-book fa-fw'></i>Materials</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../package/"><i class='fa fa-cube fa-fw'></i>Packages</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../support/"><i class='fa fa-beer fa-fw'></i>Support</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-address-card fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/mrchypark_" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/mrchypark" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/mrchypark" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/chanyubpark" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/mrchypark" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[Rtips] Windows에서 rJava 스트레스 없이 설치하기</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018 May 08</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/rjava">rJava</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/konlp">KoNLP</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/java">java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/installr">installr</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/windows">windows</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/39781141-46f6e3a8-5349-11e8-9eb0-55817cbd5845.jpg"></p>
+<div id="업데이트-2019-08-10" class="section level2">
+<h2>업데이트 2019-08-10</h2>
+<p>Windows와 MacOS 에서 동작하는 방법을 설명하는 <a href="https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/">포스트</a>를 작성하였습니다.</p>
+<p><a href="https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/" class="uri">https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/</a></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><code>installr::install.java()</code></li>
+</ol>
+<p><code>rJava</code> 패키지는 java의 풍부한 생태계를 R에서 사용하기 위해 꼭 필요한 인터페이싱 패키지입니다.
+비슷한 부류로 python의 <a href="https://github.com/rstudio/reticulate">reticulate</a>, C++의 <code>Rcpp</code> 등이 있죠.
+모두 각각의 언어를 설치하고 경로 설정을 해줘야 하는 단계를 가지고 있습니다.
+막상 진행해보면 쉬운 일이 아닙니다.
+그래서 해결책을 좀 찾아봤는데요.
+windows 환경에서 R에 관련된 설치와 R과 함께 많이 사용하는 외부 프로그램 설치를 함수로 제공하는 <a href="https://github.com/talgalili/installr">installr</a> 패키지를 소개하겠습니다.</p>
+</div>
+</div>
+<div id="installrinstallr" class="section level2">
+<h2><a href="https://github.com/talgalili/installr">installr</a></h2>
+<p><a href="https://github.com/talgalili/installr">installr</a> 패키지는 R의 업데이트 함수인 <code>updateR()</code>을 제공합니다.
+R과 함께 사용하는 외부 프로그램 중 설치가 까다로운 <a href="https://www.imagemagick.org/script/index.php">ImageMagick</a>이나 <a href="https://miktex.org/">MikTeX</a> 같은 것도 제공합니다.
+지금은 rstudio에서 함께 제공하여 문제가 없지만, 저도 pandoc과 Tex 계열을 설치할 때 도움을 받았습니다.
+아무튼 <a href="https://github.com/talgalili/installr">installr</a> 패키지에서 제공하는 <code>install.java()</code>를 살펴보겠습니다.</p>
+</div>
+<div id="install.java" class="section level2">
+<h2>install.java()</h2>
+<pre><code>Downloads and set path openjdk
+
+Description:
+
+     Downloads and set path the latest version of openjdk for Windows.
+
+Usage:
+
+    install.java(version = 10,
+                 page_with_download_url = &quot;http://jdk.java.net/java-se-ri/&quot;,
+                 path = &quot;C:/java&quot;)
+     
+Arguments:
+
+    version: 9 or 10 is passible. Default is 10.
+
+    page_with_download_url: where to download. Default is &lt;URL:http://jdk.java.net/java-se-ri/&gt;
+
+    path: where to set java. Defulat path is C:/java
+
+Details:
+
+    install openjdk 9 or 10 version for windows 10 64x.
+
+Value:
+
+    TRUE/FALSE - was the installation successful or not.
+
+Author(s):
+
+    Tal Galili and A. Jonathan R. Godfrey
+
+Examples:
+
+    ## Not run:
+    
+    install.java() 
+    install.java(version = 10)
+    install.java(10)
+    ## End(Not run)</code></pre>
+<p><code>install.java()</code>는 3개의 인자를 제공합니다.
+<code>version</code>,<code>page_with_download_url</code>,<code>path</code>이네요.
+현재는 windows 10 64x에서 jdk9와 jdk10만 지원한답니다.</p>
+<p><code>version</code>은 jdk 버전을 의미하는 것이군요.
+<code>page_with_download_url</code>은 바꿀 수 있어 보이지 않네요.
+<a href="http://openjdk.java.net/">openjdk</a> 프로젝트의 최근 결과물인 것 같습니다.
+<code>path</code>는 컴퓨터의 설치 경로를 뜻합니다.
+기본값이 이해하기 쉬운 곳에 있으니 저는 그냥 두겠습니다.</p>
+</div>
+<div id="따라하기" class="section level2">
+<h2>따라하기</h2>
+<p>조건을 잘 따져보겠습니다.<br />
+1. windows 10 64비트를 사용하고 있다.<br />
+2. 기존에 설치된 java가 없다.</p>
+<p>그럼 이제 R 콘솔을 실행해서 에러없이 동작하는지 확인하면 됩니다.</p>
+<pre><code>install.packages(&quot;rJava&quot;)
+source(&quot;https://install-github.me/talgalili/installr&quot;)
+installr::install.java()
+library(rJava)</code></pre>
+<p>실제로 잘 동작하는 것인지 결과물로 확인하고 싶으시다면 <a href="https://github.com/haven-jeon/KoNLP">KoNLP</a>를 사용해보시면 좋을 것 같습니다.</p>
+<pre><code>install.packages(&#39;KoNLP&#39;)
+source(&quot;https://install-github.me/talgalili/installr&quot;)
+installr::install.java()
+library(KoNLP)
+
+## Checking user defined dictionary!</code></pre>
+<p>문제 없이 실행되셨나요?</p>
+<p>언제나 그렇듯, 잘못된 내용이 있거나 문제가 생기면 언제든지 알려주세요. 감사합니다.</p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/">[KoSpacing] 한글 띄어쓰기 패키지를 사용해보자</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="../../post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/">[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="../../post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    if (window.location.hostname == "http://127.0.0.1")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'mrchypark';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6863685415691881",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47822682-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47822682-14');
+</script>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

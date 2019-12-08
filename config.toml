@@ -1,80 +1,111 @@
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 baseurl = "https://mrchypark.github.io/"
-languageCode = "ko-KR"
-title = "Mrchypark"
-theme = "blackburn"
-author = "mrchypark"
-copyright = "&copy; 2019. All rights reserved."
+# baseurl = "/"
 enableEmoji = true
 canonifyurls = true
 hasCJKLanguage = true
-Paginate = 10
+languageCode = "en-us"
+title = "Mrchypark"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "mrchypark"
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = "UA-47822682-14"
+# Define the number of posts per page
+paginate = 10
+footnotereturnlinkcontents = "↩"
+theme = "hugo-icarus-theme"
+# Comment the themesDir option if you use this theme in production
+themesDir = "./themes"
 
 
-[indexes]
-  tag = "tags"
-  topic = "topics"
+[permalinks]
+    post = "/:year/:month/:day/:slug"
+
 
 [params]
-  # Shown in the home page
-  subtitle = "log for you & me | R, Docker, Text analysis etc"
-  brand = "Mrchypark"
-  googleAnalytics = "UA-47822682-14"
-  disqus = "mrchypark"
-  # CSS name for highlight.js
-  highlightjsVersion = "9.13.1"
-  highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
-  highlightjsLang = ["r", "yaml"]
-  highlightjsTheme = "github"
-  
-  dateFormat = "2006 Jan 02"
-  custom_css = ["css/my.css"]
+    # Tell me who you are
+    author = "박박사"
+    bio = "Tool maker with R - Docker lover"
+    location = "Seoul, Korea"
+    site_description = ""
+    copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    avatar = "css/images/avatar.png"
+    # Enter your email address to display your Gravatar icon in the profile. If not set the theme
+    # will fallback to the avatar.
+    gravatar = "mrchypark@gmail.com"
+    logo = "css/images/logo.png"
+    disable_mathjax = false # set to true to disable MathJax
 
-[menu]
-  # Shown in the side menu.
-  [[menu.main]]
-    name = "Home"
-    pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 1
-    identifier = "home"
-    url = "/"
-  [[menu.main]]
-    name = "Posts"
-    pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 2
-    identifier = "post"
-    url = "/post/"
-  [[menu.main]]
-    name = "Materials"
-    pre = "<i class='fa fa-book fa-fw'></i>"
-    weight = 3
-    identifier = "material"
-    url = "/material/"
-  [[menu.main]]
-    name = "Packages"
-    pre = "<i class='fa fa-cube fa-fw'></i>"
-    weight = 4
-    identifier = "package"
-    url = "/package/"
-  [[menu.main]]
-    name = "Support"
-    pre = "<i class='fa fa-beer fa-fw'></i>"
-    weight = 5
-    identifier = "support"
-    url = "/support/"
-  [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-address-card fa-fw'></i>"
-    weight = 6
-    identifier = "about"
-    url = "/about/"
+    # define which types of pages should be shown. By default the type with the most regular pages
+    mainSections = ["post"]
+
+    # Format dates with Go's time formatting
+    date_format = "2006-01-02"
+
+    # Add custom assets with their paths relative to the static folder
+	custom_css = ["css/my.css"]
+	custom_js  = []
+
+# Create custom menu entries by defining a label and a link for
+# them. Since you can also link posts, you've the option the
+# place the links before or after them.
+#
+# E.g.: "Home" appears before all linked posts in the menu
+# and "Tags" / "Categories" after them.
+[[params.menu]]
+    before = true
+    label  = "Home"
+    link   = "/"
+
+[[params.menu]]
+    before = false
+    label  = "Materials"
+    link   = "material/"
+    
+[[params.menu]]
+    before = false
+    label  = "Packages"
+    link   = "package/"
+    
+[[params.menu]]
+    before = false
+    label  = "Support"
+    link   = "support/"
+    
+[[params.menu]]
+    before = false
+    label  = "About"
+    link   = "about/"
+
+[[params.menu]]
+    before = false
+    label  = "Tags"
+    link   = "tags/"
+
+[[params.menu]]
+    before = false
+    label  = "Categories"
+    link   = "categories/"
+
+# Enter a link for the follow button on the left
+[params.profile]
+    follow_button = "https://github.com/mrchypark"
+
 
 [social]
-  # Link your social networking accouns to the side menu
-  # by entering your username or ID.
+# Add your social network accounts to the profile section on the left
+# by entering your username. The links to your account will be
+# created automatically.
   facebook = "mrchypark"
   github = "mrchypark"
   linkedin = "chanyubpark"
   instagram = "mrchypark"
   twitter = "mrchypark_"
   medium = "mrchypark"
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    recent_articles = true
+    categories = true
+    tags = false
+    tag_cloud = true

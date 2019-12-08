@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>[업무자동화] R로 이메일을 보내려면 sendgridr &middot; Mrchypark</title>
+    <meta name="generator" content="Hugo 0.60.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="mrchypark">
+    
+      <meta name="description" content="log for you &amp; me | R, Docker, Text analysis etc">
+    
+    
+    <link rel="canonical" href="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    
+    <link rel="stylesheet" href="/css/my.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="[업무자동화] R로 이메일을 보내려면 sendgridr" />
+<meta property="og:description" content="세줄요약 메일 보내기는 업무 자동화를 위해서 꼭 필요한 기능이다. 기존의 패키지인 mailR, sendmailR은 자바 의존성이 있거나 smtp 서버를 활용하는 형태이다. sendgrid 서비스가 매일 100건 평생 무료로 준대서 패키지를 만들어봤다.  업무 자동화는 매우 매력적인 키워드입니다. 세상에 내가 하는 일을 컴퓨터가 대신 하게 해준다니! 여러 가지 작업을 코딩할 수 있겠지만, R의 장점은 결과에 대한 보고서 딜리버리라고 생각합니다. 전달의 완성은 역시 이메일이죠! 물론 최근에는 슬랙같은 도구도 많이 사용하기 때문에 slackr같은 도구가 더 좋을 수 도 있을 것 같습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/" />
+<meta property="article:published_time" content="2018-10-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-02T00:00:00+00:00" />
+
+    
+    <meta itemprop="name" content="[업무자동화] R로 이메일을 보내려면 sendgridr">
+<meta itemprop="description" content="세줄요약 메일 보내기는 업무 자동화를 위해서 꼭 필요한 기능이다. 기존의 패키지인 mailR, sendmailR은 자바 의존성이 있거나 smtp 서버를 활용하는 형태이다. sendgrid 서비스가 매일 100건 평생 무료로 준대서 패키지를 만들어봤다.  업무 자동화는 매우 매력적인 키워드입니다. 세상에 내가 하는 일을 컴퓨터가 대신 하게 해준다니! 여러 가지 작업을 코딩할 수 있겠지만, R의 장점은 결과에 대한 보고서 딜리버리라고 생각합니다. 전달의 완성은 역시 이메일이죠! 물론 최근에는 슬랙같은 도구도 많이 사용하기 때문에 slackr같은 도구가 더 좋을 수 도 있을 것 같습니다.">
+<meta itemprop="datePublished" content="2018-10-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="976">
+
+
+
+<meta itemprop="keywords" content="automation,email,gmail,sendgridr," />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[업무자동화] R로 이메일을 보내려면 sendgridr"/>
+<meta name="twitter:description" content="세줄요약 메일 보내기는 업무 자동화를 위해서 꼭 필요한 기능이다. 기존의 패키지인 mailR, sendmailR은 자바 의존성이 있거나 smtp 서버를 활용하는 형태이다. sendgrid 서비스가 매일 100건 평생 무료로 준대서 패키지를 만들어봤다.  업무 자동화는 매우 매력적인 키워드입니다. 세상에 내가 하는 일을 컴퓨터가 대신 하게 해준다니! 여러 가지 작업을 코딩할 수 있겠지만, R의 장점은 결과에 대한 보고서 딜리버리라고 생각합니다. 전달의 완성은 역시 이메일이죠! 물론 최근에는 슬랙같은 도구도 많이 사용하기 때문에 slackr같은 도구가 더 좋을 수 도 있을 것 같습니다."/>
+<meta name="twitter:site" content="@mrchypark_"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+          
+          <i class="logo" style="background-image: url('/css/images/logo.png')"></i>
+          
+          <span class="site-title">Mrchypark</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="/post/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="/post/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://www.gravatar.com/avatar/4fca794da0cf08804f99048d3c8b39c1?s=100&d=identicon"/>
+      
+      <h2 id="name">mrchypark</h2>
+      <h3 id="title">Tool maker with R - Docker lover</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Seoul, Korea</span>
+      
+          <a id="follow" href="https://github.com/mrchypark">
+              
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        0
+        <span></span>
+      </div>
+      <div class="article-info-block">
+        
+          95
+        
+        <span>
+            
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/mrchypark" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//instagram.com/mrchypark" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//linkedin.com/in/chanyubpark" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//facebook.com/mrchypark" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></td>
+
+
+
+<td><a href="//twitter.com/mrchypark_" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    <a href="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/">
+    <h1 class="article-title" itemprop="name">
+        [업무자동화] R로 이메일을 보내려면 sendgridr
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-10-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">2018-10-02</time>
+            &middot;
+            976
+            
+            &middot;
+            5
+            
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="/categories/r">R</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="/tags/automation">automation</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/email">email</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/gmail">gmail</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/sendgridr">sendgridr</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46356099-015f7b80-c69d-11e8-88d1-6c99dcb9a603.jpg"></p>
+<div id="세줄요약" class="section level3">
+<h3>세줄요약</h3>
+<ol style="list-style-type: decimal">
+<li>메일 보내기는 업무 자동화를 위해서 꼭 필요한 기능이다.</li>
+<li>기존의 패키지인 mailR, sendmailR은 자바 의존성이 있거나 smtp 서버를 활용하는 형태이다.</li>
+<li>sendgrid 서비스가 매일 100건 평생 무료로 준대서 패키지를 만들어봤다.</li>
+</ol>
+<p><strong>업무 자동화</strong>는 매우 매력적인 키워드입니다.
+세상에 내가 하는 일을 컴퓨터가 대신 하게 해준다니!
+여러 가지 작업을 코딩할 수 있겠지만, R의 장점은 결과에 대한 보고서 딜리버리라고 생각합니다.
+전달의 완성은 역시 이메일이죠!
+물론 최근에는 슬랙같은 도구도 많이 사용하기 때문에 <a href="https://github.com/hrbrmstr/slackr">slackr</a>같은 도구가 더 좋을 수 도 있을 것 같습니다.</p>
+<p>그래도 역시 이메일이지! 라고 생각하는 분들을 위해 R로 이메일을 보내는 법을 좀 찾아봤습니다.
+대체 최근 스타일의 메일 보내는 도구가 없더군요.
+가장 잘 관리되고 있는 패키지는 <a href="https://github.com/rpremraj/mailR">mailR</a> 이었습니다.
+문제는 두 가지 허들이 있더군요.</p>
+<p>하나는 아파치 지원 프로젝트인 <a href="http://commons.apache.org/proper/commons-email/">commons</a>을 사용한다는 점 이었습니다.
+이게 java라 rJava가 필요하죠.
+rJava는 지난 포스트인 <a href="https://mrchypark.github.io/post/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">Windows에서 rJava 스트레스 없이 설치하기</a>를 참고해주세요.
+<a href="https://medium.com/@randerson112358/send-email-using-r-program-1b094208cf2f">이곳</a>에 훌륭한 튜토리얼이 있습니다.</p>
+<p>다른 문제는 smtp 서버를 사용한다는 점입니다.
+많이 사용하는 gmail의 smtp 서버를 사용하려면 위의 <a href="https://medium.com/@randerson112358/send-email-using-r-program-1b094208cf2f">튜토리얼</a>에서도 google 서비스 접근에 대한 보안 수준을 낮춰야 한다고 알려주고 있습니다.
+그렇다고 smtp 서버를 직접 구축할 수 도 없는 노릇인거죠.</p>
+<figure>
+<img width=100% src="https://user-images.githubusercontent.com/6179259/46360487-8602c780-c6a6-11e8-8df1-32db16e3a6b7.png">
+<figcaption>
+보안 수준을 낮춰야 한다니… 불안하기만 하다
+</figcaption>
+</figure>
+<p>대신 안정적으로 동작하는 패키지라는 걸 아파치의 지원 프로젝트를 활용하기 때문에 신뢰할 수 있습니다.
+2016년이 마지막 업데이트인데요.
+메일 기능이 더 업데이트 할 만한게 뭐가 있을까 싶기도 합니다.</p>
+<p>두 번째로 조금 더 오래됬지만, 매달 5,000 다운로드가 발생하는 대중적인 패키지로 <a href="https://github.com/olafmersmann/sendmailR">sendmailR</a>이 있습니다.
+거의 같은 사용성을 보여주고 있는데요.
+이건 감사하게도 java 의존성 같은게 없는 훨씬 단순한 구조입니다.
+역시나 허들은 smtp 메일 서버가 있어야 한다는 점입니다.</p>
+<p>그래서 뭔가 api로 메일 전송 서비스를 제공해주는 곳이 어디 없나 찾아봤습니다.</p>
+<figure>
+<img width=100% src="https://user-images.githubusercontent.com/6179259/46359659-a762b400-c6a4-11e8-91fb-1219ce2b6842.png">
+<figcaption>
+메일 전송 api를 제공해주는 서비스들
+</figcaption>
+</figure>
+<p><a href="https://mailchimp.com/">mailchimp</a>는 세상 유명한 서비스입니다.
+이메일 마케팅을 하시는 분들이라면 잘 활용하면 좋을 서비스이지요.
+<a href="https://www.sendinblue.com/">sendinblue</a>, <a href="https://sendgrid.com/">sendgrid</a> 모두 경쟁사입니다.</p>
+<p>제가 찾는 api는 이메일을 보낼 수 있으면 충분합니다.
+세 서비스 중에 가장 일별 무료 전송량이 적지만(일 100건), api가 단순한 서비스는 sendgrid 였습니다.</p>
+<figure>
+<img width=100% src="https://user-images.githubusercontent.com/6179259/46363315-9cf8e800-c6ad-11e8-86f4-1d62c91b22a1.png">
+<figcaption>
+낙점!
+</figcaption>
+</figure>
+</div>
+<div id="sendgridr" class="section level2">
+<h2>sendgridr</h2>
+<p>이제 sendgrid api의 wrapper 패키지인 sendgridr을 소개합니다.</p>
+<p><a href="https://mrchypark.github.io/sendgridr/"><img width=30% src="https://github.com/mrchypark/sendgridr/raw/master/man/figures/logo.png"></a></p>
+<p>sendgridr은 크게 2가지 기능을 담당합니다.</p>
+<div id="sendgrid-api-키-등록-및-확인" class="section level3">
+<h3>1. sendgrid api 키 등록 및 확인</h3>
+<p>우선 sendgrid를 이용에 메일을 보내기 위해서는 당연히도 회원가입을 해야 합니다.</p>
+<div id="sendgrid-회원가입" class="section level4">
+<h4>sendgrid 회원가입</h4>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367169-e2221780-c6b7-11e8-9a77-433966b434b3.png"></p>
+<p>우선 <a href="https://sendgrid.com/">sendgrid 홈페이지</a>로 가주세요.
+Sign up 버튼을 누르면 어떤 플랜을 선택할지 물어봅니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367245-0aaa1180-c6b8-11e8-8b51-5ceeb708ae74.png"></p>
+<p>우리는 당연히 <strong>free</strong> 플랜을 선택합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367567-e438a600-c6b8-11e8-8a88-9b6acc8074a1.png"></p>
+<p>이제야 익숙한 아이디, 비번, 이메일을 입력하라고 하는군요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367634-12b68100-c6b9-11e8-9661-4ada41f93926.png"></p>
+<p>기업 고객 유치를 위해서 추가 정보를 요구합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367676-337ed680-c6b9-11e8-9c74-6dc488267ba0.png"></p>
+<p>서비스에겐 미안하지만 아무 정보나 입력했습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46367936-e3544400-c6b9-11e8-8dcf-66963d261d6b.png"></p>
+<p>드디어 회원가입을 끝냈습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46368011-10085b80-c6ba-11e8-869c-2e09247311f0.png"></p>
+<p>서비스를 사용하기 위해서는 이메일을 확인해야 합니다.
+가입때 사용한 이메일에 들어가보면 확인 메일이 와있을 텐데요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46369531-4051f900-c6be-11e8-80b7-1947a049b613.png"></p>
+<p><em>Confirm Email Address</em> 버튼을 눌러서 계정을 활성화해 주세요.</p>
+</div>
+<div id="api-key-발급" class="section level4">
+<h4>api key 발급</h4>
+<p>우선 패키지를 설치해보겠습니다.</p>
+<pre class="r"><code>remotes::install_github(&quot;mrchypark/sendgridr&quot;)</code></pre>
+<pre><code>## Downloading GitHub repo mrchypark/sendgridr@master</code></pre>
+<pre><code>## Running `R CMD build`...</code></pre>
+<pre><code>## * checking for file ‘/tmp/Rtmp6oK9gj/remotesed0a90555c/mrchypark-sendgridr-8da75ba/DESCRIPTION’ ... OK
+## * preparing ‘sendgridr’:
+## * checking DESCRIPTION meta-information ... OK
+## * checking for LF line-endings in source and make files and shell scripts
+## * checking for empty or unneeded directories
+## * looking to see if a ‘data/datalist’ file should be added
+## * building ‘sendgridr_0.1.0.tar.gz’</code></pre>
+<pre><code>## Installing package into &#39;/usr/local/lib/R/site-library&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>library(sendgridr)</code></pre>
+<p>이제 api 서비스를 사용하기 위해 api key를 발급받아 보겠습니다.
+<a href="#sendgridr">sendgridr</a> 패키지는 <code>auth_set()</code> 함수를 이용해 키를 등록합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370095-aee38680-c6bf-11e8-96ba-211cb0f01640.png"></p>
+<p>영어로 질문이 나오면서 3가지 선택지가 나오는데요.
+No에 해당하는 것 2개와 Yes에 해당하는것 1개가 다양한 표현으로 나옵니다.
+생각없이 선택하는 걸 방지하려고 이런 설계를 한 모양이네요.(읭? usethis 함수를 사용한 겁니다. ㅋㅋ)</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370145-d0447280-c6bf-11e8-96ce-783ea220a7fe.png"></p>
+<p>이미 api key가 있냐고 물어보네요.
+저는 아니오에 해당하는 1을 입력하겠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370301-35986380-c6c0-11e8-88da-101217cd135b.png"></p>
+<p>그럼 api key를 신청할 수 있는 페이지를 열어줍니다!
+제 스크린샷에는 이미 2개의 키가 만들어져 있지만, 여러분은 아마도 비어있을 것입니다.
+우선 rstudio에서의 작업을 마저하도록 할까요?</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370339-5496f580-c6c0-11e8-8761-51e3efe9e4cb.png"></p>
+<p>2번째 질문이 나옵니다.
+이제 등록해야 할 api key를 R 사용 환경 전체에서 쓸 것인지, 현재 프로젝트에서만 사용할 것인지 물어봅니다.
+rstudio는 project라는 관리 단위를 나누는 기능을 제공합니다.
+잘 모르신다면 yes를 선택하시고, 아신 다면 상황에 맞게 선택해주세요.
+저는 yes에 해당하는 3번을 입력했습니다.
+계속 yes의 위치가 바뀌니 화면을 따라 3을 입력하지 마시고, 선택지를 잘 확인해주세요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370362-6082b780-c6c0-11e8-82b8-57782fbd681e.png"></p>
+<p><code>sendgridr</code> 패키지는 api key를 <code>.Renviron</code> 파일에 관리하는 것을 권장합니다.
+<code>.Renviron</code> 파일은 R의 환경 변수를 기록하고 <code>Sys.getenv()</code> 함수로 값을 사용할 수 있게 해줍니다.
+변수명은 <code>SENDGRID_API</code>로 기록하면 되는군요.
+이제 다시 브라우저로 돌아가서 key를 만들어 볼까요?</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370301-35986380-c6c0-11e8-88da-101217cd135b.png"></p>
+<p>오른쪽 위에 Create API Key를 클릭합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370542-d129d400-c6c0-11e8-93ee-0071a1a2e2a0.png"></p>
+<p>key를 관리할 이름을 정합니다.
+저는 그냥 test라고 작성했습니다.
+권한는 <strong>Full Access</strong>로 설정해주세요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370602-f4ed1a00-c6c0-11e8-9bca-12d2ed999811.png"></p>
+<p>api key를 발급받았습니다!
+매우 긴 문자열로 이걸 복사해서 아까 <code>.Renviron</code> 파일에 저장하면 되겠네요.
+글자를 클릭하면 자동으로 복사를 수행해 줍니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370623-02a29f80-c6c1-11e8-8cb6-da36adebc306.png"></p>
+<p>복사를 해야만, 다음 화면으로 넘어갈 수 있군요.
+참고로 지금 한번 알려주고 끝입니다.
+복구고 뭐고 아예 없어요.
+대신 지우고 새로 만들면 됩니다. ㅎㅎ
+저도 맘편히 스크린샷에 공개했는데요.
+진작에 지웠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370663-2534b880-c6c1-11e8-8f6b-668db34dbe9b.png"></p>
+<p><code>.Renviron</code> 파일에 저장한 모습입니다.
+이 파일을 저장하고 나면 적용하기 위해서 R session을 재시작해야 합니다.
+rstudio를 껏다가 켜도 좋고, Ctrl+Shift+F10을 입력해도 됩니다.
+저는 <code>rstudioapi::restartSession()</code> 함수로 재시작했습니다.
+이제 잘 동작하는지 확인해 볼까요?</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/46370758-793f9d00-c6c1-11e8-9f0f-b177513fa0b7.png"></p>
+<p><code>auth_check()</code> 함수는 api key가 잘 등록되어 있는지, 동작하는 키인지 서비스에 확인하는 작업을 합니다.
+잘 동작한다니 드디어 key 설정을 완료했습니다!</p>
+</div>
+</div>
+<div id="mail-작성-및-보내기" class="section level3">
+<h3>2. mail 작성 및 보내기</h3>
+<p>sendgrid는 mail에 대한 정보를 <em>json</em> 형태로 받습니다.
+막상 양식에 맞는 형태로 작성하려고 하면 불편한 부분이 있더라구요.
+<code>sendgridr</code> 패키지는 <code>mail()</code>, <code>to()</code>, <code>cc()</code>, <code>from</code> 등 메일을 보내기 위한 정보를 구성하는 함수들을 제공하고 있습니다. <a href="https://mrchypark.github.io/sendgridr/reference/index.html">여기</a>에서 어떤 것을 제공하는지 확인해보세요.</p>
+<p>파이프 연산자<code>%&gt;%</code>를 지원할 수 있게 작성하려고 노력했습니다.</p>
+<pre class="r"><code>library(sendgridr)
+mail() %&gt;% 
+  from(&quot;example1@mail.com&quot;, &quot;example name for display&quot;) %&gt;% 
+  to(&quot;example2@mail.com&quot;, &quot;example name for display 2&quot;) %&gt;% 
+  subject(&quot;test mail title&quot;) %&gt;% 
+  content(&quot;hello world!&quot;)  %&gt;% 
+  ## attachments is optional
+  attachments(&quot;report.html&quot;) %&gt;% 
+  send()</code></pre>
+<p>테스트 할 때는 한글도 문제없이 동작하는 것을 확인했습니다.
+전송이 잘 이루어진다면 위 코드를 수행했을 때 <code>NULL</code>이 출력될 것입니다.
+혹시 <code>NULL</code>이외의 출력(대부분 에러 메세지입니다.)이 나오면 <a href="https://github.com/mrchypark/sendgridr/issues/new">여기</a>에 알려주세요.</p>
+</div>
+</div>
+<div id="gmail로-받을-때" class="section level2">
+<h2>gmail로 받을 때</h2>
+<p>회사에서 G Suits를 사용하고 있다보니 회사 메일이 gmail 입니다.
+메일의 body 부분(패키지에서는 content)에 html로 전송을 지원하길래 시도해봤는데요.
+rmd로 만든 html 파일을 사용하니, 삽입된 그림은 막고, 여러 스타일을 제거해서 보여주는 것을 확인했습니다.
+아직은 사용하기 어렵겠네요.ㅜㅠ
+우선은 첨부파일로 해결이 가능할 것 같기는 한데요.
+메일 본문에 요약된 내용을 추가하는 방법을 찾아봐야 할 것 같습니다.</p>
+<p>첨부하는 파일 확장자를 rmd로 받고, rendering과 후처리를 패키지내에 포함하는 것이 좋겠네요.</p>
+</div>
+<div id="업무자동화에서-메일-보내기란" class="section level2">
+<h2>업무자동화에서 메일 보내기란</h2>
+<p>업무 자동화는 데이터 소스의 접근, 처리, 보고서 생성, 전달, 스케줄러 등 다양한 기능을 해야 합니다.
+그 중에 메일 보내기는 최종 단계로 꼭 필요하다고 할 수 있죠.
+회사에서 smtp 서버를 운용하는 중이라면 <code>sendmailR</code> 패키지가 좋은 선택일 것입니다.
+스케줄러로 정기적으로 메일을 보내게도 할 수 있을 것이구요.
+이렇게 업무자동화에 도움이 되는 패키지들을 만들거나 소개하는 것을 좀 해봐야 겠습니다.</p>
+<p>언제나처럼 문의, 오타 제보 등 대환영입니다.</p>
+</div>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/" data-id="e18dcdd18fcb53c39b6febfe83fc2966" class="article-share-link">
+        <i class="fa fa-share"></i>
+        
+    </a>
+    
+    <a href="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/#disqus_thread" class="article-comment-link">
+        
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[Rtips] tbl 자료형에서 소수점을 출력해보자</div>
+    </a>
+    
+
+    
+    <a href="/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%A0%A4%EB%A9%B4-rmouse/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[업무자동화] R로 마우스를 조작하려면 rMouse</div>
+    </a>
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mrchypark" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/anounce">
+                    anounce
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/blog">
+                    blog
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/news">
+                    news
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/r">
+                    r
+                </a>
+                <span class="category-list-count">30</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ad">
+                    ad
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/adjusted">
+                    adjusted
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/announce">
+                    announce
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/api">
+                    api
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/automation">
+                    automation
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blog">
+                    blog
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blogdown">
+                    blogdown
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/boolean">
+                    boolean
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/comment">
+                    comment
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda">
+                    conda
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda4r">
+                    conda4r
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/correttor">
+                    correttor
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/crypto">
+                    crypto
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/csv">
+                    csv
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dbi">
+                    dbi
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/digit">
+                    digit
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/discuss">
+                    discuss
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dnh4">
+                    dnh4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dplyr">
+                    dplyr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/email">
+                    email
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/forkonlp">
+                    forkonlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/get">
+                    get
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/git">
+                    git
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github">
+                    github
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github-pages">
+                    github-pages
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/glimpse">
+                    glimpse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/gmail">
+                    gmail
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/go">
+                    go
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/haproxy">
+                    haproxy
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/html">
+                    html
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/httr">
+                    httr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/installr">
+                    installr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/java">
+                    java
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/josaplay">
+                    josaplay
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/json">
+                    json
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/keras">
+                    keras
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/konlp">
+                    konlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/kospacing">
+                    kospacing
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/load-balance">
+                    load-balance
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/logical">
+                    logical
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/map">
+                    map
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/materials">
+                    materials
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/minimal">
+                    minimal
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/mouse">
+                    mouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/multi-stage">
+                    multi-stage
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/n2h4">
+                    n2h4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/nosql">
+                    nosql
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/operator">
+                    operator
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/options">
+                    options
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/package">
+                    package
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/post">
+                    post
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/postgres">
+                    postgres
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/presidentspeech">
+                    presidentspeech
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/preview">
+                    preview
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/project">
+                    project
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/purrr">
+                    purrr
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/python">
+                    python
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r">
+                    r
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/read">
+                    read
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/readr">
+                    readr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reboot">
+                    reboot
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reticulate">
+                    reticulate
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/retrospect">
+                    retrospect
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rjava">
+                    rjava
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rlang">
+                    rlang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmd">
+                    rmd
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmouse">
+                    rmouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rpubs">
+                    rpubs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rqna">
+                    rqna
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rstudio">
+                    rstudio
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rtips">
+                    rtips
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98">
+                    r로나만의
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/sendgridr">
+                    sendgridr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/server">
+                    server
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/setting">
+                    setting
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/str">
+                    str
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/study">
+                    study
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/suggest">
+                    suggest
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/swarm">
+                    swarm
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tbl">
+                    tbl
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/temp">
+                    temp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tempdir">
+                    tempdir
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/term">
+                    term
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/text">
+                    text
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tibble">
+                    tibble
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tidytext">
+                    tidytext
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tqk">
+                    tqk
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ubci">
+                    ubci
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/union">
+                    union
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/usehelp">
+                    usehelp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/web">
+                    web
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/windows">
+                    windows
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/xaringan">
+                    xaringan
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="/tags/ad" style="font-size: 12px;">ad</a>
+        
+        
+        <a href="/tags/adjusted" style="font-size: 12px;">adjusted</a>
+        
+        
+        <a href="/tags/announce" style="font-size: 12px;">announce</a>
+        
+        
+        <a href="/tags/api" style="font-size: 12px;">api</a>
+        
+        
+        <a href="/tags/automation" style="font-size: 12px;">automation</a>
+        
+        
+        <a href="/tags/blog" style="font-size: 12px;">blog</a>
+        
+        
+        <a href="/tags/blogdown" style="font-size: 12px;">blogdown</a>
+        
+        
+        <a href="/tags/boolean" style="font-size: 12px;">boolean</a>
+        
+        
+        <a href="/tags/comment" style="font-size: 12px;">comment</a>
+        
+        
+        <a href="/tags/conda" style="font-size: 12px;">conda</a>
+        
+        
+        <a href="/tags/conda4r" style="font-size: 12px;">conda4r</a>
+        
+        
+        <a href="/tags/correttor" style="font-size: 12px;">correttor</a>
+        
+        
+        <a href="/tags/crypto" style="font-size: 12px;">crypto</a>
+        
+        
+        <a href="/tags/csv" style="font-size: 12px;">csv</a>
+        
+        
+        <a href="/tags/dbi" style="font-size: 12px;">dbi</a>
+        
+        
+        <a href="/tags/digit" style="font-size: 12px;">digit</a>
+        
+        
+        <a href="/tags/discuss" style="font-size: 12px;">discuss</a>
+        
+        
+        <a href="/tags/dnh4" style="font-size: 12px;">dnh4</a>
+        
+        
+        <a href="/tags/docker" style="font-size: 12px;">docker</a>
+        
+        
+        <a href="/tags/dplyr" style="font-size: 12px;">dplyr</a>
+        
+        
+        <a href="/tags/email" style="font-size: 12px;">email</a>
+        
+        
+        <a href="/tags/forkonlp" style="font-size: 12px;">forkonlp</a>
+        
+        
+        <a href="/tags/get" style="font-size: 12px;">get</a>
+        
+        
+        <a href="/tags/git" style="font-size: 12px;">git</a>
+        
+        
+        <a href="/tags/github" style="font-size: 12px;">github</a>
+        
+        
+        <a href="/tags/github-pages" style="font-size: 12px;">github-pages</a>
+        
+        
+        <a href="/tags/glimpse" style="font-size: 12px;">glimpse</a>
+        
+        
+        <a href="/tags/gmail" style="font-size: 12px;">gmail</a>
+        
+        
+        <a href="/tags/go" style="font-size: 12px;">go</a>
+        
+        
+        <a href="/tags/haproxy" style="font-size: 12px;">haproxy</a>
+        
+        
+        <a href="/tags/html" style="font-size: 12px;">html</a>
+        
+        
+        <a href="/tags/httr" style="font-size: 12px;">httr</a>
+        
+        
+        <a href="/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="/tags/installr" style="font-size: 12px;">installr</a>
+        
+        
+        <a href="/tags/java" style="font-size: 12px;">java</a>
+        
+        
+        <a href="/tags/josaplay" style="font-size: 12px;">josaplay</a>
+        
+        
+        <a href="/tags/json" style="font-size: 12px;">json</a>
+        
+        
+        <a href="/tags/keras" style="font-size: 12px;">keras</a>
+        
+        
+        <a href="/tags/konlp" style="font-size: 12px;">konlp</a>
+        
+        
+        <a href="/tags/kospacing" style="font-size: 12px;">kospacing</a>
+        
+        
+        <a href="/tags/load-balance" style="font-size: 12px;">load-balance</a>
+        
+        
+        <a href="/tags/logical" style="font-size: 12px;">logical</a>
+        
+        
+        <a href="/tags/map" style="font-size: 12px;">map</a>
+        
+        
+        <a href="/tags/materials" style="font-size: 12px;">materials</a>
+        
+        
+        <a href="/tags/minimal" style="font-size: 12px;">minimal</a>
+        
+        
+        <a href="/tags/mouse" style="font-size: 12px;">mouse</a>
+        
+        
+        <a href="/tags/multi-stage" style="font-size: 12px;">multi-stage</a>
+        
+        
+        <a href="/tags/n2h4" style="font-size: 12px;">n2h4</a>
+        
+        
+        <a href="/tags/nosql" style="font-size: 12px;">nosql</a>
+        
+        
+        <a href="/tags/operator" style="font-size: 12px;">operator</a>
+        
+        
+        <a href="/tags/options" style="font-size: 12px;">options</a>
+        
+        
+        <a href="/tags/package" style="font-size: 12px;">package</a>
+        
+        
+        <a href="/tags/post" style="font-size: 12px;">post</a>
+        
+        
+        <a href="/tags/postgres" style="font-size: 12px;">postgres</a>
+        
+        
+        <a href="/tags/presidentspeech" style="font-size: 12px;">presidentspeech</a>
+        
+        
+        <a href="/tags/preview" style="font-size: 12px;">preview</a>
+        
+        
+        <a href="/tags/project" style="font-size: 12px;">project</a>
+        
+        
+        <a href="/tags/purrr" style="font-size: 12px;">purrr</a>
+        
+        
+        <a href="/tags/python" style="font-size: 12px;">python</a>
+        
+        
+        <a href="/tags/r" style="font-size: 12px;">r</a>
+        
+        
+        <a href="/tags/read" style="font-size: 12px;">read</a>
+        
+        
+        <a href="/tags/readr" style="font-size: 12px;">readr</a>
+        
+        
+        <a href="/tags/reboot" style="font-size: 12px;">reboot</a>
+        
+        
+        <a href="/tags/reticulate" style="font-size: 12px;">reticulate</a>
+        
+        
+        <a href="/tags/retrospect" style="font-size: 12px;">retrospect</a>
+        
+        
+        <a href="/tags/rjava" style="font-size: 12px;">rjava</a>
+        
+        
+        <a href="/tags/rlang" style="font-size: 12px;">rlang</a>
+        
+        
+        <a href="/tags/rmd" style="font-size: 12px;">rmd</a>
+        
+        
+        <a href="/tags/rmouse" style="font-size: 12px;">rmouse</a>
+        
+        
+        <a href="/tags/rpubs" style="font-size: 12px;">rpubs</a>
+        
+        
+        <a href="/tags/rqna" style="font-size: 12px;">rqna</a>
+        
+        
+        <a href="/tags/rstudio" style="font-size: 12px;">rstudio</a>
+        
+        
+        <a href="/tags/rtips" style="font-size: 12px;">rtips</a>
+        
+        
+        <a href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98" style="font-size: 12px;">r로나만의</a>
+        
+        
+        <a href="/tags/sendgridr" style="font-size: 12px;">sendgridr</a>
+        
+        
+        <a href="/tags/server" style="font-size: 12px;">server</a>
+        
+        
+        <a href="/tags/setting" style="font-size: 12px;">setting</a>
+        
+        
+        <a href="/tags/str" style="font-size: 12px;">str</a>
+        
+        
+        <a href="/tags/study" style="font-size: 12px;">study</a>
+        
+        
+        <a href="/tags/suggest" style="font-size: 12px;">suggest</a>
+        
+        
+        <a href="/tags/swarm" style="font-size: 12px;">swarm</a>
+        
+        
+        <a href="/tags/tbl" style="font-size: 12px;">tbl</a>
+        
+        
+        <a href="/tags/temp" style="font-size: 12px;">temp</a>
+        
+        
+        <a href="/tags/tempdir" style="font-size: 12px;">tempdir</a>
+        
+        
+        <a href="/tags/term" style="font-size: 12px;">term</a>
+        
+        
+        <a href="/tags/text" style="font-size: 12px;">text</a>
+        
+        
+        <a href="/tags/tibble" style="font-size: 12px;">tibble</a>
+        
+        
+        <a href="/tags/tidytext" style="font-size: 12px;">tidytext</a>
+        
+        
+        <a href="/tags/tqk" style="font-size: 12px;">tqk</a>
+        
+        
+        <a href="/tags/ubci" style="font-size: 12px;">ubci</a>
+        
+        
+        <a href="/tags/union" style="font-size: 12px;">union</a>
+        
+        
+        <a href="/tags/usehelp" style="font-size: 12px;">usehelp</a>
+        
+        
+        <a href="/tags/web" style="font-size: 12px;">web</a>
+        
+        
+        <a href="/tags/windows" style="font-size: 12px;">windows</a>
+        
+        
+        <a href="/tags/xaringan" style="font-size: 12px;">xaringan</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-47822682-14', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

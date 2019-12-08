@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>[github] rstudio로 github 프로젝트 시작하기 &middot; Mrchypark</title>
+    <meta name="generator" content="Hugo 0.60.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="mrchypark">
+    
+      <meta name="description" content="log for you &amp; me | R, Docker, Text analysis etc">
+    
+    
+    <link rel="canonical" href="/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    
+    <link rel="stylesheet" href="/css/my.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="[github] rstudio로 github 프로젝트 시작하기" />
+<meta property="og:description" content="세줄요약github은 git의 공개 remote repo를 제공하는 서비스다.그래서 git 사용법을 알아야 한다.Rstudio의 project를 사용하면 좀 쉽다.Github은 이제 코드 관리와 공유 플랫폼의 대명사입니다.R도 개발 언어로써 Github을 많이 사용할 기회가 있는데요.코드 공유, 패키지 공유, 분석 결과 공유 정도로 쓰임새를 정리할 수 있을 것 같습니다.이 때 많은 분들의 필요은 아마 분석 결과 공유이지 않을까 싶습니다.
+분석 결과를 공유하기 위해서 github을 사용하실 때, R의 IDE로 많이 사용하는 RStudio와 함께 사용하는 법을 소개해드릴까 합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" />
+<meta property="article:published_time" content="2018-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-03-15T00:00:00+00:00" />
+
+    
+    <meta itemprop="name" content="[github] rstudio로 github 프로젝트 시작하기">
+<meta itemprop="description" content="세줄요약github은 git의 공개 remote repo를 제공하는 서비스다.그래서 git 사용법을 알아야 한다.Rstudio의 project를 사용하면 좀 쉽다.Github은 이제 코드 관리와 공유 플랫폼의 대명사입니다.R도 개발 언어로써 Github을 많이 사용할 기회가 있는데요.코드 공유, 패키지 공유, 분석 결과 공유 정도로 쓰임새를 정리할 수 있을 것 같습니다.이 때 많은 분들의 필요은 아마 분석 결과 공유이지 않을까 싶습니다.
+분석 결과를 공유하기 위해서 github을 사용하실 때, R의 IDE로 많이 사용하는 RStudio와 함께 사용하는 법을 소개해드릴까 합니다.">
+<meta itemprop="datePublished" content="2018-03-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1053">
+
+
+
+<meta itemprop="keywords" content="rstudio,github,project," />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[github] rstudio로 github 프로젝트 시작하기"/>
+<meta name="twitter:description" content="세줄요약github은 git의 공개 remote repo를 제공하는 서비스다.그래서 git 사용법을 알아야 한다.Rstudio의 project를 사용하면 좀 쉽다.Github은 이제 코드 관리와 공유 플랫폼의 대명사입니다.R도 개발 언어로써 Github을 많이 사용할 기회가 있는데요.코드 공유, 패키지 공유, 분석 결과 공유 정도로 쓰임새를 정리할 수 있을 것 같습니다.이 때 많은 분들의 필요은 아마 분석 결과 공유이지 않을까 싶습니다.
+분석 결과를 공유하기 위해서 github을 사용하실 때, R의 IDE로 많이 사용하는 RStudio와 함께 사용하는 법을 소개해드릴까 합니다."/>
+<meta name="twitter:site" content="@mrchypark_"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+          
+          <i class="logo" style="background-image: url('/css/images/logo.png')"></i>
+          
+          <span class="site-title">Mrchypark</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="/post/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="/post/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://www.gravatar.com/avatar/4fca794da0cf08804f99048d3c8b39c1?s=100&d=identicon"/>
+      
+      <h2 id="name">mrchypark</h2>
+      <h3 id="title">Tool maker with R - Docker lover</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Seoul, Korea</span>
+      
+          <a id="follow" href="https://github.com/mrchypark">
+              
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        0
+        <span></span>
+      </div>
+      <div class="article-info-block">
+        
+          95
+        
+        <span>
+            
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/mrchypark" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//instagram.com/mrchypark" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//linkedin.com/in/chanyubpark" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//facebook.com/mrchypark" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></td>
+
+
+
+<td><a href="//twitter.com/mrchypark_" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    <a href="/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/">
+    <h1 class="article-title" itemprop="name">
+        [github] rstudio로 github 프로젝트 시작하기
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-03-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">2018-03-15</time>
+            &middot;
+            1053
+            
+            &middot;
+            5
+            
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="/categories/r">R</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="/tags/rstudio">rstudio</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/github">github</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="/tags/project">project</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+
+<p><img src="https://user-images.githubusercontent.com/6179259/37447051-71c9eff0-2863-11e8-840d-ebef25285d34.jpg" width=100%></p>
+<div id="세줄요약" class="section level3">
+<h3>세줄요약</h3>
+<ol style="list-style-type: decimal">
+<li>github은 git의 공개 remote repo를 제공하는 서비스다.</li>
+<li>그래서 git 사용법을 알아야 한다.</li>
+<li>Rstudio의 project를 사용하면 좀 쉽다.</li>
+</ol>
+<p><a href="https://github.com/">Github</a>은 이제 코드 관리와 공유 플랫폼의 대명사입니다.
+R도 개발 언어로써 Github을 많이 사용할 기회가 있는데요.
+코드 공유, 패키지 공유, 분석 결과 공유 정도로 쓰임새를 정리할 수 있을 것 같습니다.
+이 때 많은 분들의 필요은 아마 분석 결과 공유이지 않을까 싶습니다.</p>
+<p>분석 결과를 공유하기 위해서 github을 사용하실 때, R의 IDE로 많이 사용하는 RStudio와 함께 사용하는 법을 소개해드릴까 합니다.</p>
+<p>우선 github에 repository를 만들어 시작하는 다양한 방법이 있습니다.
+단적으로는 웹브라우저에서 파일 만들기나 업로드로 진행하셔도 됩니다.
+각각의 방법을 설명하기 전에, github의 개념을 간단하게만 짚고 넘어가겠습니다.</p>
+<p>코드의 저장 상태 백업과 공유를 위해서 git은 작업하는 나의 컴퓨터 공간인 로컬 저장소(local repository)와 원격 저장소(remote repository)라는 개념으로 구분하여 사용합니다.
+local을 개인이 일하고 작업하는 공간, remote는 백업하고 공유하는 공간입니다.</p>
+<p><img src="https://github.com/mrchypark/dabrp_classnote3/raw/master/docs/img/localremote.png" width=100%></p>
+<p>그런데 remote를 누가 그냥 주는 것도 아니고, 필요한 사람이 따로 구축해야 합니다.
+큰일인거죠.
+이걸 SNS처럼 인터넷 서비스로 만든 것이 바로 Github입니다.
+Github은 원격 저장소를 회원 가입한 사람 모두에게 무료로 나눠준거죠.
+조건이 있다면 저장소를 공개(public)해야 합니다.
+비공개(private)로 만들려면 돈을 내야 합니다.
+이런 Github의 유료정책을 파고 들어서 [Gitlab][Gitlab]이나 <a href="https://bitbucket.org/">Bitbucket</a>은 무료 비공개 repo를 제공하고 있습니다.
+사용법이 좀 다르지만 git과 subvesion을 모두 사용할 수 있으니 선택지가 넓은 셈이죠.
+우리는 분석 결과 공유를 목적으로 저장소(repository)를 사용할 계획이니 Github을 사용하겠습니다.
+시작해볼까요?</p>
+</div>
+<div id="로컬과-원격-프로젝트의-시작" class="section level3">
+<h3>로컬과 원격, 프로젝트의 시작</h3>
+<p>무언가 작업이 발생하면 아주 작거나 간단한 것이 아니라면 프로젝트라고 정의합니다.
+원래 분석 프로젝트라고 하면 <code>문제정의</code> - <code>데이터 확보</code> - <code>분석</code> - <code>결과 공유</code>의 과정을 거칩니다.
+각각의 세부항목도 많지만 우선은 넘어갈께요.
+저 모든 과정을 프로젝트라고 볼 수도 있지만, 우리는 <code>결과 공유</code>만 프로젝트라고 합시다.
+더 쉽게 하기 위해서 결과물이 <code>.Rmd</code> 파일로 되어 있다고 해보겠습니다.
+그렇게 하면 해야할 일은</p>
+<ol style="list-style-type: decimal">
+<li>github에 새 저장소 만들기</li>
+<li>새 저장소에 결과물 업로드하기</li>
+</ol>
+<p>이제 여기서 몇 가지 분기가 발생하는데요.</p>
+<ol style="list-style-type: decimal">
+<li>git을 사용할 것인가 말것인가</li>
+<li>결과물을 어떤 파일 형식으로 저장할 것인가</li>
+</ol>
+<p>입니다.</p>
+<p>git을 사용하지 않는다면 그냥 github에서 제공하는 <code>upload files</code> 버튼으로 업로드 하는 방법이 있습니다.
+예를 들어 <code>.pdf</code>는 엄청 큰 파일이 아닌 이상 업로드하면 바로 웹에서 보여주기도 합니다.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/6179259/37452898-4d44e20a-2879-11e8-8d56-110d6a6bf412.png" width=100%>
+<figcaption>
+이 <a href="https://github.com/mrchypark/github-with-rstudio/blob/master/docs/github-with-rstudio.pdf">주소</a>로 확인하실 수 있습니다. 예쁘지는 않을 수…
+</figcaption>
+</figure>
+<p>우리는 R을 사용하니 파일 형식은 다양할 수 있습니다.
+<code>.Rmd</code>만 사용하면 이론적으로는 <a href="https://mrchypark.github.io/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/">rpubs 포스트</a>에서 보여드린 만큼이나 가능하죠.
+대표적으로 많이 사용하는 형식으로는 <code>.docx</code>같이 MS 오피스 계열의 결과물이 있습니다.
+그리고 <code>Github</code> 친화적으로는 <code>.md</code>와 <code>.html</code>을 꼽을 수 있을 것 같습니다.</p>
+<p><code>.md</code>는 <a href="https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown">GFM</a>이란게 있을 정도로 Github이 사랑하는 파일 형식입니다.
+오픈소스 저장소로써 많이 사용하는 관례인 <code>README.md</code>는 파일을 보지 않아도 프로젝트 페이지에서 출력도 해줍니다.</p>
+<p><code>.html</code>은 <a href="https://pages.github.com/">Github pages</a> 서비스를 통해서 사용할 수 있습니다.
+아마 다음 포스트를 Github pages를 이용해서 웹페이지를 만들거나 하는 방법을 소개할 수 있을 거라 기대하고 있습니다.</p>
+<p>위 두 파일 형식은 Github 친화적이기도 하면서 변환 동작에 다른 외부 의존성이 없어서 작업환경을 만들기 쉽다는 장점이 있습니다.
+예를 들어 <code>.pdf</code>는 <a href="https://ko.wikipedia.org/wiki/LaTeX">Latex</a> 엔진을 추가로 설치해야 합니다.
+한글을 지원하는 엔진을 선정해야 해서 <a href="http://www.ktug.org/xe/">KTUG</a>에서 관련 정보를 찾으실 수 있습니다.</p>
+<p>서문이 너무 길었네요. Rstudio를 사용해서 Github 프로젝트를 시작해보겠습니다.</p>
+</div>
+<div id="git의-워크플로우" class="section level3">
+<h3>git의 워크플로우</h3>
+<figure>
+<img src="https://user-images.githubusercontent.com/6179259/37447579-164aa694-2866-11e8-8e02-04d4fab3ebbb.png" width=100%>
+<figcaption>
+Github!
+</figcaption>
+</figure>
+<p>위에서 Github이 git의 원격 저장소라는 설명을 드렸습니다. git을 사용해 시작하는 상황은 두 가지입니다.</p>
+<ol style="list-style-type: decimal">
+<li>처음 폴더를 만들어 로컬 저장소를 초기화하며 시작하기</li>
+<li>기존에 있는 프로젝트를 원격 저장소에서 클론하여 시작하기</li>
+</ol>
+<p>초기화하면서 시작하면 원격 저장소를 연결하는 과정이 추가로 필요합니다.
+원격 저장소를 연결하여 파일들을 업로드하는 행위를 <strong>푸쉬(push)</strong>라고 하는데, 천천히 할 것이라면 초기화로 시작하는 것도 좋은 선택입니다.
+원격 저장소를 바로 사용할 것이라면, 원격 저장소를 먼저 만들어 클론하면서 시작하는게 조금 더 제가 생각하는 쉬운 방법입니다.
+저는 원격 저장소를 바로 사용할 것이니 클론으로 시작하는 방법을 소개하겠습니다.</p>
+</div>
+<div id="클론git-clone으로-시작하기" class="section level3">
+<h3>클론(git clone)으로 시작하기</h3>
+<p>클론으로 시작하려면 원격 저장소를 <strong>먼저</strong> 만들어야 한다고 말씀드렸습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447635-5095df4e-2866-11e8-90f9-047a470d31c3.png"></p>
+<p>로그인을 하고</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447642-593cb17c-2866-11e8-90e5-5df565a5e27f.png"></p>
+<p>메인화면에</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447652-61295278-2866-11e8-8074-9fdb6f05ff0e.png"></p>
+<p>오른쪽 위 <strong>+</strong> 버튼을 누르면 메뉴가 나옵니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447685-7de747da-2866-11e8-9468-af968d5bf426.png"></p>
+<p>우린 새 저장소 만들어야 하니 <code>New repository</code>를 선택해주세요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447699-91f50ed8-2866-11e8-9d17-b74e2ea3da24.png"></p>
+<p>저장소 이름을 <code>myfirstrepo</code> 라고 했습니다.
+옵션을 좀 살펴볼까요?</p>
+<div id="owner" class="section level4">
+<h4>Owner</h4>
+<p>계정입니다.
+보통 자기 것만 있는데, 그룹 계정같은 것이 더 있을 수 있습니다.</p>
+</div>
+<div id="repository-name" class="section level4">
+<h4>Repository name</h4>
+<p>저장소 이름입니다.
+자신의 계정 내에만 겹치치 않으면 되니 편하게 만들어 주세요.</p>
+</div>
+<div id="description" class="section level4">
+<h4>Description</h4>
+<p>저장소를 간단히 설명하는 곳입니다.
+한 줄 정도로 설명문을 작성하면 검색같은 곳에 같이 보여집니다.</p>
+</div>
+<div id="공개-범위" class="section level4">
+<h4>공개 범위</h4>
+<p>공개 범위는 Public과 Private이 있습니다.
+우리는 Public은 선택하죠.
+Private은 비용을 사용해야 합니다.</p>
+</div>
+<div id="readme" class="section level4">
+<h4>README</h4>
+<p>오픈소스 프로젝트는 관례적으로 root 위치에 README 파일을 두고 있습니다.
+여기서 선택하면 저장소 이름을 작성한 README.md 파일을 같이 만들어줍니다.
+우리는 선택해서 시작하겠습니다.</p>
+</div>
+<div id="gitignore" class="section level4">
+<h4>.gitignore</h4>
+<p>git 시스템이 관리하지 않을 파일들의 리스트를 담고 있는 텍스트 파일입니다.
+파일명 앞에 <code>.</code>로만 되어 있는 건 숨김 파일이라는 뜻입니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447716-a0a6e3b6-2866-11e8-8cab-9facdb9324df.png"></p>
+<p>github에서는 각 언어에서 관례적으로 필요한 .gitignore 리스트를 템플릿으로 제공합니다.
+우리도 <code>R</code>로 선택해 볼까요?</p>
+</div>
+<div id="license" class="section level4">
+<h4>license</h4>
+<p>저장소의 코드들에 대한 라이선스를 지정할 수 있습니다.
+정확히는 <code>.gitignore</code> 파일처럼 주요 라이선스들의 템플릿을 제공합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447725-a8b31340-2866-11e8-8070-c2b9bf69bc14.png"></p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447731-af9dd7a8-2866-11e8-9a30-2f671533de05.png"></p>
+<p>우리는 사용에 제약이 없고 대신 출처만 좀 써달라는 <a href="https://ko.wikipedia.org/wiki/MIT_%ED%97%88%EA%B0%80%EC%84%9C">MIT 라이선스</a>로 하겠습니다.</p>
+</div>
+<div id="원격-저장소-만들기" class="section level4">
+<h4>원격 저장소 만들기</h4>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447740-b9d1fc36-2866-11e8-876d-0b624a8862c0.png"></p>
+<p>이제 초록 버튼을 눌러 원격 저장소를 만들어 보겠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447811-17d8f546-2867-11e8-9eaf-904502dc5b00.png"></p>
+<p>우리가 설정했던 .gitignore, LICENSE, README.md 파일 3개가 기본으로 만들어지면서 원격 저장소가 생겼습니다. 이제 이 이 원격 저장소를 이용해 로컬 저장소를 만들겠습니다.</p>
+</div>
+<div id="rstudio-프로젝트-만들기" class="section level4">
+<h4>Rstudio 프로젝트 만들기</h4>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447827-29d0b874-2867-11e8-940d-c3773d805d13.png"></p>
+<p>이제 Rstudio를 켜볼까요?</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447835-327a34f0-2867-11e8-8853-f6021e96b5bc.png"></p>
+<p>오른쪽 위에 Project 버튼을 누르면 맨 위에 <code>New Project</code> 버튼이 있습니다. File &gt; New Project 로 진행하실 수도 있어요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447839-393c3644-2867-11e8-93e7-060e5bc78a8e.png"></p>
+<p>새 프로젝트를 만들면 3가지 버튼이 나옵니다.
+하나하나 살펴보죠.</p>
+<ol style="list-style-type: decimal">
+<li>New Directory : 새 폴더를 만들면서 프로젝트를 시작합니다. 새 폴더를 만들면서 시작하기 때문에 같은 이름의 폴더가 있으면 에러가 납니다.</li>
+<li>Exsting Directory : 기존에 있는 폴더를 프로젝트로 만듭니다. 저는 사용할 일이 많이 없었습니다.</li>
+<li>Version Control : 버전 관리 시스템으로 프로젝트를 시작합니다.</li>
+</ol>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447843-408c984e-2867-11e8-891a-1b9003cafb03.png"></p>
+<p>Version Control을 선택하겠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447856-4eaeac78-2867-11e8-83b7-f4e0e643723d.png"></p>
+<p>git과 subversion이 있는데 저희는 git을 사용할껍니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447859-545ad188-2867-11e8-9d13-f2f101a3986c.png"></p>
+<p>아마 git이 설치가 안되어 있는 windows이신 분들은 다음으로 진행이 안됩니다.
+<a href="http://library1008.tistory.com/51">링크</a>를 참고해서 git을 설치해주세요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447871-61f708c0-2867-11e8-984e-e129574ff910.png"></p>
+<p>여기서 다운로드할 수 있습니다.</p>
+<blockquote>
+<p>Git을 설치했는데도 진행이 안되시면 <a href="https://mrchypark.github.io/post/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/">이 포스트</a>를 참고하세요.(업데이트 - 2018.03.19)</p>
+</blockquote>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447817-1e058ce0-2867-11e8-9d12-1522e78529bd.png"></p>
+<p>다시 github으로 돌아와서, 만든 원격 저장소의 URL을 복사합니다.
+저는 주소창을 애용하는 편인데, 오른쪽에 초록색 버튼을 눌러도 됩니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37563162-f1130a24-2abd-11e8-9c7b-3a00393d6f9d.png"></p>
+<p>그러면 주소 오른쪽 버튼이 URL 주소를 복사하는 버튼입니다. 그 버튼을 클릭하고 Rstudio로 돌아오겠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447859-545ad188-2867-11e8-9d13-f2f101a3986c.png"></p>
+<p>요 장면으로 다시 오시면 되구요.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37447919-8fa7991a-2867-11e8-9f59-78ce2004caf9.png"></p>
+<p>이렇게 주소를 Reposigory URL에 붙여넣으시면, 알아서 폴더 이름도 설정됩니다.
+보통 저장소 이름과 같게 설정합니다.
+생성되는 폴더의 위치를 지정해 줄 수 있는데요.
+<code>~/</code>가 문서 폴더를 뜻하구요.
+저 같은 경우는 문서 폴더 밑에 <code>project</code> 폴더를 만들어서 그 안에 프로젝트들을 만들어 관리하고 있습니다.
+이제 Create project를 눌러보겠습니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37448131-594b5144-2868-11e8-96f0-46a3662f9c03.png"></p>
+<p>자 git 명령어를 우리는 모르지만, 저 과정이 <code>git clone https://github.com/mrchypark/myfirestrepo.git</code>을 수행한 것과 같습니다.
+명령을 수행한 폴더 위치에 <code>myfirestrepo</code>(오타났네요;;)라는 폴더를 만들고, 그곳에 원격 저장소의 git history와 파일들을 다운로드합니다.</p>
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/37448329-3b009de2-2869-11e8-9752-08328d4fc11b.png"></p>
+<p>드디어 과정이 끝났습니다.
+Rstudio의 오른쪽 아래를 보시면 파일 4개(github에서 만든 3개 + .Rproj 파일)가 있는 것을 확인하시면 과정이 잘 끝난겁니다.
+몇 가지가 원래랑 좀 다른데요.
+하나는 콘솔창의 가장 위에 보이는 작업공간(working directory)이 바뀌었구요.
+그냥 프로젝트를 만들 때와 달리 오른쪽 위 패널에 <code>Git</code> 탭이 추가된 것입니다.</p>
+</div>
+<div id="github과-연결된-프로젝트" class="section level4">
+<h4>github과 연결된 프로젝트</h4>
+<p>축하합니다! 드디어 github의 원격 저장소와 연결된 Rstudio 프로젝트를 성공적으로 만들었습니다.
+여기까지 따라하셨으면 새로운 프로젝트를 Git으로 관리하면서 원격 저장소로 Github을 사용하는 상태가 되신겁니다.
+이제 git으로 버전관리를 하거나 Github에 관련 내용을 올리는 내용을 포스팅해야겠네요.ㄷㄷㄷ
+따라 오시는 동안 궁금한 점이나 이상한 점, 잘 안되거나 하는 부분이 있으면 댓글로 알려주세요.
+블로그 글이 도움이 되셨다면, 블로그에 <a href="https://mrchypark.github.io/support/">도움</a>을 주실 많은 방법이 있습니다.
+감사합니다.</p>
+</div>
+</div>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" data-id="0a7b441f3823c855f92fa460624aa82b" class="article-share-link">
+        <i class="fa fa-share"></i>
+        
+    </a>
+    
+    <a href="/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/#disqus_thread" class="article-comment-link">
+        
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[번역]Haproxy와 Docker를 이용한 로드밸런싱</div>
+    </a>
+    
+
+    
+    <a href="/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          
+      </strong>
+      <div class="article-nav-title">[RQnA] git을 설치했는데 Rstudio에서 프로젝트 만들기 진행이 안되요</div>
+    </a>
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mrchypark" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title"></h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/anounce">
+                    anounce
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/blog">
+                    blog
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/news">
+                    news
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/categories/r">
+                    r
+                </a>
+                <span class="category-list-count">30</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ad">
+                    ad
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/adjusted">
+                    adjusted
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/announce">
+                    announce
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/api">
+                    api
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/automation">
+                    automation
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blog">
+                    blog
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/blogdown">
+                    blogdown
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/boolean">
+                    boolean
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/comment">
+                    comment
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda">
+                    conda
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/conda4r">
+                    conda4r
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/correttor">
+                    correttor
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/crypto">
+                    crypto
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/csv">
+                    csv
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dbi">
+                    dbi
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/digit">
+                    digit
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/discuss">
+                    discuss
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dnh4">
+                    dnh4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/docker">
+                    docker
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/dplyr">
+                    dplyr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/email">
+                    email
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/forkonlp">
+                    forkonlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/get">
+                    get
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/git">
+                    git
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github">
+                    github
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/github-pages">
+                    github-pages
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/glimpse">
+                    glimpse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/gmail">
+                    gmail
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/go">
+                    go
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/haproxy">
+                    haproxy
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/html">
+                    html
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/httr">
+                    httr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/installr">
+                    installr
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/java">
+                    java
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/josaplay">
+                    josaplay
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/json">
+                    json
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/keras">
+                    keras
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/konlp">
+                    konlp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/kospacing">
+                    kospacing
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/load-balance">
+                    load-balance
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/logical">
+                    logical
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/map">
+                    map
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/materials">
+                    materials
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/minimal">
+                    minimal
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/mouse">
+                    mouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/multi-stage">
+                    multi-stage
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/n2h4">
+                    n2h4
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/nosql">
+                    nosql
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/operator">
+                    operator
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/options">
+                    options
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/package">
+                    package
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/post">
+                    post
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/postgres">
+                    postgres
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/presidentspeech">
+                    presidentspeech
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/preview">
+                    preview
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/project">
+                    project
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/purrr">
+                    purrr
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/python">
+                    python
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r">
+                    r
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/read">
+                    read
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/readr">
+                    readr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reboot">
+                    reboot
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/reticulate">
+                    reticulate
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/retrospect">
+                    retrospect
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rjava">
+                    rjava
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rlang">
+                    rlang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmd">
+                    rmd
+                </a>
+                <span class="category-list-count">5</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rmouse">
+                    rmouse
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rpubs">
+                    rpubs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rqna">
+                    rqna
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rstudio">
+                    rstudio
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/rtips">
+                    rtips
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98">
+                    r로나만의
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/sendgridr">
+                    sendgridr
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/server">
+                    server
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/setting">
+                    setting
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/str">
+                    str
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/study">
+                    study
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/suggest">
+                    suggest
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/swarm">
+                    swarm
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tbl">
+                    tbl
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/temp">
+                    temp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tempdir">
+                    tempdir
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/term">
+                    term
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/text">
+                    text
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tibble">
+                    tibble
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tidytext">
+                    tidytext
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/tqk">
+                    tqk
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/ubci">
+                    ubci
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/union">
+                    union
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/usehelp">
+                    usehelp
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/web">
+                    web
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/windows">
+                    windows
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="/tags/xaringan">
+                    xaringan
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="/tags/ad" style="font-size: 12px;">ad</a>
+        
+        
+        <a href="/tags/adjusted" style="font-size: 12px;">adjusted</a>
+        
+        
+        <a href="/tags/announce" style="font-size: 12px;">announce</a>
+        
+        
+        <a href="/tags/api" style="font-size: 12px;">api</a>
+        
+        
+        <a href="/tags/automation" style="font-size: 12px;">automation</a>
+        
+        
+        <a href="/tags/blog" style="font-size: 12px;">blog</a>
+        
+        
+        <a href="/tags/blogdown" style="font-size: 12px;">blogdown</a>
+        
+        
+        <a href="/tags/boolean" style="font-size: 12px;">boolean</a>
+        
+        
+        <a href="/tags/comment" style="font-size: 12px;">comment</a>
+        
+        
+        <a href="/tags/conda" style="font-size: 12px;">conda</a>
+        
+        
+        <a href="/tags/conda4r" style="font-size: 12px;">conda4r</a>
+        
+        
+        <a href="/tags/correttor" style="font-size: 12px;">correttor</a>
+        
+        
+        <a href="/tags/crypto" style="font-size: 12px;">crypto</a>
+        
+        
+        <a href="/tags/csv" style="font-size: 12px;">csv</a>
+        
+        
+        <a href="/tags/dbi" style="font-size: 12px;">dbi</a>
+        
+        
+        <a href="/tags/digit" style="font-size: 12px;">digit</a>
+        
+        
+        <a href="/tags/discuss" style="font-size: 12px;">discuss</a>
+        
+        
+        <a href="/tags/dnh4" style="font-size: 12px;">dnh4</a>
+        
+        
+        <a href="/tags/docker" style="font-size: 12px;">docker</a>
+        
+        
+        <a href="/tags/dplyr" style="font-size: 12px;">dplyr</a>
+        
+        
+        <a href="/tags/email" style="font-size: 12px;">email</a>
+        
+        
+        <a href="/tags/forkonlp" style="font-size: 12px;">forkonlp</a>
+        
+        
+        <a href="/tags/get" style="font-size: 12px;">get</a>
+        
+        
+        <a href="/tags/git" style="font-size: 12px;">git</a>
+        
+        
+        <a href="/tags/github" style="font-size: 12px;">github</a>
+        
+        
+        <a href="/tags/github-pages" style="font-size: 12px;">github-pages</a>
+        
+        
+        <a href="/tags/glimpse" style="font-size: 12px;">glimpse</a>
+        
+        
+        <a href="/tags/gmail" style="font-size: 12px;">gmail</a>
+        
+        
+        <a href="/tags/go" style="font-size: 12px;">go</a>
+        
+        
+        <a href="/tags/haproxy" style="font-size: 12px;">haproxy</a>
+        
+        
+        <a href="/tags/html" style="font-size: 12px;">html</a>
+        
+        
+        <a href="/tags/httr" style="font-size: 12px;">httr</a>
+        
+        
+        <a href="/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="/tags/installr" style="font-size: 12px;">installr</a>
+        
+        
+        <a href="/tags/java" style="font-size: 12px;">java</a>
+        
+        
+        <a href="/tags/josaplay" style="font-size: 12px;">josaplay</a>
+        
+        
+        <a href="/tags/json" style="font-size: 12px;">json</a>
+        
+        
+        <a href="/tags/keras" style="font-size: 12px;">keras</a>
+        
+        
+        <a href="/tags/konlp" style="font-size: 12px;">konlp</a>
+        
+        
+        <a href="/tags/kospacing" style="font-size: 12px;">kospacing</a>
+        
+        
+        <a href="/tags/load-balance" style="font-size: 12px;">load-balance</a>
+        
+        
+        <a href="/tags/logical" style="font-size: 12px;">logical</a>
+        
+        
+        <a href="/tags/map" style="font-size: 12px;">map</a>
+        
+        
+        <a href="/tags/materials" style="font-size: 12px;">materials</a>
+        
+        
+        <a href="/tags/minimal" style="font-size: 12px;">minimal</a>
+        
+        
+        <a href="/tags/mouse" style="font-size: 12px;">mouse</a>
+        
+        
+        <a href="/tags/multi-stage" style="font-size: 12px;">multi-stage</a>
+        
+        
+        <a href="/tags/n2h4" style="font-size: 12px;">n2h4</a>
+        
+        
+        <a href="/tags/nosql" style="font-size: 12px;">nosql</a>
+        
+        
+        <a href="/tags/operator" style="font-size: 12px;">operator</a>
+        
+        
+        <a href="/tags/options" style="font-size: 12px;">options</a>
+        
+        
+        <a href="/tags/package" style="font-size: 12px;">package</a>
+        
+        
+        <a href="/tags/post" style="font-size: 12px;">post</a>
+        
+        
+        <a href="/tags/postgres" style="font-size: 12px;">postgres</a>
+        
+        
+        <a href="/tags/presidentspeech" style="font-size: 12px;">presidentspeech</a>
+        
+        
+        <a href="/tags/preview" style="font-size: 12px;">preview</a>
+        
+        
+        <a href="/tags/project" style="font-size: 12px;">project</a>
+        
+        
+        <a href="/tags/purrr" style="font-size: 12px;">purrr</a>
+        
+        
+        <a href="/tags/python" style="font-size: 12px;">python</a>
+        
+        
+        <a href="/tags/r" style="font-size: 12px;">r</a>
+        
+        
+        <a href="/tags/read" style="font-size: 12px;">read</a>
+        
+        
+        <a href="/tags/readr" style="font-size: 12px;">readr</a>
+        
+        
+        <a href="/tags/reboot" style="font-size: 12px;">reboot</a>
+        
+        
+        <a href="/tags/reticulate" style="font-size: 12px;">reticulate</a>
+        
+        
+        <a href="/tags/retrospect" style="font-size: 12px;">retrospect</a>
+        
+        
+        <a href="/tags/rjava" style="font-size: 12px;">rjava</a>
+        
+        
+        <a href="/tags/rlang" style="font-size: 12px;">rlang</a>
+        
+        
+        <a href="/tags/rmd" style="font-size: 12px;">rmd</a>
+        
+        
+        <a href="/tags/rmouse" style="font-size: 12px;">rmouse</a>
+        
+        
+        <a href="/tags/rpubs" style="font-size: 12px;">rpubs</a>
+        
+        
+        <a href="/tags/rqna" style="font-size: 12px;">rqna</a>
+        
+        
+        <a href="/tags/rstudio" style="font-size: 12px;">rstudio</a>
+        
+        
+        <a href="/tags/rtips" style="font-size: 12px;">rtips</a>
+        
+        
+        <a href="/tags/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98" style="font-size: 12px;">r로나만의</a>
+        
+        
+        <a href="/tags/sendgridr" style="font-size: 12px;">sendgridr</a>
+        
+        
+        <a href="/tags/server" style="font-size: 12px;">server</a>
+        
+        
+        <a href="/tags/setting" style="font-size: 12px;">setting</a>
+        
+        
+        <a href="/tags/str" style="font-size: 12px;">str</a>
+        
+        
+        <a href="/tags/study" style="font-size: 12px;">study</a>
+        
+        
+        <a href="/tags/suggest" style="font-size: 12px;">suggest</a>
+        
+        
+        <a href="/tags/swarm" style="font-size: 12px;">swarm</a>
+        
+        
+        <a href="/tags/tbl" style="font-size: 12px;">tbl</a>
+        
+        
+        <a href="/tags/temp" style="font-size: 12px;">temp</a>
+        
+        
+        <a href="/tags/tempdir" style="font-size: 12px;">tempdir</a>
+        
+        
+        <a href="/tags/term" style="font-size: 12px;">term</a>
+        
+        
+        <a href="/tags/text" style="font-size: 12px;">text</a>
+        
+        
+        <a href="/tags/tibble" style="font-size: 12px;">tibble</a>
+        
+        
+        <a href="/tags/tidytext" style="font-size: 12px;">tidytext</a>
+        
+        
+        <a href="/tags/tqk" style="font-size: 12px;">tqk</a>
+        
+        
+        <a href="/tags/ubci" style="font-size: 12px;">ubci</a>
+        
+        
+        <a href="/tags/union" style="font-size: 12px;">union</a>
+        
+        
+        <a href="/tags/usehelp" style="font-size: 12px;">usehelp</a>
+        
+        
+        <a href="/tags/web" style="font-size: 12px;">web</a>
+        
+        
+        <a href="/tags/windows" style="font-size: 12px;">windows</a>
+        
+        
+        <a href="/tags/xaringan" style="font-size: 12px;">xaringan</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-47822682-14', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

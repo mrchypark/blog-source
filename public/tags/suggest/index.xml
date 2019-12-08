@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>suggest on Mrchypark</title>
+    <link>/tags/suggest/</link>
+    <description>Recent content in suggest on Mrchypark</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/suggest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rphabetic(알파베틱) 제안</title>
+      <link>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</guid>
+      <description>Python 공부를 하면서 재밌으면서도 직관적인 단어를 알게 되었는데, Pythonic way입니다. 말하지 않아도 파이썬스러운 방법이라는 뜻이라는게 한눈에 들어오더라구요. Pythonic 하</description>
+    </item>
+    
+  </channel>
+</rss>

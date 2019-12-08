@@ -1,0 +1,113 @@
+---
+title: '[Rtips] Windows에서 rJava 스트레스 없이 설치하기'
+author: mrchypark
+date: '2018-05-08'
+slug: rtips-windows에서-rjava-스트레스-없이-설치하기
+categories:
+  - R
+tags:
+  - rJava
+  - KoNLP
+  - java
+  - installr
+  - windows
+---
+
+
+
+<p><img width=100% src="https://user-images.githubusercontent.com/6179259/39781141-46f6e3a8-5349-11e8-9eb0-55817cbd5845.jpg"></p>
+<div id="업데이트-2019-08-10" class="section level2">
+<h2>업데이트 2019-08-10</h2>
+<p>Windows와 MacOS 에서 동작하는 방법을 설명하는 <a href="https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/">포스트</a>를 작성하였습니다.</p>
+<p><a href="https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/" class="uri">https://mrchypark.github.io/post/correttor-r을-위해서-java를-설치해보자/</a></p>
+<div id="한줄요약" class="section level3">
+<h3>한줄요약</h3>
+<ol style="list-style-type: decimal">
+<li><code>installr::install.java()</code></li>
+</ol>
+<p><code>rJava</code> 패키지는 java의 풍부한 생태계를 R에서 사용하기 위해 꼭 필요한 인터페이싱 패키지입니다.
+비슷한 부류로 python의 <a href="https://github.com/rstudio/reticulate">reticulate</a>, C++의 <code>Rcpp</code> 등이 있죠.
+모두 각각의 언어를 설치하고 경로 설정을 해줘야 하는 단계를 가지고 있습니다.
+막상 진행해보면 쉬운 일이 아닙니다.
+그래서 해결책을 좀 찾아봤는데요.
+windows 환경에서 R에 관련된 설치와 R과 함께 많이 사용하는 외부 프로그램 설치를 함수로 제공하는 <a href="https://github.com/talgalili/installr">installr</a> 패키지를 소개하겠습니다.</p>
+</div>
+</div>
+<div id="installrinstallr" class="section level2">
+<h2><a href="https://github.com/talgalili/installr">installr</a></h2>
+<p><a href="https://github.com/talgalili/installr">installr</a> 패키지는 R의 업데이트 함수인 <code>updateR()</code>을 제공합니다.
+R과 함께 사용하는 외부 프로그램 중 설치가 까다로운 <a href="https://www.imagemagick.org/script/index.php">ImageMagick</a>이나 <a href="https://miktex.org/">MikTeX</a> 같은 것도 제공합니다.
+지금은 rstudio에서 함께 제공하여 문제가 없지만, 저도 pandoc과 Tex 계열을 설치할 때 도움을 받았습니다.
+아무튼 <a href="https://github.com/talgalili/installr">installr</a> 패키지에서 제공하는 <code>install.java()</code>를 살펴보겠습니다.</p>
+</div>
+<div id="install.java" class="section level2">
+<h2>install.java()</h2>
+<pre><code>Downloads and set path openjdk
+
+Description:
+
+     Downloads and set path the latest version of openjdk for Windows.
+
+Usage:
+
+    install.java(version = 10,
+                 page_with_download_url = &quot;http://jdk.java.net/java-se-ri/&quot;,
+                 path = &quot;C:/java&quot;)
+     
+Arguments:
+
+    version: 9 or 10 is passible. Default is 10.
+
+    page_with_download_url: where to download. Default is &lt;URL:http://jdk.java.net/java-se-ri/&gt;
+
+    path: where to set java. Defulat path is C:/java
+
+Details:
+
+    install openjdk 9 or 10 version for windows 10 64x.
+
+Value:
+
+    TRUE/FALSE - was the installation successful or not.
+
+Author(s):
+
+    Tal Galili and A. Jonathan R. Godfrey
+
+Examples:
+
+    ## Not run:
+    
+    install.java() 
+    install.java(version = 10)
+    install.java(10)
+    ## End(Not run)</code></pre>
+<p><code>install.java()</code>는 3개의 인자를 제공합니다.
+<code>version</code>,<code>page_with_download_url</code>,<code>path</code>이네요.
+현재는 windows 10 64x에서 jdk9와 jdk10만 지원한답니다.</p>
+<p><code>version</code>은 jdk 버전을 의미하는 것이군요.
+<code>page_with_download_url</code>은 바꿀 수 있어 보이지 않네요.
+<a href="http://openjdk.java.net/">openjdk</a> 프로젝트의 최근 결과물인 것 같습니다.
+<code>path</code>는 컴퓨터의 설치 경로를 뜻합니다.
+기본값이 이해하기 쉬운 곳에 있으니 저는 그냥 두겠습니다.</p>
+</div>
+<div id="따라하기" class="section level2">
+<h2>따라하기</h2>
+<p>조건을 잘 따져보겠습니다.<br />
+1. windows 10 64비트를 사용하고 있다.<br />
+2. 기존에 설치된 java가 없다.</p>
+<p>그럼 이제 R 콘솔을 실행해서 에러없이 동작하는지 확인하면 됩니다.</p>
+<pre><code>install.packages(&quot;rJava&quot;)
+source(&quot;https://install-github.me/talgalili/installr&quot;)
+installr::install.java()
+library(rJava)</code></pre>
+<p>실제로 잘 동작하는 것인지 결과물로 확인하고 싶으시다면 <a href="https://github.com/haven-jeon/KoNLP">KoNLP</a>를 사용해보시면 좋을 것 같습니다.</p>
+<pre><code>install.packages(&#39;KoNLP&#39;)
+source(&quot;https://install-github.me/talgalili/installr&quot;)
+installr::install.java()
+library(KoNLP)
+
+## Checking user defined dictionary!</code></pre>
+<p>문제 없이 실행되셨나요?</p>
+<p>언제나 그렇듯, 잘못된 내용이 있거나 문제가 생기면 언제든지 알려주세요. 감사합니다.</p>
+</div>
