@@ -13,46 +13,46 @@
     
     <item>
       <title>[josaplay] Rmd로 만드는 한글 보고서의 친구</title>
-      <link>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
+      <link>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
+      <guid>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
       <description>한줄요약 을(를) 이 눈에 거슬린다면 josaplay가 문제를 해결해 줄 겁니다. 개인적인 일들이 많이 있어서 정신을 못차리고 있는 중입니다. 데이터홀릭을 계속</description>
     </item>
     
     <item>
       <title>[Rtips] 사륜안 패키지로 Rmd 실시간 결과(preview) 확인하기</title>
-      <link>/2018/12/06/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
+      <link>/post/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/06/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
       <description>한줄요약 Rmd 작성할 때 xaringan::inf_mr() 실행하고 작업하세요. 오타쿠 감성 넘치는 이름의 패키지 xaringan(사륜안)은 이름과는 완전히 무관하게 Web Presentation 도구입니다. 제 발표</description>
     </item>
     
     <item>
       <title>[블로그] Rstudio &#43; github &#43; blogdown = 개인블로그 완성!</title>
-      <link>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
+      <link>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
+      <guid>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
       <description>세줄요약 R로 보고 문서를 만드는 rmd로 블로그를 만들 수 있다. md 기반의 정적 사이트 생성기가 많지만, R 패키지로 제공되는 blogdown이 좋더라. 전에 소</description>
     </item>
     
     <item>
       <title>[R로나만의] 웹페이지 만들기 2탄 Github pages</title>
-      <link>/2018/03/24/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</link>
+      <link>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</link>
       <pubDate>Sat, 24 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/24/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</guid>
+      <guid>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</guid>
       <description>세줄요약 github pages로 나만의 웹페이지를 만들 수 있다. .Rmd 파일로 웹개발 지식없이 웹페이지를 만들자. 파일 이름이 곧 주소이고, index는 관례적으로 생략이</description>
     </item>
     
     <item>
       <title>[R로나만의] 웹페이지 만들기 1탄 Rpubs</title>
-      <link>/2018/03/09/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</link>
+      <link>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/09/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</guid>
+      <guid>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</guid>
       <description>세줄요약 Rmd + RPubs로 웹페이지를 만들 수 있다. Rstudio에서 하면 쉽다. github pages 소개하려다 돌린건 안 비밀. Web에 자신의 결과물을 정리하고 공개하는</description>
     </item>
     

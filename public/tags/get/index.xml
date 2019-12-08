@@ -13,10 +13,10 @@
     
     <item>
       <title>한글 띄어쓰기 API 이용하기</title>
-      <link>/2017/10/09/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/post/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/10/09/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>업데이트 현재 아래 소개하는 api는 동작하지 않으며 KoSpacing 패키지가 새롭게 배포되었습니다. 패키지 사용 환경 설정은 본 블로그의 다른 포스트를 참고하세요. KoNLP 패키지</description>
     </item>
     

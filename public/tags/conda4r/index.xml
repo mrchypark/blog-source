@@ -13,10 +13,10 @@
     
     <item>
       <title>[conda4r] R을 위해서 conda를 설치해보자</title>
-      <link>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>conda4r 패키지 개발을 중단합니다. reticulate 패키지에 install_miniconda() 함수가 포함되기로 결정되어서 패키지 개발을 중단합니다. multilinguer 패키지의 install_conda() 함수는 reticulate 패키지의 함수를 사용하는 것으로 변경</description>
     </item>
     

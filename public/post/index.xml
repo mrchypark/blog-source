@@ -13,334 +13,334 @@
     
     <item>
       <title>[correttor] R을 위해서 JAVA를 설치해보자</title>
-      <link>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>세줄요약 multilinguer::has_java()를 쓰세요. MacOS는 컴퓨터 비밀번호가 필요합니다. multilinguer::has_java(force = T) 해야할 수도 있어요. 앞서 R에서</description>
     </item>
     
     <item>
       <title>[conda4r] R을 위해서 conda를 설치해보자</title>
-      <link>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>conda4r 패키지 개발을 중단합니다. reticulate 패키지에 install_miniconda() 함수가 포함되기로 결정되어서 패키지 개발을 중단합니다. multilinguer 패키지의 install_conda() 함수는 reticulate 패키지의 함수를 사용하는 것으로 변경</description>
     </item>
     
     <item>
       <title>[Rtips] 윈도우 계정 한글일때 문제 해결하기 1탄 임시 폴더 위치 바꾸기</title>
-      <link>/2019/05/26/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/</link>
+      <link>/post/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/05/26/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/</guid>
+      <guid>/post/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/</guid>
       <description>한줄요약 Temp(임시 폴더)의 위치를 .Renviron 파일에 써서 바꾸세요. KRSG에 질문글이 올라와서 아는 내에서 해결책을 공유하고자 합니다. 우선 공유해 주신 에러 화</description>
     </item>
     
     <item>
       <title>[josaplay] Rmd로 만드는 한글 보고서의 친구</title>
-      <link>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
+      <link>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
+      <guid>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
       <description>한줄요약 을(를) 이 눈에 거슬린다면 josaplay가 문제를 해결해 줄 겁니다. 개인적인 일들이 많이 있어서 정신을 못차리고 있는 중입니다. 데이터홀릭을 계속</description>
     </item>
     
     <item>
       <title>Python과 R 어떤 걸 공부 해야 할까</title>
-      <link>/2019/03/20/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
+      <link>/post/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/03/20/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
+      <guid>/post/python%EA%B3%BC-r-%EC%96%B4%EB%96%A4-%EA%B1%B8-%EA%B3%B5%EB%B6%80-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
       <description>원글 당신이 학생이라면, 회사에 들어가기 전에 충분히 숙달할 시간과 자신이 있다면 아무거나 해라. 두 언어 모두 기계의 효율성보다는 사람의 생산성을 우선하는 언어다</description>
     </item>
     
     <item>
       <title>[rtips] DBI 소스의 tbl의 요약 정보 확인하기 glimpse()</title>
-      <link>/2019/01/25/rtips-dbi-%EC%86%8C%EC%8A%A4%EC%9D%98-tbl%EC%9D%98-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-glimpse/</link>
+      <link>/post/rtips-dbi-%EC%86%8C%EC%8A%A4%EC%9D%98-tbl%EC%9D%98-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-glimpse/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/25/rtips-dbi-%EC%86%8C%EC%8A%A4%EC%9D%98-tbl%EC%9D%98-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-glimpse/</guid>
+      <guid>/post/rtips-dbi-%EC%86%8C%EC%8A%A4%EC%9D%98-tbl%EC%9D%98-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-glimpse/</guid>
       <description>한줄요약 src_dbi인 tbl의 str()을 확인할 때는 dplyr::glimpse() 함수를 사용하세요. str() 함수는 매우 유용합니다. 복잡한 데이터의 구조를 한눈에 보여주는 R의 효자</description>
     </item>
     
     <item>
       <title>2018년 회고</title>
-      <link>/2019/01/04/2018%EB%85%84-%ED%9A%8C%EA%B3%A0/</link>
+      <link>/post/2018%EB%85%84-%ED%9A%8C%EA%B3%A0/</link>
       <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/04/2018%EB%85%84-%ED%9A%8C%EA%B3%A0/</guid>
+      <guid>/post/2018%EB%85%84-%ED%9A%8C%EA%B3%A0/</guid>
       <description>벌써 1월이 되어 2019년입니다. 회고라는 걸 해봐야지 라고 생각하고 시간이 이렇게나 지나버렸네요. 2018년을 정리하고 되돌아보는 것이 중요한 시점이 되어</description>
     </item>
     
     <item>
       <title>[Rtips] 사륜안 패키지로 Rmd 실시간 결과(preview) 확인하기</title>
-      <link>/2018/12/06/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
+      <link>/post/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/06/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/rtips-%EC%82%AC%EB%A5%9C%EC%95%88-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-rmd-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%B0%EA%B3%BC-preview-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
       <description>한줄요약 Rmd 작성할 때 xaringan::inf_mr() 실행하고 작업하세요. 오타쿠 감성 넘치는 이름의 패키지 xaringan(사륜안)은 이름과는 완전히 무관하게 Web Presentation 도구입니다. 제 발표</description>
     </item>
     
     <item>
       <title>[usehelp] R의 help 글을 포스트에서 활용하기</title>
-      <link>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/post/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>업데이트 다른 좋은 접근이 많아서 개발을 중지하였습니다. 한줄요약 포스트나 발표자료에서 함수를 설명할 일이 많아서 usehelp라는 패키지를 만들었습니다.</description>
     </item>
     
     <item>
       <title>[회고] tqk 업데이트 수정 종가 반영 및 param 조정</title>
-      <link>/2018/11/22/%ED%9A%8C%EA%B3%A0-tqk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%88%98%EC%A0%95-%EC%A2%85%EA%B0%80-%EB%B0%98%EC%98%81-%EB%B0%8F-param-%EC%A1%B0%EC%A0%95/</link>
+      <link>/post/%ED%9A%8C%EA%B3%A0-tqk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%88%98%EC%A0%95-%EC%A2%85%EA%B0%80-%EB%B0%98%EC%98%81-%EB%B0%8F-param-%EC%A1%B0%EC%A0%95/</link>
       <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/22/%ED%9A%8C%EA%B3%A0-tqk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%88%98%EC%A0%95-%EC%A2%85%EA%B0%80-%EB%B0%98%EC%98%81-%EB%B0%8F-param-%EC%A1%B0%EC%A0%95/</guid>
+      <guid>/post/%ED%9A%8C%EA%B3%A0-tqk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%88%98%EC%A0%95-%EC%A2%85%EA%B0%80-%EB%B0%98%EC%98%81-%EB%B0%8F-param-%EC%A1%B0%EC%A0%95/</guid>
       <description>이번 0.1.0 버전 업데이트는 다음 소스 추가로 인한 속도 향상 및 수정주가 반영입니다. 거기에 tq_get()함수를 모방하기로 한 주제에 param 설계가 달라서 맞춰주는 작업</description>
     </item>
     
     <item>
       <title>[Rtips] 데이터 프레임 안의 json을 가져와보자.</title>
-      <link>/2018/11/19/rtips-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%95%88%EC%9D%98-json%EC%9D%84-%EA%B0%80%EC%A0%B8%EC%99%80%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/rtips-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%95%88%EC%9D%98-json%EC%9D%84-%EA%B0%80%EC%A0%B8%EC%99%80%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/19/rtips-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%95%88%EC%9D%98-json%EC%9D%84-%EA%B0%80%EC%A0%B8%EC%99%80%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/rtips-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%95%88%EC%9D%98-json%EC%9D%84-%EA%B0%80%EC%A0%B8%EC%99%80%EB%B3%B4%EC%9E%90/</guid>
       <description>세줄요약 최근의 noSQL, 웹 기술의 발달로 json을 처리해야 하는 상황이 많아졌다. 특별히 data.frame의 셀이 json 텍스트인 경우가 있는데, map + fromJSON 으로 해결할</description>
     </item>
     
     <item>
       <title>[Rtips] dplyr로 DB 데이터를 다룰 때 여러 테이블을 union 해보자</title>
-      <link>/2018/11/16/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/16/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>세줄요약 {dplyr}의 함수들은 tbl()과 DBI::dbConnect()를 사용해서 db table을 소스로 사용할 수 있다. 여러 테이블로 분산되어</description>
     </item>
     
     <item>
       <title>[번역]폴더안의 csv 파일들을 {purrr}와 {readr}을 이용해서 한방에 불러오기</title>
-      <link>/2018/10/27/%EB%B2%88%EC%97%AD-%ED%8F%B4%EB%8D%94%EC%95%88%EC%9D%98-csv-%ED%8C%8C%EC%9D%BC%EB%93%A4%EC%9D%84-purrr-%EC%99%80-readr-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%95%9C%EB%B0%A9%EC%97%90-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0/</link>
+      <link>/post/%EB%B2%88%EC%97%AD-%ED%8F%B4%EB%8D%94%EC%95%88%EC%9D%98-csv-%ED%8C%8C%EC%9D%BC%EB%93%A4%EC%9D%84-purrr-%EC%99%80-readr-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%95%9C%EB%B0%A9%EC%97%90-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/27/%EB%B2%88%EC%97%AD-%ED%8F%B4%EB%8D%94%EC%95%88%EC%9D%98-csv-%ED%8C%8C%EC%9D%BC%EB%93%A4%EC%9D%84-purrr-%EC%99%80-readr-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%95%9C%EB%B0%A9%EC%97%90-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0/</guid>
+      <guid>/post/%EB%B2%88%EC%97%AD-%ED%8F%B4%EB%8D%94%EC%95%88%EC%9D%98-csv-%ED%8C%8C%EC%9D%BC%EB%93%A4%EC%9D%84-purrr-%EC%99%80-readr-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%95%9C%EB%B0%A9%EC%97%90-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0/</guid>
       <description>본 번역은 원글을 대상으로 CC-BY 라이선스를 사용하고 있어 마음껏 번역하였습니다. 요약 : {purrr}의 map_dfr() 함수로 폴더내의 파일 리스트를 한번에 불러올 수 있다. 이</description>
     </item>
     
     <item>
       <title>[블로그] Rstudio &#43; github &#43; blogdown = 개인블로그 완성!</title>
-      <link>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
+      <link>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/10/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
+      <guid>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-rstudio-github-blogdown-%EA%B0%9C%EC%9D%B8%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%99%84%EC%84%B1/</guid>
       <description>세줄요약 R로 보고 문서를 만드는 rmd로 블로그를 만들 수 있다. md 기반의 정적 사이트 생성기가 많지만, R 패키지로 제공되는 blogdown이 좋더라. 전에 소</description>
     </item>
     
     <item>
       <title>R과 Python 중에 어떤 것을 공부해야 할까</title>
-      <link>/2018/10/10/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
+      <link>/post/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/10/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
+      <guid>/post/r%EA%B3%BC-python-%EC%A4%91%EC%97%90-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EA%B3%B5%EB%B6%80%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C/</guid>
       <description>한줄요약 뭐든지 우선 시작하세요! 이미 한물가고 필요없는 논의일 수도 있지만, 개인적을 생각을 정리한다고 생각하고 글을 시작해보겠습니다. R을 충분히 사용하고</description>
     </item>
     
     <item>
       <title>[업무자동화] R로 마우스를 조작하려면 rMouse</title>
-      <link>/2018/10/08/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%A0%A4%EB%A9%B4-rmouse/</link>
+      <link>/post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%A0%A4%EB%A9%B4-rmouse/</link>
       <pubDate>Mon, 08 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/08/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%A0%A4%EB%A9%B4-rmouse/</guid>
+      <guid>/post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%A0%A4%EB%A9%B4-rmouse/</guid>
       <description>업데이트 java 의존성이 없는 KeyboardSimulator 패키지가 소개되었습니다. Windows 에서만 동작합니다. 한줄요약 R 스크립트로 키보드/마우스를 다루는 rMouse 패키지를 사용할 수 있다. 메일을</description>
     </item>
     
     <item>
       <title>[업무자동화] R로 이메일을 보내려면 sendgridr</title>
-      <link>/2018/10/02/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/</link>
+      <link>/post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/</link>
       <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/02/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/</guid>
+      <guid>/post/%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94-r%EB%A1%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4-sendgridr/</guid>
       <description>세줄요약 메일 보내기는 업무 자동화를 위해서 꼭 필요한 기능이다. 기존의 패키지인 mailR, sendmailR은 자바 의존성이 있거나 smtp 서버를 활용하는 형태이다. sendgrid 서</description>
     </item>
     
     <item>
       <title>[Rtips] tbl 자료형에서 소수점을 출력해보자</title>
-      <link>/2018/08/22/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/08/22/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>한줄요약 options(pillar.sigfig=10) tidyverse 생태계는 R의 현재 부흥기를 이끌고 있습니다. magrittr 패키지가 쏘아올린 %&amp;gt;%(파이프 연산자)가 이렇게 될꺼라고 상상이나 했을까요. 해들리 위</description>
     </item>
     
     <item>
       <title>[tidytext] 텍스트 데이터를 tidy 하게 다뤄보자</title>
-      <link>/2018/08/14/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/08/14/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90/</guid>
       <description>대부분의 내용을 패키지 소개 도서에서 참고하였음을 알립니다. 세줄요약 tidy한 방법은 데이터를 바라보는 좋은 관점이다. text도 tidy하게 다룰 수 있는</description>
     </item>
     
     <item>
       <title>[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi</title>
-      <link>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</link>
+      <link>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</link>
       <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</guid>
+      <guid>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</guid>
       <description>한줄요약 이제 R로 MongoDB, Redis(server based), CouchDB, Elasticsearch, etcd를 다룰 수 있습니다. R에는 여러가지 데이터 베이스를 다루는 도구들이 있습니다. MS의 표준 SQL 드라이버인 ODBC를 사용</description>
     </item>
     
     <item>
       <title>[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드</title>
-      <link>/2018/06/10/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</link>
+      <link>/post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</link>
       <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/10/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</guid>
+      <guid>/post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</guid>
       <description>본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다. 요약 : Go로 web app을 작성할 때 hot-l</description>
     </item>
     
     <item>
       <title>[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다</title>
-      <link>/2018/05/18/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</link>
+      <link>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</link>
       <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/18/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</guid>
+      <guid>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</guid>
       <description>세줄요약 암호화폐 관련 시세와 인덱스 정보를 제공하는 ubci 패키지를 공개함. ubci는 upbit에서 제공하는 데이터로 비영리 배포는 자유라고 해서 개발함. 데이</description>
     </item>
     
     <item>
       <title>[패키지 소개] 네이버 뉴스와 다음 뉴스의 댓글 가져오기</title>
-      <link>/2018/05/14/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/</link>
+      <link>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/</link>
       <pubDate>Mon, 14 May 2018 01:52:55 +0900</pubDate>
       
-      <guid>/2018/05/14/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/</guid>
+      <guid>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%89%B4%EC%8A%A4%EC%99%80-%EB%8B%A4%EC%9D%8C-%EB%89%B4%EC%8A%A4%EC%9D%98-%EB%8C%93%EA%B8%80-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/</guid>
       <description>한줄요약 DNH4가 드디어(!) 댓글 수집을 지원합니다. 처음 naverNewsParser를 습작처럼 시작하고, N2H4 패키지로 이전하면서 여러 경험을 했습</description>
     </item>
     
     <item>
       <title>[Rtips] Windows에서 rJava 스트레스 없이 설치하기</title>
-      <link>/2018/05/08/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
+      <link>/post/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/08/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/rtips-windows%EC%97%90%EC%84%9C-rjava-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4-%EC%97%86%EC%9D%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
       <description>업데이트 2019-08-10 Windows와 MacOS 에서 동작하는 방법을 설명하는 포스트를 작성하였습니다. https://mrchypark.github.io/pos</description>
     </item>
     
     <item>
       <title>[KoSpacing] 한글 띄어쓰기 패키지를 사용해보자</title>
-      <link>/2018/05/02/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/02/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/kospacing-%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>업데이트 패키지의 설치 문제가 보고되어 확인하였습니다. 새롭게 설치를 진행하시고, 0.1.1 버전인 것을 확인하시면 문제없이 동작할 것입니다. 0.1.1 버전에서는 conda 명령이</description>
     </item>
     
     <item>
       <title>[R로나만의] 웹페이지 만들기 2탄 Github pages</title>
-      <link>/2018/03/24/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</link>
+      <link>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</link>
       <pubDate>Sat, 24 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/24/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</guid>
+      <guid>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-2%ED%83%84-github-pages/</guid>
       <description>세줄요약 github pages로 나만의 웹페이지를 만들 수 있다. .Rmd 파일로 웹개발 지식없이 웹페이지를 만들자. 파일 이름이 곧 주소이고, index는 관례적으로 생략이</description>
     </item>
     
     <item>
       <title>[RQnA] git을 설치했는데 Rstudio에서 프로젝트 만들기 진행이 안되요</title>
-      <link>/2018/03/19/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/</link>
+      <link>/post/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/</link>
       <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/19/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/</guid>
+      <guid>/post/rqna-git%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EB%8A%94%EB%8D%B0-rstudio%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A7%84%ED%96%89%EC%9D%B4-%EC%95%88%EB%90%98%EC%9A%94/</guid>
       <description>본 포스트는 windows 사용자 중 git 설치에 어려움이 있는 분들을 대상으로 합니다. 한줄요약 Git을 설치했는데도 안되면 Rstudio의 Tools &amp;gt; Global Options… &amp;gt; Gi</description>
     </item>
     
     <item>
       <title>[github] rstudio로 github 프로젝트 시작하기</title>
-      <link>/2018/03/15/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</link>
+      <link>/post/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/15/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</guid>
       <description>세줄요약 github은 git의 공개 remote repo를 제공하는 서비스다. 그래서 git 사용법을 알아야 한다. Rstudio의 project를 사용하면 좀 쉽다.</description>
     </item>
     
     <item>
       <title>[번역]Haproxy와 Docker를 이용한 로드밸런싱</title>
-      <link>/2018/03/12/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</link>
+      <link>/post/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/12/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</guid>
+      <guid>/post/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</guid>
       <description>본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다. 본 글에서 사용하는 이미지인 dockercl</description>
     </item>
     
     <item>
       <title>[R로나만의] 웹페이지 만들기 1탄 Rpubs</title>
-      <link>/2018/03/09/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</link>
+      <link>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/09/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</guid>
+      <guid>/post/r%EB%A1%9C%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0/</guid>
       <description>세줄요약 Rmd + RPubs로 웹페이지를 만들 수 있다. Rstudio에서 하면 쉽다. github pages 소개하려다 돌린건 안 비밀. Web에 자신의 결과물을 정리하고 공개하는</description>
     </item>
     
     <item>
       <title>blogdown으로 블로그 이사하기</title>
-      <link>/2018/03/06/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</link>
+      <link>/post/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/06/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/blogdown%EC%9C%BC%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC%ED%95%98%EA%B8%B0/</guid>
       <description>탈도 많았던 blog의 engine 이전을 완료했습니다. 사용하는 테마가 바뀌긴했지만, 그래도 지금 테마가 어느 정도 만족스러워 결정하게 되었습니다. 원래 jekyll</description>
     </item>
     
     <item>
       <title>Rphabetic(알파베틱) 제안</title>
-      <link>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</link>
+      <link>/post/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</link>
       <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/06/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</guid>
+      <guid>/post/rphabetic-%EC%95%8C%ED%8C%8C%EB%B2%A0%ED%8B%B1-%EC%A0%9C%EC%95%88/</guid>
       <description>Python 공부를 하면서 재밌으면서도 직관적인 단어를 알게 되었는데, Pythonic way입니다. 말하지 않아도 파이썬스러운 방법이라는 뜻이라는게 한눈에 들어오더라구요. Pythonic 하</description>
     </item>
     
     <item>
       <title>구글 광고 추가</title>
-      <link>/2018/03/06/%EA%B5%AC%EA%B8%80-%EA%B4%91%EA%B3%A0-%EC%B6%94%EA%B0%80/</link>
+      <link>/post/%EA%B5%AC%EA%B8%80-%EA%B4%91%EA%B3%A0-%EC%B6%94%EA%B0%80/</link>
       <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/06/%EA%B5%AC%EA%B8%80-%EA%B4%91%EA%B3%A0-%EC%B6%94%EA%B0%80/</guid>
+      <guid>/post/%EA%B5%AC%EA%B8%80-%EA%B4%91%EA%B3%A0-%EC%B6%94%EA%B0%80/</guid>
       <description>블로그 하단에 구글 광고를 추가하였습니다. 처음 붙여보는 것이라 하단 이외에 다른 곳에서도 광고가 나올 수 있습니다. 읽어보시는 글이 도움이 되셨다면 클릭 한 번 부탁</description>
     </item>
     
     <item>
       <title>Materials 페이지 업데이트</title>
-      <link>/2017/11/22/materials-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <link>/post/materials-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
       <pubDate>Wed, 22 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/22/materials-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <guid>/post/materials-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
       <description>제 블로그 왼쪽 위에 Materials라는 메뉴가 있습니다. 작성하는 자료들을 모아 놓는 공간으로 따로 분류해 두었었는데, 그동안 만든 자료들이 좀 있어서 내용을</description>
     </item>
     
     <item>
       <title>한글 띄어쓰기 API 이용하기</title>
-      <link>/2017/10/09/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/post/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/10/09/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/%ED%95%9C%EA%B8%80-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-api-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>업데이트 현재 아래 소개하는 api는 동작하지 않으며 KoSpacing 패키지가 새롭게 배포되었습니다. 패키지 사용 환경 설정은 본 블로그의 다른 포스트를 참고하세요. KoNLP 패키지</description>
     </item>
     
     <item>
       <title>논리 연산자 정리</title>
-      <link>/2017/07/31/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</link>
+      <link>/post/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/07/31/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</guid>
+      <guid>/post/%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC/</guid>
       <description>드디어 블로그에서 Rmd를 사용할 수 있게 되어서 매우 기쁜 마음에 포스팅을 하나 기획하였습니다. 그것은 바로 논리 연산자! 기본적은 것은 다 쉬운데 데이터가 여러 개</description>
     </item>
     
     <item>
       <title>블로그 reboot</title>
-      <link>/2017/04/05/%EB%B8%94%EB%A1%9C%EA%B7%B8-reboot/</link>
+      <link>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-reboot/</link>
       <pubDate>Wed, 05 Apr 2017 00:57:58 +0900</pubDate>
       
-      <guid>/2017/04/05/%EB%B8%94%EB%A1%9C%EA%B7%B8-reboot/</guid>
+      <guid>/post/%EB%B8%94%EB%A1%9C%EA%B7%B8-reboot/</guid>
       <description>블로그를 찾아주신 모든 분들 반갑습니다! 안녕하세요 박찬엽입니다. 여러 블로그 도구들과 씨름하다 정착하고 싶어 어느 정도 정리했습니다. 가능하면 한 번에 처리할</description>
     </item>
     

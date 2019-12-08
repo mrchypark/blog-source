@@ -13,10 +13,10 @@
     
     <item>
       <title>[Rtips] tbl 자료형에서 소수점을 출력해보자</title>
-      <link>/2018/08/22/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/08/22/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/rtips-tbl-%EC%9E%90%EB%A3%8C%ED%98%95%EC%97%90%EC%84%9C-%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>한줄요약 options(pillar.sigfig=10) tidyverse 생태계는 R의 현재 부흥기를 이끌고 있습니다. magrittr 패키지가 쏘아올린 %&amp;gt;%(파이프 연산자)가 이렇게 될꺼라고 상상이나 했을까요. 해들리 위</description>
     </item>
     

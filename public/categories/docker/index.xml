@@ -13,19 +13,19 @@
     
     <item>
       <title>[번역]Go 웹 애플리케이션용 Dockerfiles 작성에 대한 궁극적인 가이드</title>
-      <link>/2018/06/10/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</link>
+      <link>/post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</link>
       <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/10/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</guid>
+      <guid>/post/%EB%B2%88%EC%97%AD-go-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9A%A9-dockerfiles-%EC%9E%91%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%81%EA%B7%B9%EC%A0%81%EC%9D%B8-%EA%B0%80%EC%9D%B4%EB%93%9C/</guid>
       <description>본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다. 요약 : Go로 web app을 작성할 때 hot-l</description>
     </item>
     
     <item>
       <title>[번역]Haproxy와 Docker를 이용한 로드밸런싱</title>
-      <link>/2018/03/12/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</link>
+      <link>/post/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/12/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</guid>
+      <guid>/post/%EB%B2%88%EC%97%AD-haproxy%EC%99%80-docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</guid>
       <description>본 번역은 원글을 대상으로 저자의 허락을 받았습니다. 저와 같은 문제에 직면한 분들에게 도움이 되었으면 좋겠습니다. 본 글에서 사용하는 이미지인 dockercl</description>
     </item>
     

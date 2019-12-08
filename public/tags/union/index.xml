@@ -13,10 +13,10 @@
     
     <item>
       <title>[Rtips] dplyr로 DB 데이터를 다룰 때 여러 테이블을 union 해보자</title>
-      <link>/2018/11/16/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/16/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/rtips-dplyr%EB%A1%9C-db-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%8B%A4%EB%A3%B0-%EB%95%8C-%EC%97%AC%EB%9F%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-union-%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>세줄요약 {dplyr}의 함수들은 tbl()과 DBI::dbConnect()를 사용해서 db table을 소스로 사용할 수 있다. 여러 테이블로 분산되어</description>
     </item>
     

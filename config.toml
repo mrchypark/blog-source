@@ -19,7 +19,7 @@ themesDir = "./themes"
 
 
 [permalinks]
-    post = "/:year/:month/:day/:slug"
+    post = "/post/:slug"
 
 
 [params]

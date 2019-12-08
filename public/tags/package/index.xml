@@ -13,55 +13,55 @@
     
     <item>
       <title>[correttor] R을 위해서 JAVA를 설치해보자</title>
-      <link>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/10/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>세줄요약 multilinguer::has_java()를 쓰세요. MacOS는 컴퓨터 비밀번호가 필요합니다. multilinguer::has_java(force = T) 해야할 수도 있어요. 앞서 R에서</description>
     </item>
     
     <item>
       <title>[conda4r] R을 위해서 conda를 설치해보자</title>
-      <link>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
+      <link>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/07/31/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
+      <guid>/post/conda4r-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-conda%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</guid>
       <description>conda4r 패키지 개발을 중단합니다. reticulate 패키지에 install_miniconda() 함수가 포함되기로 결정되어서 패키지 개발을 중단합니다. multilinguer 패키지의 install_conda() 함수는 reticulate 패키지의 함수를 사용하는 것으로 변경</description>
     </item>
     
     <item>
       <title>[josaplay] Rmd로 만드는 한글 보고서의 친구</title>
-      <link>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
+      <link>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/05/15/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
+      <guid>/post/josaplay-rmd%EB%A1%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%95%9C%EA%B8%80-%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9D%98-%EC%B9%9C%EA%B5%AC/</guid>
       <description>한줄요약 을(를) 이 눈에 거슬린다면 josaplay가 문제를 해결해 줄 겁니다. 개인적인 일들이 많이 있어서 정신을 못차리고 있는 중입니다. 데이터홀릭을 계속</description>
     </item>
     
     <item>
       <title>[usehelp] R의 help 글을 포스트에서 활용하기</title>
-      <link>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/post/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/26/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/post/usehelp-r%EC%9D%98-help-%EA%B8%80%EC%9D%84-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>업데이트 다른 좋은 접근이 많아서 개발을 중지하였습니다. 한줄요약 포스트나 발표자료에서 함수를 설명할 일이 많아서 usehelp라는 패키지를 만들었습니다.</description>
     </item>
     
     <item>
       <title>[패키지 소개]NoSQL 데이터베이스를 다루는 nodbi</title>
-      <link>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</link>
+      <link>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</link>
       <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/08/08/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</guid>
+      <guid>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8A%94-nodbi/</guid>
       <description>한줄요약 이제 R로 MongoDB, Redis(server based), CouchDB, Elasticsearch, etcd를 다룰 수 있습니다. R에는 여러가지 데이터 베이스를 다루는 도구들이 있습니다. MS의 표준 SQL 드라이버인 ODBC를 사용</description>
     </item>
     
     <item>
       <title>[패키지 소개] 암호화폐 시세와 인덱스를 제공하는 ubci 패키지를 소개합니다</title>
-      <link>/2018/05/18/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</link>
+      <link>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</link>
       <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/18/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</guid>
+      <guid>/post/%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%86%8C%EA%B0%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%EC%8B%9C%EC%84%B8%EC%99%80-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-ubci-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4/</guid>
       <description>세줄요약 암호화폐 관련 시세와 인덱스 정보를 제공하는 ubci 패키지를 공개함. ubci는 upbit에서 제공하는 데이터로 비영리 배포는 자유라고 해서 개발함. 데이</description>
     </item>
     
