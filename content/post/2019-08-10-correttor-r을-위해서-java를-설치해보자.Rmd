@@ -14,19 +14,19 @@ tags:
 
 <img width=100% src="https://user-images.githubusercontent.com/6179259/62805456-01d16a00-bb2b-11e9-8715-86351f3ad9ab.jpeg">
 
-### 세줄요약
+### 한줄요약
 
-1. `multilinguer::has_java()`를 쓰세요.
-1. MacOS는 컴퓨터 비밀번호가 필요합니다.
-1. `multilinguer::has_java(force = T)` 해야할 수도 있어요.
+1. `multilinguer::install_java()`를 쓰세요.(MacOS는 컴퓨터 비밀번호가 필요)
 
 앞서 R에서 `python`을 설치해서 사용하기 위해 `conda`를 설치하는 방법을 살펴봤습니다.
 이번에는 `java`입니다.(두둥)(엄근진)
 
-`java`를 설치하기 위해서 [corretto][corretto] 배포판을 선택했습니다.
-[corretto][corretto] 배포판의 설치를 지원하는 [correttor][correttor] 패키지는 Windows 32 bit, 64 bit, MacOS를 지원합니다.
+~~`java`를 설치하기 위해서 [corretto][corretto] 배포판을 선택했습니다.
+[corretto][corretto] 배포판의 설치를 지원하는 [correttor][correttor] 패키지는 Windows 32 bit, 64 bit, MacOS를 지원합니다.~~
 
-[conda4r][conda4r] 패키지와 마찬가지로 [correttor][correttor] 패키지는 [multilinguer][multilinguer] 패키지군의 일원입니다.
+~~[conda4r][conda4r] 패키지와 마찬가지로 [correttor][correttor] 패키지는 [multilinguer][multilinguer] 패키지군의 일원입니다.~~
+
+[multilinguer][multilinguer] 패키지가 직접 인스톨 코드 등을 가지도록 개발하고 있습니다.
 
 이 포스트는 두말 않고 진행해보겠습니다.
 
@@ -34,12 +34,12 @@ tags:
 # install.packages("remotes")
 remotes::install_github("mrchypark/multilinguer")
 library(multilinguer)
-has_java()
+install_java()
 ```
 
-`has_java()` 함수의 목표는 [rJava][rJava]를 설치하여 문제 없이 동작하게 만드는 것입니다.
-`has_java()` 함수는 현재 컴퓨터에 `java`가 설치되어 있는지 확인합니다.
-없다면 [corretto][corretto] 설치를 시작합니다.
+`install_java()` 함수의 목표는 [rJava][rJava]를 설치하여 문제 없이 동작하게 만드는 것입니다.
+`install_java()` 함수는 현재 컴퓨터에 `java`가 설치되어 있는지 확인합니다.
+없다면 설치를 시작합니다.
 Windows 에서는 사용자 계정 별 폴더에 `corretto` 폴더를 만들고 저장합니다.
 그리고 유저 환경변수를 설정합니다.
 MacOS 에서는 `/Library/Java/JavaVirtualMachines/` 경로에 `java11` 버전으로 명시하여 저장합니다.
@@ -71,7 +71,8 @@ library(KoNLP)
 
 [corretto]: https://aws.amazon.com/ko/corretto/
 [correttor]: https://mrchypark.github.io/correttor/
+[multilinguer]: https://github.com/mrchypark/multilinguer
 [conda4r]: https://mrchypark.github.io/conda4r/
 [rJava]: https://github.com/s-u/rJava
-[소스]: https://github.com/mrchypark/correttor/blob/master/R/uncompress.R
+[소스]: https://github.com/mrchypark/multilinguer/blob/master/R/uncompress_java.R
 [KoNLP]: https://github.com/haven-jeon/KoNLP
