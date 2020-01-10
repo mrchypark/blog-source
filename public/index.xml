@@ -6,10 +6,22 @@
     <description>Recent content on Mrchypark</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Rtips] 불리는 패키지가 없습니다 해결 방법</title>
+      <link>/post/rtips-%EB%B6%88%EB%A6%AC%EB%8A%94-%ED%8C%A8%ED%82%A4%EC%A7%80%EA%B0%80-%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rtips-%EB%B6%88%EB%A6%AC%EB%8A%94-%ED%8C%A8%ED%82%A4%EC%A7%80%EA%B0%80-%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95/</guid>
+      <description>
+
+
+</description>
+    </item>
     
     <item>
       <title>[correttor] R을 위해서 JAVA를 설치해보자</title>
@@ -369,15 +381,6 @@
       
       <guid>/material/</guid>
       <description>직접 제작한 자료를 공유합니다. 부족한 부분도 많고, 잘못된 부분이 있을 수도 있습니다. 언제든지 지적해주시면 참고하도록 하겠습니다. 감사합니다. 데이터 분석</description>
-    </item>
-    
-    <item>
-      <title>Support</title>
-      <link>/support/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/support/</guid>
-      <description></description>
     </item>
     
   </channel>

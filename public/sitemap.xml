@@ -3,12 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
+    <loc>/post/rtips-%EB%B6%88%EB%A6%AC%EB%8A%94-%ED%8C%A8%ED%82%A4%EC%A7%80%EA%B0%80-%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/library/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/package/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rtips/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/correttor-r%EC%9D%84-%EC%9C%84%ED%95%B4%EC%84%9C-java%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%B4%EB%B3%B4%EC%9E%90/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,32 +63,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/package/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/rjava/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -79,11 +94,6 @@
   
   <url>
     <loc>/post/rtips-%EC%9C%88%EB%8F%84%EC%9A%B0-%EA%B3%84%EC%A0%95-%ED%95%9C%EA%B8%80%EC%9D%BC%EB%95%8C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-1%ED%83%84-%EC%9E%84%EC%8B%9C-%ED%8F%B4%EB%8D%94-%EC%9C%84%EC%B9%98-%EB%B0%94%EA%BE%B8%EA%B8%B0/</loc>
-    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/rtips/</loc>
     <lastmod>2019-05-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -721,10 +731,6 @@
   
   <url>
     <loc>/material/</loc>
-  </url>
-  
-  <url>
-    <loc>/support/</loc>
   </url>
   
 </urlset>

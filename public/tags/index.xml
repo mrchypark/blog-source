@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Mrchypark</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>library</title>
+      <link>/tags/library/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>package</title>
+      <link>/tags/package/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rtips</title>
+      <link>/tags/rtips/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rtips/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>correttor</title>
@@ -26,15 +53,6 @@
       <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>package</title>
-      <link>/tags/package/</link>
-      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/package/</guid>
       <description></description>
     </item>
     
@@ -84,15 +102,6 @@
     </item>
     
     <item>
-      <title>Rtips</title>
-      <link>/tags/rtips/</link>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rtips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>temp</title>
       <link>/tags/temp/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
@@ -120,7 +129,7 @@
     </item>
     
     <item>
-      <title>Rmd</title>
+      <title>rmd</title>
       <link>/tags/rmd/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
