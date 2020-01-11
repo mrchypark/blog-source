@@ -113,16 +113,16 @@ comments</code></pre>
 ## 9     DAUM:7ELo8                 ROLE_USER,ROLE_DAUM            DAUM
 ## 10     DAUM:Slpx ROLE_USER,ROLE_DAUM,ROLE_IDENTIFIED            DAUM
 ##    user_providerUserId               user_displayName user_commentCount
-## 1                6YygN 대한민국모든적폐의시작은친일파             23145
-## 2                ALKqB      이재명은 전투형이명박이다             13839
-## 3                 kVQG                        The Fan             22357
-## 4                 58VM                         유피유              1762
-## 5                33bGD                         박상훈              3907
+## 1                6YygN 대한민국모든적폐의시작은친일파             23853
+## 2                ALKqB      이재명은 전투형이명박이다             14097
+## 3                 kVQG                        The Fan             22489
+## 4                 58VM                         유피유              1778
+## 5                33bGD                         박상훈              4430
 ## 6                4Zdwy                   맑고투명하게                76
 ## 7                 BNj6                         liyliy                 4
-## 8                BYApa                       엘도라도              2982
+## 8                BYApa                       엘도라도              3110
 ## 9                7ELo8                       zktkshqk              9299
-## 10                Slpx                          David               210</code></pre>
+## 10                Slpx                          David               223</code></pre>
 <p><code>getComment()</code> 함수는 몇 가지 옵션이 있습니다.
 <code>limit</code>은 가져오는 댓글의 갯수로 기본 10개로 설정되어 있습니다.
 전체 댓글수를 가져오는 함수가 필요하다는 것을 확인하는 시점이네요.
@@ -179,9 +179,9 @@ library(N2H4)</code></pre>
 ## #   audioInfoList &lt;lgl&gt;, translation &lt;lgl&gt;, report &lt;lgl&gt;,
 ## #   middleBlindReport &lt;lgl&gt;, spamInfo &lt;lgl&gt;, userHomepageUrl &lt;lgl&gt;,
 ## #   defamation &lt;lgl&gt;, hiddenByCleanbot &lt;lgl&gt;, visible &lt;lgl&gt;, serviceId &lt;lgl&gt;,
-## #   idNo &lt;chr&gt;, manager &lt;lgl&gt;, deleted &lt;lgl&gt;, blindReport &lt;lgl&gt;,
-## #   anonymous &lt;lgl&gt;, expose &lt;lgl&gt;, virtual &lt;lgl&gt;, secret &lt;lgl&gt;, blind &lt;lgl&gt;,
-## #   profileUserId &lt;lgl&gt;, containText &lt;lgl&gt;, exposeByCountry &lt;lgl&gt;,
+## #   idNo &lt;chr&gt;, manager &lt;lgl&gt;, deleted &lt;lgl&gt;, anonymous &lt;lgl&gt;, expose &lt;lgl&gt;,
+## #   blindReport &lt;lgl&gt;, secret &lt;lgl&gt;, blind &lt;lgl&gt;, profileUserId &lt;lgl&gt;,
+## #   exposeByCountry &lt;lgl&gt;, virtual &lt;lgl&gt;, containText &lt;lgl&gt;,
 ## #   maskedUserId &lt;chr&gt;, maskedUserName &lt;chr&gt;, validateBanWords &lt;lgl&gt;</code></pre>
 <p><del>네이버 뉴스의 댓글은 훨씬 풍부한 정보를 제공하여(구조가 복잡해서…) <code>df</code>를 기능상 제공하지 않습니다.
 대신 댓글만 보는 부분을 안내해 드리고 있습니다.</del></p>
@@ -197,7 +197,7 @@ N2H4 패키지의 <code>getComment()</code> 함수도 <code>type</code>을 지�
 ##   result.pageModel.page result.pageModel.pageSize result.pageModel.indexSize
 ## 1                     1                        10                         10
 ##   result.pageModel.startRow result.pageModel.endRow result.pageModel.totalRows
-## 1                         1                      10                       2668
+## 1                         1                      10                       2664
 ##   result.pageModel.startIndex result.pageModel.totalPages
 ## 1                           0                         267
 ##   result.pageModel.firstPage result.pageModel.prevPage
@@ -211,13 +211,13 @@ N2H4 패키지의 <code>getComment()</code> 함수도 <code>type</code>을 지�
 ##   result.exposureConfig.reason result.exposureConfig.status
 ## 1                           NA                   COMMENT_ON
 ##   result.count.comment result.count.reply result.count.exposeCount
-## 1                 2668                285                     2700
+## 1                 2664                285                     2696
 ##   result.count.delCommentByUser result.count.delCommentByMon
-## 1                           955                           11
+## 1                           959                           11
 ##   result.count.blindCommentByUser result.count.blindReplyByUser
 ## 1                               0                             0
 ##   result.count.total result.listStatus result.sort result.config.useSnsLogin
-## 1               2953           current         NEW                      TRUE
+## 1               2949           current         NEW                      TRUE
 ##   result.config.lineFeedOn result.config.useBest result.config.useVote
 ## 1                    FALSE                 FALSE                  TRUE
 ##   result.config.useVoteSelf result.config.useVoteGoodOnly
@@ -285,7 +285,7 @@ N2H4 패키지의 <code>getComment()</code> 함수도 <code>type</code>을 지�
 ##   result.config.useStats result.config.statsMinCount
 ## 1                   TRUE                         100
 ##   result.config.useUserEnvStats result.config.countryStatsMinCount
-## 1                          TRUE                                  1
+## 1                         FALSE                                  0
 ##   result.config.useConcurrentStats result.config.useVoteStats
 ## 1                            FALSE                      FALSE
 ##   result.config.useGpopCache result.config.useEnterSubmit
@@ -329,7 +329,7 @@ N2H4 패키지의 <code>getComment()</code> 함수도 <code>type</code>을 지�
 ##   result.graph.client result.graph.country result.graph.empty
 ## 1                  NA                   NA              FALSE
 ##                       date
-## 1 2019-12-05T17:11:00+0000</code></pre>
+## 1 2020-01-11T03:21:07+0000</code></pre>
 <p>드디어 다음 댓글을 가져올 수 있게 된 만큼, 많은 분들이 <a href="https://forkonlp.github.io/DNH4/">DNH4</a> 패키지도 찾아주시리라 기대합니다.
 <a href="https://forkonlp.github.io/DNH4/">DNH4</a> 패키지는 <a href="https://forkonlp.github.io/">ForkonLP</a> 프로젝트의 일부입니다.</p>
 <p>언제나 그렇듯, 잘못된 내용이 있거나 문제가 생기면 언제든지 알려주세요. 감사합니다.</p>

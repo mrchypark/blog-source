@@ -47,12 +47,12 @@ ubci_index_options()</code></pre>
 <pre><code>## # A tibble: 21 x 4
 ##    index   name                cate      smry                                   
 ##    &lt;chr&gt;   &lt;chr&gt;               &lt;chr&gt;     &lt;chr&gt;                                  
-##  1 UBMI    UBMI(Upbit Market ~ Market I~ It is calculated for all cryptocurrenc~
-##  2 UBMI_ST UBMI BTC quote(Upb~ Market I~ It is the index that is converted on a~
-##  3 UBAI    UBAI(Upbit Altcoin~ Market I~ It is calculated for all cryptocurrenc~
-##  4 UBAI_ST UBAI BTC quote(Upb~ Market I~ It is the index that is converted on a~
-##  5 UTTI    UBMI 10(Upbit Top ~ Market I~ It is an index that comprises the top ~
-##  6 UTHI    UBMI 30(Upbit Top ~ Market I~ It is an index that comprises the top ~
+##  1 UBMI    UBMI(Upbit Market ~ Market I~ &quot;It is calculated for all cryptocurren~
+##  2 UBMI_ST UBMI BTC quote(Upb~ Market I~ &quot;It is the index that is converted on ~
+##  3 UBAI    UBAI(Upbit Altcoin~ Market I~ &quot;It is calculated for all cryptocurren~
+##  4 UBAI_ST UBAI BTC quote(Upb~ Market I~ &quot;It is the index that is converted on ~
+##  5 UTTI    UBMI 10(Upbit Top ~ Market I~ &quot;It is an index that comprises the top~
+##  6 UTHI    UBMI 30(Upbit Top ~ Market I~ &quot;It is an index that comprises the top~
 ##  7 THMIDX~ Simple Settlement ~ Theme In~ &quot;&quot;                                     
 ##  8 THMIDX~ Game                Theme In~ &quot;&quot;                                     
 ##  9 THMIDX~ Advertisement Indu~ Theme In~ &quot;&quot;                                     
@@ -85,20 +85,20 @@ ubci_index_options()</code></pre>
 loi$index[1]</code></pre>
 <pre><code>## [1] &quot;UBMI&quot;</code></pre>
 <pre class="r"><code>ubci_index(loi$index[1])</code></pre>
-<pre><code>## # A tibble: 796 x 6
+<pre><code>## # A tibble: 833 x 6
 ##    index date        open  high   low close
 ##    &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1 UBMI  2019-12-05 1224. 1259. 1217. 1232.
-##  2 UBMI  2019-12-04 1241. 1282. 1212. 1224.
-##  3 UBMI  2019-12-03 1239. 1252. 1230. 1240.
-##  4 UBMI  2019-12-02 1249. 1257. 1217. 1238.
-##  5 UBMI  2019-12-01 1273. 1273. 1224. 1249.
-##  6 UBMI  2019-11-30 1303. 1308. 1259. 1273.
-##  7 UBMI  2019-11-29 1256. 1324. 1255. 1302.
-##  8 UBMI  2019-11-28 1255. 1288. 1244. 1256.
-##  9 UBMI  2019-11-27 1214. 1283. 1161. 1255.
-## 10 UBMI  2019-11-26 1201. 1239. 1188. 1214.
-## # ... with 786 more rows</code></pre>
+##  1 UBMI  2020-01-11 1308. 1326. 1296. 1307.
+##  2 UBMI  2020-01-10 1258. 1308. 1232. 1308.
+##  3 UBMI  2020-01-09 1273. 1281. 1250. 1257.
+##  4 UBMI  2020-01-08 1318. 1363. 1266. 1273.
+##  5 UBMI  2020-01-07 1262. 1324. 1254. 1319.
+##  6 UBMI  2020-01-06 1197. 1264. 1197. 1262.
+##  7 UBMI  2020-01-05 1199. 1221. 1195. 1198.
+##  8 UBMI  2020-01-04 1196. 1204. 1185. 1199.
+##  9 UBMI  2020-01-03 1134. 1202. 1116. 1196.
+## 10 UBMI  2020-01-02 1172. 1173. 1133. 1134.
+## # ... with 823 more rows</code></pre>
 <pre class="r"><code>tail(ubci_index(loi$index[1], from=&quot;2018-05-15&quot;))</code></pre>
 <pre><code>## # A tibble: 6 x 6
 ##   index date        open  high   low close
@@ -183,16 +183,16 @@ loc$code[1]</code></pre>
 <pre><code>## # A tibble: 400 x 7
 ##    code          date          open    high     low   close volume
 ##    &lt;chr&gt;         &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-##  1 UPBIT.KRW-BTC 2019-12-05 8515000 8810000 8480000 8598000  3591.
-##  2 UPBIT.KRW-BTC 2019-12-04 8607000 8996000 8432000 8515000  5171.
-##  3 UPBIT.KRW-BTC 2019-12-03 8590000 8700000 8520000 8607000  1642.
-##  4 UPBIT.KRW-BTC 2019-12-02 8630000 8705000 8415000 8585000  1837.
-##  5 UPBIT.KRW-BTC 2019-12-01 8838000 8840000 8480000 8630000  3024.
-##  6 UPBIT.KRW-BTC 2019-11-30 9035000 9106000 8726000 8838000  2496.
-##  7 UPBIT.KRW-BTC 2019-11-29 8672000 9200000 8658000 9037000  4211.
-##  8 UPBIT.KRW-BTC 2019-11-28 8700000 8903000 8615000 8674000  4046.
-##  9 UPBIT.KRW-BTC 2019-11-27 8413000 8900000 8041000 8702000  9266.
-## 10 UPBIT.KRW-BTC 2019-11-26 8338000 8627000 8240000 8410000  5868.
+##  1 UPBIT.KRW-BTC 2020-01-11 9218000 9350000 9143000 9228000  1296.
+##  2 UPBIT.KRW-BTC 2020-01-10 8940000 9250000 8750000 9233000  6981.
+##  3 UPBIT.KRW-BTC 2020-01-09 9084000 9142000 8900000 8941000  5174.
+##  4 UPBIT.KRW-BTC 2020-01-08 9386000 9736000 9030000 9085000 13025.
+##  5 UPBIT.KRW-BTC 2020-01-07 8866000 9444000 8865000 9398000  8896.
+##  6 UPBIT.KRW-BTC 2020-01-06 8451000 8890000 8446000 8866000  5340.
+##  7 UPBIT.KRW-BTC 2020-01-05 8483000 8645000 8436000 8454000  2808.
+##  8 UPBIT.KRW-BTC 2020-01-04 8476000 8520000 8382000 8482000  1987.
+##  9 UPBIT.KRW-BTC 2020-01-03 8038000 8525000 7910000 8474000  5887.
+## 10 UPBIT.KRW-BTC 2020-01-02 8300000 8310000 8026000 8037000  2054.
 ## # ... with 390 more rows</code></pre>
 <pre class="r"><code>tail(ubci_get(loc$code[1], from=&quot;2018-05-15&quot;))</code></pre>
 <pre><code>## Warning: `cols` is now required.
@@ -201,12 +201,12 @@ loc$code[1]</code></pre>
 <pre><code>## # A tibble: 6 x 7
 ##   code          date          open    high     low   close volume
 ##   &lt;chr&gt;         &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-## 1 UPBIT.KRW-BTC 2018-11-06 7198000 7256000 7186000 7231000  3517.
-## 2 UPBIT.KRW-BTC 2018-11-05 7214000 7246000 7187000 7198000  2781.
-## 3 UPBIT.KRW-BTC 2018-11-04 7145000 7270000 7125000 7213000  2764.
-## 4 UPBIT.KRW-BTC 2018-11-03 7179000 7185000 7100000 7150000  1584.
-## 5 UPBIT.KRW-BTC 2018-11-02 7186000 7221000 7161000 7179000  2653.
-## 6 UPBIT.KRW-BTC 2018-11-01 7162000 7200000 7141000 7186000  1921.</code></pre>
+## 1 UPBIT.KRW-BTC 2018-12-13 3889000 3900000 3693000 3721000  5315.
+## 2 UPBIT.KRW-BTC 2018-12-12 3822000 3929000 3792000 3888000  5660.
+## 3 UPBIT.KRW-BTC 2018-12-11 3893000 3924000 3764000 3822000  6669.
+## 4 UPBIT.KRW-BTC 2018-12-10 4013000 4075000 3838000 3895000  6046.
+## 5 UPBIT.KRW-BTC 2018-12-09 3877000 4120000 3832000 4013000  6484.
+## 6 UPBIT.KRW-BTC 2018-12-08 3868000 3953000 3714000 3875000  7681.</code></pre>
 <pre class="r"><code>ubci_get(loc$code[1], to=&quot;2018-05-15&quot;)</code></pre>
 <pre><code>## Warning: `cols` is now required.
 ## Please use `cols = c(code, candleDateTime, candleDateTimeKst, openingPrice, highPrice, 

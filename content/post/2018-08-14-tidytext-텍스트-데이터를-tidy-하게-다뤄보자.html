@@ -1,16 +1,3 @@
----
-title: '[tidytext] 텍스트 데이터를 tidy 하게 다뤄보자'
-author: mrchypark
-date: '2018-08-14'
-slug: tidytext-텍스트-데이터를-tidy-하게-다뤄보자
-categories:
-  - R
-tags:
-  - tidytext
-  - text
-  - presidentSpeech
----
-
 
 
 <p><img src="https://user-images.githubusercontent.com/6179259/38180839-4ff68d56-366a-11e8-8457-05d244430219.jpg" width=100%></p>
@@ -71,17 +58,17 @@ library(krlift)</code></pre>
 <pre><code>## # A tibble: 352,590 x 8
 ##    지역  건물명 건물층수 운행층수 승강기종류 `건물용도(대)` `정격속도(m/s)`
 ##    &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;                    &lt;dbl&gt;
-##  1 강원 강… (주)강남…        7        2 덤웨이터   숙박시설                  0.4 
-##  2 강원 강… (주)강남…        7        3 덤웨이터   숙박시설                  0.33
-##  3 강원 강… (주)강남…        7        8 승객용     숙박시설                  1   
-##  4 강원 강… (주)강릉…        3        3 화물용     판매시설                  0.75
-##  5 강원 강… (주)경포…        4        5 승객용     제1종근린생활시설…            1   
-##  6 강원 강… (주)뉴광…        6        7 승객용     제2종근린생활시설…            1   
-##  7 강원 강… (주)대성…        3        3 화물용(DW) 공장                      0.5 
-##  8 강원 강… (주)동부…        3        3 장애인용   공장                      1   
-##  9 강원 강… (주)동아…        2        2 화물용(DW) 제2종근린생활시설…            0.5 
-## 10 강원 강… (주)롯데…       10        2 화물용     공장                      0.33
-## # … with 352,580 more rows, and 1 more variable: 대수 &lt;int&gt;</code></pre>
+##  1 강원 강~ (주)강남~        7        2 덤웨이터   숙박시설                  0.4 
+##  2 강원 강~ (주)강남~        7        3 덤웨이터   숙박시설                  0.33
+##  3 강원 강~ (주)강남~        7        8 승객용     숙박시설                  1   
+##  4 강원 강~ (주)강릉~        3        3 화물용     판매시설                  0.75
+##  5 강원 강~ (주)경포~        4        5 승객용     제1종근린생활시설~            1   
+##  6 강원 강~ (주)뉴광~        6        7 승객용     제2종근린생활시설~            1   
+##  7 강원 강~ (주)대성~        3        3 화물용(DW) 공장                      0.5 
+##  8 강원 강~ (주)동부~        3        3 장애인용   공장                      1   
+##  9 강원 강~ (주)동아~        2        2 화물용(DW) 제2종근린생활시설~            0.5 
+## 10 강원 강~ (주)롯데~       10        2 화물용     공장                      0.33
+## # ... with 352,580 more rows, and 1 more variable: 대수 &lt;int&gt;</code></pre>
 <p>데이터를 다루는 <a href="http://dplyr.tidyverse.org/">dplyr</a> 패키지를 추가해서 좀 살펴보겠습니다.</p>
 <pre class="r"><code>library(dplyr)</code></pre>
 <p>가장 위에 있는 건물을 확인해보겠습니다. 이름이 <code>(주)강남강릉호텔</code>이네요.</p>
@@ -90,9 +77,9 @@ library(krlift)</code></pre>
 <pre><code>## # A tibble: 3 x 8
 ##   지역  건물명 건물층수 운행층수 승강기종류 `건물용도(대)` `정격속도(m/s)`  대수
 ##   &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;                    &lt;dbl&gt; &lt;int&gt;
-## 1 강원 강… (주)강남…        7        2 덤웨이터   숙박시설                  0.4      1
-## 2 강원 강… (주)강남…        7        3 덤웨이터   숙박시설                  0.33     1
-## 3 강원 강… (주)강남…        7        8 승객용     숙박시설                  1        2</code></pre>
+## 1 강원 강~ (주)강남~        7        2 덤웨이터   숙박시설                  0.4      1
+## 2 강원 강~ (주)강남~        7        3 덤웨이터   숙박시설                  0.33     1
+## 3 강원 강~ (주)강남~        7        8 승객용     숙박시설                  1        2</code></pre>
 <p>지금 <code>lift</code> 데이터는 tidy하게 잘 정리되어 있습니다.
 그 증거가 위 3개의 데이터인데요.
 여기서 이 테이블의 관측 기준은 <strong>승강기</strong>입니다.
@@ -122,19 +109,19 @@ library(krlift)</code></pre>
 lift_sm</code></pre>
 <pre><code>## # A tibble: 231,928 x 3
 ## # Groups:   건물명 [175,090]
-##    건물명                       승강기종류    총대수
-##    &lt;chr&gt;                        &lt;chr&gt;          &lt;int&gt;
-##  1 .(주)와이비엘                화물용(DW)         1
-##  2 .건영빌딩(진성요양병원)      승객용             1
-##  3 .광장금호베스트빌            비상/장애인용      5
-##  4 .광장금호베스트빌            장애인용           2
-##  5 .늘푸른빌딩                  승객용             1
-##  6 .대전광역시립제1노인전문병원 장애인용           1
-##  7 .대전광역시립제1노인전문병원 침대용             1
-##  8 .리버캐슬102                 승객용             1
-##  9 .상현재원천                  승객용             1
-## 10 .유진프라자                  승객용             1
-## # … with 231,918 more rows</code></pre>
+##    건물명                  승강기종류      총대수
+##    &lt;chr&gt;                   &lt;chr&gt;            &lt;int&gt;
+##  1 #11                     승객용               1
+##  2 #12                     승객용               1
+##  3 #13 원룸                승객용               1
+##  4 #14                     승객용               1
+##  5 #N 모텔                 승객용               1
+##  6 #모텔                   승객용               1
+##  7 #숲                     승객용               1
+##  8 ( 재)광주과학기술진흥원 덤웨이터             1
+##  9 ( 재)광주과학기술진흥원 승객용               2
+## 10 ( 재)광주과학기술진흥원 장애/승객화물용      2
+## # ... with 231,918 more rows</code></pre>
 <p><code>group_by()</code>함수와 <code>summarise()</code>함수를 이용해서 각 건물별로 한개의 관측치(행)만 가지는 <code>lift_sm</code> 데이터를 만들었습니다.
 <code>lift_sm</code> 데이터는 각 건물이 승강기를 종류별로 총 몇대씩 가지고 있는지를 정리한 데이터입니다.
 그럼 이 데이터를 와이드폼으로 바꿔보겠습니다.</p>
@@ -142,19 +129,19 @@ lift_sm</code></pre>
     spread(`승강기종류`, `총대수`)</code></pre>
 <pre><code>## # A tibble: 175,090 x 30
 ## # Groups:   건물명 [175,090]
-##    건물명 경사형휠체어리프트… 덤웨이터 `비상/승객화물용`… `비상/장애/승객화물`…
+##    건물명 경사형휠체어리프트~ 덤웨이터 `비상/승객화물용`~ `비상/장애/승객화물`~
 ##    &lt;chr&gt;             &lt;int&gt;    &lt;int&gt;            &lt;int&gt;            &lt;int&gt;
-##  1 .(주)와…               NA       NA               NA               NA
-##  2 .건영빌딩…               NA       NA               NA               NA
-##  3 .광장금호…               NA       NA               NA               NA
-##  4 .늘푸른빌…               NA       NA               NA               NA
-##  5 .대전광역…               NA       NA               NA               NA
-##  6 .리버캐슬…               NA       NA               NA               NA
-##  7 .상현재원…               NA       NA               NA               NA
-##  8 .유진프라…               NA       NA               NA               NA
-##  9 .윤성코아…               NA       NA               NA               NA
-## 10 .카밀리아…               NA       NA               NA               NA
-## # … with 175,080 more rows, and 25 more variables: `비상/장애/전망용` &lt;int&gt;,
+##  1 #11                  NA       NA               NA               NA
+##  2 #12                  NA       NA               NA               NA
+##  3 #13 원~               NA       NA               NA               NA
+##  4 #14                  NA       NA               NA               NA
+##  5 #N 모텔~               NA       NA               NA               NA
+##  6 #모텔                NA       NA               NA               NA
+##  7 #숲                  NA       NA               NA               NA
+##  8 ( 재)광~               NA        1               NA               NA
+##  9 ( 주)선~               NA       NA               NA               NA
+## 10 ( 주)유~               NA       NA               NA               NA
+## # ... with 175,080 more rows, and 25 more variables: `비상/장애/전망용` &lt;int&gt;,
 ## #   `비상/장애/침대용` &lt;int&gt;, `비상/장애인용` &lt;int&gt;, `비상/침대용` &lt;int&gt;,
 ## #   비상용 &lt;int&gt;, 소형엘리베이터 &lt;int&gt;, 수직형휠체어리프트 &lt;int&gt;,
 ## #   수평보행기 &lt;int&gt;, 승객용 &lt;int&gt;, 승객화물용 &lt;int&gt;, 에스컬레이터 &lt;int&gt;,
@@ -194,17 +181,13 @@ text 데이터를 <code>tidy하게</code> 정의하기 위해서 <a href="https:
 library(presidentSpeech)</code></pre>
 <p>검색 조건은 <code>get_president()</code>, <code>get_field()</code>, <code>get_event()</code>로 사용할 수 있는 대통령, 분야, 유형 리스트를 확인할 수 있습니다.</p>
 <pre class="r"><code>get_president()</code></pre>
-<pre><code>##  [1] &quot;이승만&quot; &quot;윤보선&quot; &quot;박정희&quot; &quot;최규하&quot; &quot;전두환&quot; &quot;노태우&quot; &quot;김영삼&quot; &quot;김대중&quot;
-##  [9] &quot;노무현&quot; &quot;이명박&quot;</code></pre>
+<pre><code>## list()</code></pre>
 <pre class="r"><code>tar_pre &lt;- get_president()[7:10]</code></pre>
 <p>우선 최근 4분만 봐볼께요.</p>
 <pre class="r"><code>get_field()</code></pre>
-<pre><code>##  [1] &quot;국정전반&quot;       &quot;정치/사회&quot;      &quot;산업/경제&quot;      &quot;외교/통상&quot;     
-##  [5] &quot;국방&quot;           &quot;과학기술정보&quot;   &quot;교육&quot;           &quot;문화/체육/관광&quot;
-##  [9] &quot;환경&quot;           &quot;기타&quot;</code></pre>
+<pre><code>## character(0)</code></pre>
 <pre class="r"><code>get_event()</code></pre>
-<pre><code>##  [1] &quot;취임사&quot;      &quot;신년사&quot;      &quot;국회연설&quot;    &quot;기념사&quot;      &quot;만찬사&quot;     
-##  [6] &quot;환영사&quot;      &quot;치사&quot;        &quot;성명/담화문&quot; &quot;라디오연설&quot;  &quot;기타&quot;</code></pre>
+<pre><code>## character(0)</code></pre>
 <p>4분이 다르게 나올 만한 분야나 유형이 무엇이 있을까요?
 우선은 전부 데이터를 가져와 보죠.</p>
 <pre class="r"><code>speech_list &lt;- c()
@@ -215,13 +198,10 @@ for (i in 1:length(tar_pre)){
 speech_list %&gt;% 
   group_by(president) %&gt;% 
   summarize(count = n())</code></pre>
-<pre><code>## # A tibble: 4 x 2
+<pre><code>## # A tibble: 1 x 2
 ##   president count
 ##   &lt;chr&gt;     &lt;int&gt;
-## 1 김대중      822
-## 2 김영삼      728
-## 3 노무현      780
-## 4 이명박      819</code></pre>
+## 1 &quot;&quot;            4</code></pre>
 <pre class="r"><code>if(!requireNamespace(&quot;ggplot2&quot;)){
     install.packages(&quot;ggplot2&quot;)
 }
@@ -232,12 +212,13 @@ speech_list %&gt;%
   geom_histogram(stat=&quot;count&quot;)+
   facet_wrap(~president)</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
-<p><img src="/post/2018-08-14-tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="2018-08-14-tidytext-텍스트-데이터를-tidy-하게-다뤄보자_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>speech_list %&gt;% 
   ggplot(aes(event, fill = president))+
   geom_histogram(stat=&quot;count&quot;)+
   facet_wrap(~president)</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
-<p><img src="/post/2018-08-14-tidytext-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-tidy-%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A4%84%EB%B3%B4%EC%9E%90_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p><img src="2018-08-14-tidytext-텍스트-데이터를-tidy-하게-다뤄보자_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
 </div>
 </div>
+
