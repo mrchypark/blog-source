@@ -33,6 +33,7 @@ r_github_packages:
 script:
   - Rscript -e 'blogdown::install_hugo(version = "0.57.2")'
   - Rscript -e 'blogdown::build_site()'
+  - cp ads.txt public/ads.txt
   
 deploy:
     verbose: true
